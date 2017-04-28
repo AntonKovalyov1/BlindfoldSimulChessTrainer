@@ -60,10 +60,7 @@ public class GUI extends Stage {
         scene.getStylesheets().add("main.css");
         getSmoothTransitionMenuItem().setSelected(true);
         setHighlightLegalMoves(true);
-        List<GamePane> games = new ArrayList<>();
-        games.add(new GamePane(0, Board.createStandardGameBoard(PlayerType.HUMAN, PlayerType.HUMAN), Difficulty.EASY.getDepth()));
-        this.gamesViewer = new GamesViewer(games);
-        getGamesViewer().noGameControls();
+        this.gamesViewer = new GamesViewer();
         getMainBorderPane().setTop(createMenuBar());
         getMainBorderPane().setCenter(getGamesViewer());
         getMainBorderPane().setBottom(getFooter());
@@ -131,23 +128,14 @@ public class GUI extends Stage {
         newGameMenuItem.setOnAction(e -> {
             CreateGame createGame = new CreateGame("New Game/s");
             if (createGame.getNumberOfGames() != -1) {
-                getComputerMoveExecutor().shutdownNow();
-                setComputerMoveExecutor(Executors.newScheduledThreadPool(1));
                 final int numberOfGames = createGame.getNumberOfGames();
                 final ColorChoice colorChoice = createGame.getColorChoice();
                 final Difficulty difficulty = createGame.getDifficulty();
-                List<GamePane> games = new ArrayList<>();
-                for (int i = 0; i < numberOfGames; i++) {
-                    if (colorChoice.getAlliance().isWhite())
-                        games.add(new GamePane(i, Board.createStandardGameBoard(PlayerType.HUMAN, PlayerType.COMPUTER), difficulty.getDepth()));
-                    else
-                        games.add(new GamePane(i, Board.createStandardGameBoard(PlayerType.COMPUTER, PlayerType.HUMAN), difficulty.getDepth()));
-                }
+                List<GamePane> games = match(numberOfGames, colorChoice, difficulty, 0);
                 setGamesViewer(new GamesViewer(games));
                 getMainBorderPane().setCenter(getGamesViewer());
             }
         });
-
         final MenuItem addGameMenuItem = new MenuItem("Add Game/s");
         addGameMenuItem.setOnAction(e -> {
             CreateGame createGame = new CreateGame("Add Game/s");
@@ -155,15 +143,19 @@ public class GUI extends Stage {
                 final int numberOfGames = createGame.getNumberOfGames();
                 final ColorChoice colorChoice = createGame.getColorChoice();
                 final Difficulty difficulty = createGame.getDifficulty();
-                final int offset = getGamesViewer().getGames().size();
                 List<GamePane> games = new ArrayList<>();
-                for (int i = offset; i < numberOfGames + offset; i++) {
-                    if (colorChoice.getAlliance().isWhite())
-                        games.add(new GamePane(i, Board.createStandardGameBoard(PlayerType.HUMAN, PlayerType.COMPUTER), difficulty.getDepth()));
-                    else
-                        games.add(new GamePane(i, Board.createStandardGameBoard(PlayerType.COMPUTER, PlayerType.HUMAN), difficulty.getDepth()));
+                if (getGamesViewer().getActiveGamesCounter() < 1) {
+                    getComputerMoveExecutor().shutdownNow();
+                    setComputerMoveExecutor(Executors.newScheduledThreadPool(1));
+                    games.addAll(match(numberOfGames, colorChoice, difficulty, 0));
+                    setGamesViewer(new GamesViewer(games));
+                    getMainBorderPane().setCenter(getGamesViewer());
                 }
-                getGamesViewer().addGames(games);
+                else {
+                    final int offset = getGamesViewer().getGames().size();
+                    games.addAll(match(numberOfGames, colorChoice, difficulty, offset));
+                    getGamesViewer().addGames(games);
+                }
             }
         });
 
@@ -176,11 +168,21 @@ public class GUI extends Stage {
 
         playMenu.getItems().addAll(newGameMenuItem, addGameMenuItem);
 
-        preferencesMenu.getItems().addAll(flipBoardMenuItem, highlightCheckMenuItem, getFullScreenMenuItem(), cheatCheckMenuItem, getSmoothTransitionMenuItem());
+        preferencesMenu.getItems().addAll(getFullScreenMenuItem(), flipBoardMenuItem, highlightCheckMenuItem, cheatCheckMenuItem, getSmoothTransitionMenuItem());
 
         menuBar.getMenus().addAll(playMenu, preferencesMenu);
-
         return menuBar;
+    }
+    
+    public List<GamePane> match(int numberOfGames, ColorChoice colorChoice, Difficulty difficulty, int offset) {
+        List<GamePane> games = new ArrayList<>();
+        for (int i = offset; i < numberOfGames + offset; i++) {
+            if (colorChoice.getAlliance().isWhite())
+                games.add(new GamePane(i, Board.createStandardGameBoard(PlayerType.HUMAN, PlayerType.COMPUTER), difficulty.getDepth()));
+            else
+                games.add(new GamePane(i, Board.createStandardGameBoard(PlayerType.COMPUTER, PlayerType.HUMAN), difficulty.getDepth()));
+        }
+        return games;
     }
 
     public GamesViewer getGamesViewer() {
@@ -252,11 +254,24 @@ public class GUI extends Stage {
         private final PauseTransition pauseBeforeNextGame = new PauseTransition(Duration.ZERO);
         private GamePane currentGame;
         private final StackPane gameContainer = new StackPane();
+        private int activeGamesCounter = 0;
 
+        public GamesViewer() {
+            this.currentGame = new GamePane(0, Board.createStandardGameBoard(PlayerType.HUMAN, PlayerType.HUMAN), Difficulty.EASY.getDepth());
+            this.games = new ArrayList<>();
+            this.games.add(this.currentGame);
+            this.pagination = createPaginationControl(0);
+            this.currentGame = games.get(0);
+            updateActiveGamesCounter(0);
+            noGameControls();
+            initialize();
+        }
+        
         public GamesViewer(List<GamePane> games) {
             this.games = games;
-            this.setPagination(createPaginationControl(0));
+            this.pagination = createPaginationControl(0);
             this.currentGame = games.get(0);
+            updateActiveGamesCounter(games.size());
             initialize();
         }
 
@@ -281,12 +296,14 @@ public class GUI extends Stage {
             p.currentPageIndexProperty().addListener(InvalidationListener -> {
                 disableControls();
                 final GamePane nextGame = getGames().get(getPagination().getCurrentPageIndex());
+                nextGame.getBoardPane().resetMoveSelection();
                 if (nextGame.getBoardPane().isCheat()) {
                     nextGame.getBoardPane().setCheat(false);
                     nextGame.getBoardPane().redrawBoard(nextGame.getBoardPane().getCurrentViewBoard());
                 }
-                if (getSmoothTransitionMenuItem().isSelected())
+                if (getSmoothTransitionMenuItem().isSelected()) {
                     smoothTransition(nextGame);
+                }
                 else
                     fastTransition(nextGame);
             });
@@ -299,8 +316,8 @@ public class GUI extends Stage {
                 resetOptions();
                 getGameContainer().getChildren().set(0, nextGame);
                 setCurrentGame(nextGame);
-                if (getCurrentGame().getBoardPane().isGameOver())
-                    gameOverControls();
+                if (getCurrentGame().isGameOver())
+                    gameOver();
                 else
                     enableControls();
             });
@@ -308,6 +325,7 @@ public class GUI extends Stage {
         }
 
         public void smoothTransition(GamePane nextGame) {
+            getPauseBeforeNextGame().setOnFinished(null);
             FadeTransition ft = new FadeTransition(Duration.millis(600), getCurrentGame());
             ft.setFromValue(1.0);
             ft.setToValue(0.0);
@@ -326,16 +344,27 @@ public class GUI extends Stage {
                 getPauseBeforeNextGame().setDuration(Duration.ZERO);
                 getCurrentGame().setOpacity(1.0);
                 setCurrentGame(nextGame);
-                if (getCurrentGame().getBoardPane().isGameOver()) {
-                    gameOverControls();
+                if (getCurrentGame().isGameOver()) {
+                    gameOver();
                 }
                 else
                     enableControls();
             });
         }
+        
+        public void gameOver() {
+            gameOverControls();
+            updateActiveGamesCounter(-1);
+            if (getCurrentGame().isShowable()) {
+                getCurrentGame().getBoardPane().resetMoveSelection();
+                getCurrentGame().setShowable(false);
+                getCurrentGame().setGameOver(true);
+                updatePage(GAME_OVER_PAUSE_TIME);
+            }          
+        }
 
-        //Add pause before update
         public int updatePage(int delay) {
+            System.out.println(getCurrentGame().getGameID());
             getPauseBeforeNextGame().setDuration(Duration.millis(delay));
             int current = getCurrentGame().getGameID();
             int next = getNextActiveGameIndex(current, getGames());
@@ -362,6 +391,7 @@ public class GUI extends Stage {
         public void addGames(List<GamePane> games) {
             int currentGameIndex = getPagination().getCurrentPageIndex();
             getGames().addAll(games);
+            updateActiveGamesCounter(games.size());
             if (getSmoothTransitionMenuItem().isSelected()) {
                 getSmoothTransitionMenuItem().setSelected(false);
                 getPagination().setPageCount(getGames().size());
@@ -374,6 +404,10 @@ public class GUI extends Stage {
             }
         }
 
+        public void updateActiveGamesCounter(int offset) {
+            setActiveGamesCounter(getActiveGamesCounter() + offset);
+            getCurrentGame().notThinking();
+        }
 
         private Button makeMoveButton() {
             Button b = new Button();
@@ -391,8 +425,6 @@ public class GUI extends Stage {
             b.getStyleClass().add("options-buttons");
             b.setOnAction(e -> {
                 getCurrentGame().resign();
-                gameOverControls();
-                updatePage(GAME_OVER_PAUSE_TIME);
             });
             return b;
         }
@@ -403,8 +435,6 @@ public class GUI extends Stage {
             b.getStyleClass().add("options-buttons");
             b.setOnAction(e -> {
                 getCurrentGame().makeDraw();
-                gameOverControls();
-                updatePage(GAME_OVER_PAUSE_TIME);
             });
             return b;
         }
@@ -415,8 +445,6 @@ public class GUI extends Stage {
             b.getStyleClass().add("options-buttons");
             b.setOnAction(e -> {
                 getCurrentGame().win();
-                gameOverControls();
-                updatePage(GAME_OVER_PAUSE_TIME);
             });
             return b;
         }
@@ -574,6 +602,20 @@ public class GUI extends Stage {
         public PauseTransition getPauseBeforeNextGame() {
             return pauseBeforeNextGame;
         }
+
+        /**
+         * @return the activeGamesCounter
+         */
+        public int getActiveGamesCounter() {
+            return activeGamesCounter;
+        }
+
+        /**
+         * @param activeGamesCounter the activeGamesCounter to set
+         */
+        public void setActiveGamesCounter(int activeGamesCounter) {
+            this.activeGamesCounter = activeGamesCounter;
+        }
     }
 
     public final class GamePane extends BorderPane {
@@ -590,6 +632,7 @@ public class GUI extends Stage {
         private final Button btNext = nextButton();
         private final Button btNextNext = nextNextButton();
         private boolean showable = true;
+        private boolean gameOver;
 
         public GamePane(final int gameID, Board board, final int depth) {
             this.gameID = gameID;
@@ -720,7 +763,8 @@ public class GUI extends Stage {
             bp.setRight(replayControls());
             return bp;
         }
-
+        
+        @SuppressWarnings("unchecked")
         public void swapSides() {
             Stack<Node> tempStack = new Stack();
             tempStack.push(getBlackSide().getChildren().get(0));
@@ -737,10 +781,9 @@ public class GUI extends Stage {
         }
 
         public void resign() {
-            if (!getBoardPane().isGameOver()) {
-                setShowable(false);
+            if (!isGameOver()) {
                 interruptComputerMove();
-                getBoardPane().setGameOver(true);
+                getGamesViewer().gameOver();
                 if (getBoardPane().getBoard().whitePlayer().getPlayerType().isHuman()) {
                     getBoardPane().updateResultAsLoss(getBoardPane().getBoard().whitePlayer(), getBoardPane().getBoard().currentPlayer());
                 }
@@ -752,21 +795,19 @@ public class GUI extends Stage {
 
 
         public void makeDraw() {
-            if (!getBoardPane().isGameOver()) {
-                setShowable(false);
+            if (!isGameOver()) {
                 interruptComputerMove();
                 //TODO
-                getBoardPane().setGameOver(true);
+                getGamesViewer().gameOver();
                 getBoardPane().updateResultAsDraw(getBoardPane().getBoard().currentPlayer());
             }
         }
 
         public void win() {
-            if (!getBoardPane().isGameOver()) {
-                setShowable(false);
+            if (!isGameOver()) {
                 interruptComputerMove();
                 //TODO
-                getBoardPane().setGameOver(true);
+                getGamesViewer().gameOver();
                 if (getBoardPane().getBoard().whitePlayer().getPlayerType().isComputer()) {
                     getBoardPane().updateResultAsLoss(getBoardPane().getBoard().whitePlayer(), getBoardPane().getBoard().currentPlayer());
                 }
@@ -778,7 +819,7 @@ public class GUI extends Stage {
 
         public void resetGame() {
             Stack<Move> moves = getBoardPane().getMoves();
-            if (!moves.isEmpty() && !getBoardPane().isGameOver()) {
+            if (!moves.isEmpty() && !isGameOver()) {
                 interruptComputerMove();
                 Board startOverBoard = Board.createStandardGameBoard(getBoardPane().getBoard().whitePlayer().getPlayerType(),
                         getBoardPane().getBoard().blackPlayer().getPlayerType());
@@ -792,7 +833,7 @@ public class GUI extends Stage {
 
         public void takeBack() {
             Stack<Move> moves = getBoardPane().getMoves();
-            if (!moves.isEmpty() && !getBoardPane().isGameOver()) {
+            if (!moves.isEmpty() && !isGameOver()) {
                 interruptComputerMove();
                 Player currentPlayer = getBoardPane().getBoard().currentPlayer();
                 if (currentPlayer.getPlayerType().isComputer()) {
@@ -867,8 +908,8 @@ public class GUI extends Stage {
         public void notThinking() {
             Platform.runLater(() -> {
                 //TODO
-                int numberOfActiveGames = getGamesViewer().getGames().size();
-                if (numberOfActiveGames == 0)
+                int numberOfActiveGames = getGamesViewer().getActiveGamesCounter();
+                if (numberOfActiveGames < 1)
                     getStatus().setText("No games in progress");
                 else if (numberOfActiveGames == 1)
                     getStatus().setText("1 game in progress");
@@ -949,6 +990,20 @@ public class GUI extends Stage {
         public void setShowable(boolean showable) {
             this.showable = showable;
         }
+
+        /**
+         * @return the gameOver
+         */
+        public boolean isGameOver() {
+            return gameOver;
+        }
+
+        /**
+         * @param gameOver the gameOver to set
+         */
+        public void setGameOver(boolean gameOver) {
+            this.gameOver = gameOver;
+        }
     }
 
     public final class BoardPane extends GridPane {
@@ -962,7 +1017,6 @@ public class GUI extends Stage {
         private Tile sourceTile;
         private Tile destinationTile;
         private Move lastMove;
-        private boolean gameOver;
         private boolean cheat;
         private volatile boolean interrupt;
         private Future<?> futureComputerMove;
@@ -999,9 +1053,9 @@ public class GUI extends Stage {
             else {
                 setLastMove(null);
             }
-            isGameOver(board);
+            checkGameOver(board);
             redrawBoard(board);
-            if (board.currentPlayer().getPlayerType().isComputer() && !isGameOver()) {
+            if (board.currentPlayer().getPlayerType().isComputer() && !getGame().isGameOver()) {
                 makeMove();
             }
         }
@@ -1038,22 +1092,21 @@ public class GUI extends Stage {
             return move.toString();
         }
 
-        private void isGameOver(final Board board) {
+        private void checkGameOver(final Board board) {
             if (board.currentPlayer().isInCheckMate()) {
-                setGameOver(true);
+                getGame().setGameOver(true);
                 updateResultAsLoss(board.currentPlayer(), board.currentPlayer());
                 getGamesViewer().gameOverControls();
             }
             else if (board.currentPlayer().isInStalemate()) {
-                setGameOver(true);
+                getGame().setGameOver(true);
                 updateResultAsDraw(board.currentPlayer());
                 getGamesViewer().gameOverControls();
             }
-            if (isGameOver()) {
-//                if (getGamesViewer().getCurrentGame() == getGame()) {
-//                    getGamesViewer().updatePage();
-//                    getGamesViewer().getActiveGames().remove(getGamesViewer().getPreviousGame());
-//                }
+            if (getGame().isGameOver() && 
+                getGame().isShowable() && 
+                getGamesViewer().getCurrentGame() == getGame()) {
+                getGamesViewer().gameOver();
             }
         }
 
@@ -1205,14 +1258,6 @@ public class GUI extends Stage {
             this.futureComputerMove = futureComputerMove;
         }
 
-        public boolean isGameOver() {
-            return this.gameOver;
-        }
-
-        public void setGameOver(boolean gameOver) {
-            this.gameOver = gameOver;
-        }
-
         public boolean isInterrupt() {
             return interrupt;
         }
@@ -1259,7 +1304,7 @@ public class GUI extends Stage {
 
             setOnMouseClicked(e -> {
                 Board chessBoard = getBoardPane().getBoard();
-                if (!getBoardPane().isGameOver() &&
+                if (!getBoardPane().getGame().isGameOver() &&
                     chessBoard.currentPlayer().getPlayerType().isHuman() &&
                     getGamesViewer().getSt().getStatus() != Animation.Status.RUNNING) {
 
@@ -1379,16 +1424,16 @@ public class GUI extends Stage {
 
         private void highlightSourceTile(final Region tileSelection, final Alliance alliance) {
             if (alliance.isWhite())
-                getTileSelection().getStyleClass().add("source-tile-white");
+                tileSelection.getStyleClass().add("source-tile-white");
             else
-                getTileSelection().getStyleClass().add("source-tile-black");
+                tileSelection.getStyleClass().add("source-tile-black");
         }
 
         private void highlightMoveDestinationTile(final Region tileSelection, final Alliance alliance) {
             if (alliance.isWhite())
-                getTileSelection().getStyleClass().add("move-destination-tile-white");
+                tileSelection.getStyleClass().add("move-destination-tile-white");
             else
-                getTileSelection().getStyleClass().add("move-destination-tile-black");
+                tileSelection.getStyleClass().add("move-destination-tile-black");
         }
 
         private void highlightDestinationTile(final Region tileSelection, final Alliance alliance) {
@@ -1440,7 +1485,7 @@ public class GUI extends Stage {
 
         @Override
         public void run() {
-            if (!getBoardPane().isGameOver()) {
+            if (!getBoardPane().getGame().isGameOver()) {
                 getBoardPane().getGame().thinking();
                 Board board = getBoardPane().getBoard();
                 MiniMax minimax = new MiniMax(board, getSearchDepth());

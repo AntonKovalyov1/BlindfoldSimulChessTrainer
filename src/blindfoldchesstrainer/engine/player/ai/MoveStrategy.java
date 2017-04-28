@@ -1,6 +1,5 @@
 package blindfoldchesstrainer.engine.player.ai;
 
-import blindfoldchesstrainer.engine.ai.*;
 import blindfoldchesstrainer.engine.board.Board;
 import blindfoldchesstrainer.engine.board.Move;
 
