@@ -3,6 +3,9 @@ package blindfoldchesstrainer.engine.player.ai;
 import blindfoldchesstrainer.engine.board.Board;
 import blindfoldchesstrainer.engine.board.Move;
 import blindfoldchesstrainer.engine.player.MoveTransition;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import java.util.concurrent.RecursiveTask;
 
@@ -42,10 +45,9 @@ public class MiniMax extends RecursiveTask implements MoveStrategy {
         int currentValue;
 
         System.out.println(board.currentPlayer() + "Thinking with depth = " + searchDepth);
-
-        int numMoves = board.currentPlayer().getLegalMoves().size();
-
-        for(final Move move : board.currentPlayer().getLegalMoves()) {
+        List<Move> legalMoves = new ArrayList<>(board.currentPlayer().getLegalMoves());
+        Collections.shuffle(legalMoves);
+        for(final Move move : legalMoves) {
             final MoveTransition moveTransition = board.currentPlayer().makeMove(move);
             if(moveTransition.getMoveStatus().isDone()) {
                 currentValue = board.currentPlayer().getAlliance().isWhite() ?

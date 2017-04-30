@@ -171,7 +171,7 @@
     -fx-border-width: 2 0 0 0;
     -fx-border-color: #999;
     -fx-background-color: white;
-    -fx-padding: 3 3 3 3;
+    -fx-padding: 3 5 3 5;
 }
 
 #status-text {

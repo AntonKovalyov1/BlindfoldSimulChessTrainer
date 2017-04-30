@@ -13,6 +13,7 @@ import blindfoldchesstrainer.engine.pieces.Piece;
 import blindfoldchesstrainer.engine.player.MoveTransition;
 import blindfoldchesstrainer.engine.player.Player;
 import blindfoldchesstrainer.engine.player.PlayerType;
+import blindfoldchesstrainer.engine.player.ai.AlphaBeta;
 import blindfoldchesstrainer.engine.player.ai.MiniMax;
 import javafx.animation.*;
 import javafx.application.Platform;
@@ -34,6 +35,7 @@ import javafx.util.Duration;
 
 import java.util.*;
 import java.util.concurrent.*;
+import javafx.scene.input.KeyCode;
 
 public class GUI extends Stage {
 
@@ -57,7 +59,8 @@ public class GUI extends Stage {
 
     private void initialize() {
         getIcons().add(new Image("images/mainIcon.jpg"));
-        scene.getStylesheets().add("main.css");
+        setScene(scene);
+        getScene().getStylesheets().add("main.css");
         getSmoothTransitionMenuItem().setSelected(true);
         setHighlightLegalMoves(true);
         this.gamesViewer = new GamesViewer();
@@ -65,7 +68,6 @@ public class GUI extends Stage {
         getMainBorderPane().setCenter(getGamesViewer());
         getMainBorderPane().setBottom(getFooter());
         getMainBorderPane().setId("main-border-pane");
-        setScene(scene);
         setTitle("Blindfold Chess Trainer");
         show();
         setOnCloseRequest(e -> {
@@ -77,6 +79,27 @@ public class GUI extends Stage {
                 getFullScreenMenuItem().setSelected(true);
             else
                 getFullScreenMenuItem().setSelected(false);
+        });
+        scene.setOnKeyReleased(e -> {
+            BoardPane current = getGamesViewer().getCurrentGame().getBoardPane();
+            if (!current.getMoves().isEmpty()) {
+                switch (e.getCode()) {
+                    case UP:
+                        current.redrawBoard(current.lastBoard());
+                        break;
+                    case DOWN:
+                        current.redrawBoard(current.firstBoard());
+                        break;
+                    case LEFT:
+                        current.redrawBoard(current.previousBoard());
+                        break;
+                    case RIGHT:
+                        current.redrawBoard(current.nextBoard());
+                        break;
+                    default:
+                        break;
+                }
+            }
         });
     }
 
@@ -364,7 +387,6 @@ public class GUI extends Stage {
         }
 
         public int updatePage(int delay) {
-            System.out.println(getCurrentGame().getGameID());
             getPauseBeforeNextGame().setDuration(Duration.millis(delay));
             int current = getCurrentGame().getGameID();
             int next = getNextActiveGameIndex(current, getGames());
@@ -1488,7 +1510,7 @@ public class GUI extends Stage {
             if (!getBoardPane().getGame().isGameOver()) {
                 getBoardPane().getGame().thinking();
                 Board board = getBoardPane().getBoard();
-                MiniMax minimax = new MiniMax(board, getSearchDepth());
+                AlphaBeta minimax = new AlphaBeta(board, getSearchDepth());
                 getBoardPane().setRunning(true);
                 Move bestMove = minimax.compute();
                 if (!getBoardPane().isInterrupt()) {

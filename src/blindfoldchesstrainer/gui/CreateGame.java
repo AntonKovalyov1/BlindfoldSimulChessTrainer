@@ -40,22 +40,22 @@ public class CreateGame extends Stage {
         final HBox numberOfGamesHB = new HBox(10);
         numberOfGamesHB.getChildren().addAll(numberOfGamesLabel, numberOfGamesField);
 
-        final ObservableList colorList = FXCollections.observableArrayList(ColorChoice.WHITE, ColorChoice.BLACK,
+        final ObservableList<ColorChoice> colorList = FXCollections.observableArrayList(ColorChoice.WHITE, ColorChoice.BLACK,
                 ColorChoice.RANDOM);
         final Label colorLabel = new Label("Color: ");
         colorLabel.setPrefWidth(160);
-        final ComboBox colorComboBox = new ComboBox(colorList);
+        final ComboBox<ColorChoice> colorComboBox = new ComboBox<>(colorList);
         colorComboBox.setPrefWidth(110);
         colorComboBox.setValue(colorList.get(0));
         final HBox colorHB = new HBox(10);
         colorHB.getChildren().addAll(colorLabel, colorComboBox);
 
-        final ObservableList difficultyList = FXCollections.observableArrayList(Difficulty.EASY, Difficulty.MEDIUM,
-                Difficulty.HARD, Difficulty.INSANE, Difficulty.RANDOM);
+        final ObservableList<Difficulty> difficultyList = FXCollections.observableArrayList(Difficulty.EASY, Difficulty.MEDIUM,
+                Difficulty.HARD, Difficulty.RANDOM);
         final Label difficultyLabel = new Label("Difficulty: ");
         difficultyLabel.setPrefWidth(160);
         final HBox difficultyHB = new HBox(10);
-        final ComboBox difficultyComboBox = new ComboBox(difficultyList);
+        final ComboBox<Difficulty> difficultyComboBox = new ComboBox<>(difficultyList);
         difficultyComboBox.setPrefWidth(110);
         difficultyComboBox.setValue(difficultyList.get(0));
         difficultyHB.getChildren().addAll(difficultyLabel, difficultyComboBox);
