@@ -83,4 +83,20 @@ public class BlackPlayer extends Player {
     public Collection<Piece> getActivePieces() {
         return this.board.getBlackPieces();
     }
+
+    @Override
+    public boolean isKingsideCastleCapable() {
+        final Tile rookTile = this.board.getTile(7);
+        if (getPlayerKing().isFirstMove() && rookTile.isTileOccupied() && rookTile.getPiece().isFirstMove())
+            return true;
+        return false;
+    }
+
+    @Override
+    public boolean isQueensideCastleCapable() {
+        final Tile rookTile = this.board.getTile(0);
+        if (getPlayerKing().isFirstMove() && rookTile.isTileOccupied() && rookTile.getPiece().isFirstMove())
+            return true;
+        return false;
+    }
 }

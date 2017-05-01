@@ -122,4 +122,9 @@ public class Pawn extends Piece {
     public Piece getPromotionPiece() {
         return new Queen(this.pieceAlliance, this.piecePosition, false);
     }
+    
+    @Override
+    public int positionBonus() {
+        return getPieceAlliance().pawnBonus(this.piecePosition);
+    }
 }

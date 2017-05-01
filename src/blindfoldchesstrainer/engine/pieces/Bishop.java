@@ -80,4 +80,9 @@ public class Bishop extends Piece {
     public String toString() {
         return PieceType.BISHOP.toString();
     }
+
+    @Override
+    public int positionBonus() {
+        return getPieceAlliance().bishopBonus(this.piecePosition);
+    }
 }

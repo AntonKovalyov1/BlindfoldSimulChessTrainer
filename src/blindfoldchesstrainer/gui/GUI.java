@@ -785,10 +785,9 @@ public class GUI extends Stage {
             bp.setRight(replayControls());
             return bp;
         }
-        
-        @SuppressWarnings("unchecked")
+
         public void swapSides() {
-            Stack<Node> tempStack = new Stack();
+            Stack<Node> tempStack = new Stack<>();
             tempStack.push(getBlackSide().getChildren().get(0));
             tempStack.push(getBlackSide().getChildren().get(1));
             getBlackSide().getChildren().clear();
@@ -855,17 +854,26 @@ public class GUI extends Stage {
 
         public void takeBack() {
             Stack<Move> moves = getBoardPane().getMoves();
-            if (!moves.isEmpty() && !isGameOver()) {
-                interruptComputerMove();
-                Player currentPlayer = getBoardPane().getBoard().currentPlayer();
-                if (currentPlayer.getPlayerType().isComputer()) {
+            if (getBoardPane().getBoard().blackPlayer().getPlayerType().isHuman() && 
+                getBoardPane().getBoard().whitePlayer().getPlayerType().isHuman()) {
+                if (!moves.isEmpty()) {
                     Board board = moves.pop().getBoard();
                     getBoardPane().updateBoard(board);
                 }
-                else if (currentPlayer.getPlayerType().isHuman() && moves.size() > 1) {
-                    moves.pop();
-                    Board board = moves.pop().getBoard();
-                    getBoardPane().updateBoard(board);
+            }
+            else {
+                if (!moves.isEmpty() && !isGameOver()) {
+                    interruptComputerMove();
+                    Player currentPlayer = getBoardPane().getBoard().currentPlayer();
+                    if (currentPlayer.getPlayerType().isComputer()) {
+                        Board board = moves.pop().getBoard();
+                        getBoardPane().updateBoard(board);
+                    }
+                    else if (currentPlayer.getPlayerType().isHuman() && moves.size() > 1) {
+                        moves.pop();
+                        Board board = moves.pop().getBoard();
+                        getBoardPane().updateBoard(board);
+                    }
                 }
             }
         }

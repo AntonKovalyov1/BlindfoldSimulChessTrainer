@@ -80,4 +80,9 @@ public class Queen extends Piece {
     public String toString() {
         return PieceType.QUEEN.toString();
     }
+    
+    @Override
+    public int positionBonus() {
+        return getPieceAlliance().queenBonus(this.piecePosition);
+    }
 }

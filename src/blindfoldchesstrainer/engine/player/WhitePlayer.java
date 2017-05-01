@@ -82,4 +82,20 @@ public class WhitePlayer extends Player {
     public Collection<Piece> getActivePieces() {
         return this.board.getWhitePieces();
     }
+    
+    @Override
+    public boolean isKingsideCastleCapable() {
+        final Tile rookTile = this.board.getTile(63);
+        if (getPlayerKing().isFirstMove() && rookTile.isTileOccupied() && rookTile.getPiece().isFirstMove())
+            return true;
+        return false;
+    }
+
+    @Override
+    public boolean isQueensideCastleCapable() {
+        final Tile rookTile = this.board.getTile(56);
+        if (getPlayerKing().isFirstMove() && rookTile.isTileOccupied() && rookTile.getPiece().isFirstMove())
+            return true;
+        return false;
+    }
 }

@@ -105,6 +105,10 @@ public abstract class Player {
         }
         return new MoveTransition(transitionBoard, move, MoveStatus.DONE);
     }
+    
+    public Board getBoard() {
+        return this.board;
+    }
 
     public King getPlayerKing() {
         return this.playerKing;
@@ -118,4 +122,7 @@ public abstract class Player {
     public PlayerType getPlayerType() {
         return playerType;
     }
+    
+    public abstract boolean isKingsideCastleCapable();
+    public abstract boolean isQueensideCastleCapable();
 }
