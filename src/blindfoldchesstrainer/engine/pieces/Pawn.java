@@ -43,7 +43,10 @@ public class Pawn extends Piece {
 
             if(currentCandidateOffset == 8 && !board.getTile(candidateDestinationCoordinate).isTileOccupied()) {
                 if(this.pieceAlliance.isPawnPromotionSquare(candidateDestinationCoordinate)) {
-                    legalMoves.add(new PawnPromotion(new PawnMove(board, this, candidateDestinationCoordinate)));
+                    legalMoves.add(new PawnPromotion(new MajorMove(board, getPromotionQueen(), candidateDestinationCoordinate)));
+                    legalMoves.add(new PawnPromotion(new MajorMove(board, getPromotionRook(), candidateDestinationCoordinate)));
+                    legalMoves.add(new PawnPromotion(new MajorMove(board, getPromotionKnight(), candidateDestinationCoordinate)));
+                    legalMoves.add(new PawnPromotion(new MajorMove(board, getPromotionBishop(), candidateDestinationCoordinate)));
                 }
                 else
                     legalMoves.add(new PawnMove(board, this, candidateDestinationCoordinate));
@@ -66,7 +69,10 @@ public class Pawn extends Piece {
                     final Piece pieceOnCandidateDestination = board.getTile(candidateDestinationCoordinate).getPiece();
                     if (pieceOnCandidateDestination.pieceAlliance != this.pieceAlliance) {
                         if(this.pieceAlliance.isPawnPromotionSquare(candidateDestinationCoordinate)) {
-                            legalMoves.add(new PawnPromotion(new PawnAttackMove(board, this, candidateDestinationCoordinate, pieceOnCandidateDestination)));
+                            legalMoves.add(new PawnPromotion(new AttackMove(board, getPromotionQueen(), candidateDestinationCoordinate, pieceOnCandidateDestination)));
+                            legalMoves.add(new PawnPromotion(new AttackMove(board, getPromotionRook(), candidateDestinationCoordinate, pieceOnCandidateDestination)));
+                            legalMoves.add(new PawnPromotion(new AttackMove(board, getPromotionKnight(), candidateDestinationCoordinate, pieceOnCandidateDestination)));
+                            legalMoves.add(new PawnPromotion(new AttackMove(board, getPromotionBishop(), candidateDestinationCoordinate, pieceOnCandidateDestination)));
                         }
                         else
                             legalMoves.add(new PawnAttackMove(board, this, candidateDestinationCoordinate, pieceOnCandidateDestination));
@@ -89,7 +95,10 @@ public class Pawn extends Piece {
                     final Piece pieceOnCandidateDestination = board.getTile(candidateDestinationCoordinate).getPiece();
                     if (pieceOnCandidateDestination.pieceAlliance != this.pieceAlliance) {
                         if(this.pieceAlliance.isPawnPromotionSquare(candidateDestinationCoordinate)) {
-                            legalMoves.add(new PawnPromotion(new PawnAttackMove(board, this, candidateDestinationCoordinate, pieceOnCandidateDestination)));
+                            legalMoves.add(new PawnPromotion(new AttackMove(board, getPromotionQueen(), candidateDestinationCoordinate, pieceOnCandidateDestination)));
+                            legalMoves.add(new PawnPromotion(new AttackMove(board, getPromotionRook(), candidateDestinationCoordinate, pieceOnCandidateDestination)));
+                            legalMoves.add(new PawnPromotion(new AttackMove(board, getPromotionKnight(), candidateDestinationCoordinate, pieceOnCandidateDestination)));
+                            legalMoves.add(new PawnPromotion(new AttackMove(board, getPromotionBishop(), candidateDestinationCoordinate, pieceOnCandidateDestination)));
                         }
                         else
                             legalMoves.add(new PawnAttackMove(board, this, candidateDestinationCoordinate, pieceOnCandidateDestination));
@@ -119,8 +128,20 @@ public class Pawn extends Piece {
         return PieceType.PAWN.toString();
     }
 
-    public Piece getPromotionPiece() {
+    public Piece getPromotionQueen() {
         return new Queen(this.pieceAlliance, this.piecePosition, false);
+    }
+    
+    public Piece getPromotionRook() {
+        return new Rook(this.pieceAlliance, this.piecePosition, false);
+    }
+    
+    public Piece getPromotionKnight() {
+        return new Knight(this.pieceAlliance, this.piecePosition, false);
+    }
+    
+    public Piece getPromotionBishop() {
+        return new Bishop(this.pieceAlliance, this.piecePosition, false);
     }
     
     @Override

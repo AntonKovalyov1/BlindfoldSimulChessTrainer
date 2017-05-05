@@ -9,6 +9,11 @@
     -fx-opacity: 0.6;
 }
 
+#promotion-background {
+    -fx-background-color: white;
+    -fx-opacity: 1.0;
+}
+
 .check-menu-item:checked {
     -fx-mark-color: rgb(207, 178, 125);
 }
@@ -180,4 +185,19 @@
 
 .move-text {
     -fx-font-size: 15;
+}
+
+.promotion-tile {
+    -fx-opacity: 1.0;
+    -fx-padding: -4;
+    -fx-border-width: 4px;
+    -fx-border-color: transparent;
+}
+
+.promotion-tile:hover {
+    -fx-border-color: linear-gradient(#add8e6, #94A7AB);
+}
+
+.promotion-tile:pressed {
+    -fx-border-color: linear-gradient(#94A7AB, #add8e6);
 }

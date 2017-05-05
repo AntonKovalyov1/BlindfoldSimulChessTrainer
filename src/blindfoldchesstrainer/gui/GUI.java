@@ -8,13 +8,16 @@ import blindfoldchesstrainer.engine.Alliance;
 import blindfoldchesstrainer.engine.board.Board;
 import blindfoldchesstrainer.engine.board.BoardUtils;
 import blindfoldchesstrainer.engine.board.Move;
+import blindfoldchesstrainer.engine.board.Move.AttackMove;
+import blindfoldchesstrainer.engine.board.Move.MajorMove;
+import blindfoldchesstrainer.engine.board.Move.PawnPromotion;
 import blindfoldchesstrainer.engine.board.Tile;
+import blindfoldchesstrainer.engine.pieces.Pawn;
 import blindfoldchesstrainer.engine.pieces.Piece;
 import blindfoldchesstrainer.engine.player.MoveTransition;
 import blindfoldchesstrainer.engine.player.Player;
 import blindfoldchesstrainer.engine.player.PlayerType;
 import blindfoldchesstrainer.engine.player.ai.AlphaBeta;
-import blindfoldchesstrainer.engine.player.ai.MiniMax;
 import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -35,7 +38,6 @@ import javafx.util.Duration;
 
 import java.util.*;
 import java.util.concurrent.*;
-import javafx.scene.input.KeyCode;
 
 public class GUI extends Stage {
 
@@ -287,7 +289,7 @@ public class GUI extends Stage {
             this.currentGame = games.get(0);
             updateActiveGamesCounter(0);
             noGameControls();
-            initialize();
+            initializeGamesViewer();
         }
         
         public GamesViewer(List<GamePane> games) {
@@ -295,10 +297,10 @@ public class GUI extends Stage {
             this.pagination = createPaginationControl(0);
             this.currentGame = games.get(0);
             updateActiveGamesCounter(games.size());
-            initialize();
+            initializeGamesViewer();
         }
 
-        public void initialize() {
+        public void initializeGamesViewer() {
             getStyleClass().add("games-viewer");
             getGameContainer().getChildren().add(getCurrentGame());
             add(getPagination(), 0, 0);
@@ -387,6 +389,7 @@ public class GUI extends Stage {
         }
 
         public int updatePage(int delay) {
+            getCurrentGame().getBoardPane().disablePawnPromotionMode();
             getPauseBeforeNextGame().setDuration(Duration.millis(delay));
             int current = getCurrentGame().getGameID();
             int next = getNextActiveGameIndex(current, getGames());
@@ -674,8 +677,8 @@ public class GUI extends Stage {
             boardAndMovesPane.setTop(this.getBlackSide());
             BorderPane.setAlignment(this.getBlackSide(), Pos.BOTTOM_RIGHT);
             boardAndMovesPane.setBottom(bottomControls());
-            this.getBoardPane().setAlignment(Pos.CENTER);
-            this.getBoardBackground().getChildren().add(getBoardPane());
+            getBoardPane().setAlignment(Pos.CENTER);
+            getBoardBackground().getChildren().add(createPawnPromotionBackground());
             boardAndMovesPane.setCenter(getBoardBackground());
             drawBackground();
             setCenter(boardAndMovesPane);
@@ -698,6 +701,13 @@ public class GUI extends Stage {
             innerShadow.setColor(Color.web("#EBCCAD", 0.6));
 
             getBoardPane().setEffect(innerShadow);
+        }
+        
+        private StackPane createPawnPromotionBackground() {
+            StackPane pawnPromotionBackground = new StackPane();
+            pawnPromotionBackground.setId("promotion-background");
+            pawnPromotionBackground.getChildren().add(getBoardPane());
+            return pawnPromotionBackground;
         }
 
         private void flipBoard() {
@@ -802,6 +812,7 @@ public class GUI extends Stage {
         }
 
         public void resign() {
+            getBoardPane().disablePawnPromotionMode();
             if (!isGameOver()) {
                 interruptComputerMove();
                 getGamesViewer().gameOver();
@@ -816,6 +827,7 @@ public class GUI extends Stage {
 
 
         public void makeDraw() {
+            getBoardPane().disablePawnPromotionMode();
             if (!isGameOver()) {
                 interruptComputerMove();
                 //TODO
@@ -825,6 +837,7 @@ public class GUI extends Stage {
         }
 
         public void win() {
+            getBoardPane().disablePawnPromotionMode();
             if (!isGameOver()) {
                 interruptComputerMove();
                 //TODO
@@ -839,6 +852,7 @@ public class GUI extends Stage {
         }
 
         public void resetGame() {
+            getBoardPane().disablePawnPromotionMode();
             Stack<Move> moves = getBoardPane().getMoves();
             if (!moves.isEmpty() && !isGameOver()) {
                 interruptComputerMove();
@@ -853,6 +867,7 @@ public class GUI extends Stage {
         }
 
         public void takeBack() {
+            getBoardPane().disablePawnPromotionMode();
             Stack<Move> moves = getBoardPane().getMoves();
             if (getBoardPane().getBoard().blackPlayer().getPlayerType().isHuman() && 
                 getBoardPane().getBoard().whitePlayer().getPlayerType().isHuman()) {
@@ -1052,6 +1067,7 @@ public class GUI extends Stage {
         private Future<?> futureComputerMove;
         private volatile boolean running;
         private int currentBoardIndex = 0;
+        private boolean promotionMode;
 
         public BoardPane(GamePane game, Board board, int depth) {
             this.game = game;
@@ -1169,6 +1185,7 @@ public class GUI extends Stage {
         }
 
         public Board previousBoard() {
+            disablePawnPromotionMode();
             if (getCurrentBoardIndex() < 2) {
                 return firstBoard();
             }
@@ -1182,6 +1199,7 @@ public class GUI extends Stage {
         }
 
         public Board nextBoard() {
+            disablePawnPromotionMode();
             if (getCurrentBoardIndex() >= getMoves().size() - 1) {
                 return lastBoard();
             }
@@ -1195,6 +1213,7 @@ public class GUI extends Stage {
         }
 
         public Board firstBoard() {
+            disablePawnPromotionMode();
             setCurrentBoardIndex(0);
             Board firstBoard = getMoves().get(getCurrentBoardIndex()).getBoard();
             setLastMove(null);
@@ -1204,6 +1223,7 @@ public class GUI extends Stage {
         }
 
         public Board lastBoard() {
+            disablePawnPromotionMode();
             setCurrentBoardIndex(getMoves().size());
             Move move = getMoves().get(getCurrentBoardIndex() - 1);
             setLastMove(move);
@@ -1218,6 +1238,25 @@ public class GUI extends Stage {
             if (getCurrentBoardIndex() == 0)
                 return firstBoard();
             return getMoves().get(getCurrentBoardIndex()).getBoard();
+        }
+             
+        private void enablePawnPromotionMode(Tile promotionTile) {
+            setPromotionMode(true);
+            disableTiles(true);
+            setDestinationTile(promotionTile);
+        }
+        
+        private void disablePawnPromotionMode() {
+            setPromotionMode(false);
+            disableTiles(false);
+        }
+        
+        private void disableTiles(boolean disable) {
+            double opacity = 1.0;
+            if (disable) 
+                opacity = 0.3;
+            for (TilePane tile : getBoardTiles())
+                tile.setOpacity(opacity);
         }
 
         public int getCurrentBoardIndex() {
@@ -1315,6 +1354,20 @@ public class GUI extends Stage {
         public void setLastMove(Move lastMove) {
             this.lastMove = lastMove;
         }
+
+        /**
+         * @return the promotionMode
+         */
+        public boolean isPromotionMode() {
+            return promotionMode;
+        }
+
+        /**
+         * @param promotionMode the promotionMode to set
+         */
+        public void setPromotionMode(boolean promotionMode) {
+            this.promotionMode = promotionMode;
+        }
     }
 
 
@@ -1330,14 +1383,16 @@ public class GUI extends Stage {
         public TilePane(final BoardPane boardPane, final int tileID) {
             this.boardPane = boardPane;
             this.tileID = tileID;
+            initializeTile();
+        }
+        
+        private void initializeTile() {
             drawTile(boardPane.getBoard());
-
             setOnMouseClicked(e -> {
                 Board chessBoard = getBoardPane().getBoard();
                 if (!getBoardPane().getGame().isGameOver() &&
                     chessBoard.currentPlayer().getPlayerType().isHuman() &&
                     getGamesViewer().getSt().getStatus() != Animation.Status.RUNNING) {
-
                     if (e.getButton() == MouseButton.PRIMARY) {
                         if (getBoardPane().getSourceTile() == null) {
                             // first click
@@ -1348,23 +1403,45 @@ public class GUI extends Stage {
                                 getBoardPane().setSourceTile(null);
                             }
                         }
+                        // second click or third click if promotionMode is on
                         else {
-                            // second click
-                            getBoardPane().setDestinationTile(chessBoard.getTile(getTileID()));
-                            final Move move = Move.MoveFactory.createMove(chessBoard,
-                                    getBoardPane().getSourceTile().getTileCoordinate(),
-                                    getBoardPane().getDestinationTile().getTileCoordinate());
-                            final MoveTransition transition = chessBoard.currentPlayer().makeMove(move);
-                            if (transition.getMoveStatus().isDone()) {
-                                getBoardPane().getMoves().push(move);
-                                chessBoard = transition.getTransitionBoard();
+                            final Move move;
+                            final int sourceCoordinate = getBoardPane().getSourceTile().getTileCoordinate();
+                            //Pawn promotion
+                            if (getBoardPane().getPieceToMove().getPieceType().isPawn() && 
+                                chessBoard.currentPlayer().getAlliance().isPawnPromotionSquare(getTileID()) &&
+                                !getBoardPane().isPromotionMode()) {
+                                //check if the move is a legal move
+                                move = Move.MoveFactory.createMove(chessBoard, 
+                                        sourceCoordinate, 
+                                        getTileID());
+                                final MoveTransition transition = chessBoard.currentPlayer().makeMove(move);
+                                if (transition.getMoveStatus().isDone()) 
+                                    getBoardPane().enablePawnPromotionMode(chessBoard.getTile(getTileID()));
                             }
-                            getBoardPane().resetMoveSelection();
+                            else {
+                                if (getBoardPane().isPromotionMode())
+                                    move = getPromotionMove();
+                                else {
+                                    getBoardPane().setDestinationTile(chessBoard.getTile(getTileID()));
+                                    move = Move.MoveFactory.createMove(chessBoard,
+                                        sourceCoordinate,
+                                        getBoardPane().getDestinationTile().getTileCoordinate());
+                                }
+                                final MoveTransition transition = chessBoard.currentPlayer().makeMove(move);
+                                if (transition.getMoveStatus().isDone()) {
+                                    getBoardPane().getMoves().push(move);
+                                    chessBoard = transition.getTransitionBoard();
+                                }
+                                getBoardPane().resetMoveSelection();
+                                getBoardPane().disablePawnPromotionMode();
+                            }
                         }
 
                     }
                     else if (e.getButton() == MouseButton.SECONDARY) {
                         getBoardPane().resetMoveSelection();
+                        getBoardPane().disablePawnPromotionMode();
                     }
                     this.getBoardPane().updateBoard(chessBoard);
                 }
@@ -1396,10 +1473,13 @@ public class GUI extends Stage {
         }
 
         private void drawTile(final Board board) {
+            getStyleClass().clear();
             getChildren().clear();
             setTileColor();
             assignSelectionRectangle(board);
             assignPieceOnTile(board);
+            if (getBoardPane().isPromotionMode())
+                drawPromotionMode(board);
         }
 
         private void assignSelectionRectangle(final Board board) {
@@ -1453,10 +1533,12 @@ public class GUI extends Stage {
         }
 
         private void highlightSourceTile(final Region tileSelection, final Alliance alliance) {
-            if (alliance.isWhite())
-                tileSelection.getStyleClass().add("source-tile-white");
-            else
-                tileSelection.getStyleClass().add("source-tile-black");
+            if (!getBoardPane().isPromotionMode()) {
+                if (alliance.isWhite())
+                    tileSelection.getStyleClass().add("source-tile-white");
+                else
+                    tileSelection.getStyleClass().add("source-tile-black");
+            }
         }
 
         private void highlightMoveDestinationTile(final Region tileSelection, final Alliance alliance) {
@@ -1467,14 +1549,16 @@ public class GUI extends Stage {
         }
 
         private void highlightDestinationTile(final Region tileSelection, final Alliance alliance) {
-            if (alliance.isWhite())
-                tileSelection.getStyleClass().add("destination-tile-white");
-            else
-                tileSelection.getStyleClass().add("destination-tile-black");
+            if (!getBoardPane().isPromotionMode()) {
+                if (alliance.isWhite())
+                    tileSelection.getStyleClass().add("destination-tile-white");
+                else
+                    tileSelection.getStyleClass().add("destination-tile-black");
+            }
         }
 
         private void highlightLegals(final Region tileSelection, final Board board) {
-            if (isHighlightLegalMoves()) {
+            if (isHighlightLegalMoves() && !getBoardPane().isPromotionMode()) {
                 if (getBoardPane().getPieceToMove() != null &&
                     getBoardPane().getPieceToMove().getPieceAlliance() == board.currentPlayer().getAlliance()) {
                     final Move move = Move.MoveFactory.createMove(board, getBoardPane().getSourceTile().getTileCoordinate(), this.getTileID());
@@ -1483,6 +1567,58 @@ public class GUI extends Stage {
                         highlightDestinationTile(tileSelection, getBoardPane().getPieceToMove().getPieceAlliance());
                     }
                 }
+            }
+        }
+            
+        private Move getPromotionMove() {
+            int promotionCoordinate = getBoardPane().getDestinationTile().getTileCoordinate();
+            int promotionOffset = BoardUtils.NUM_TILES_PER_ROW * 
+                    getBoardPane().getBoard().currentPlayer().getAlliance().getOppositeDirection();
+            Pawn promotedPawn = (Pawn)getBoardPane().getSourceTile().getPiece();
+            if (getTileID() == promotionCoordinate)
+                return new PawnPromotion(decoratedMove(promotedPawn.getPromotionQueen()));
+            if (getTileID() == promotionCoordinate + promotionOffset)
+                return new PawnPromotion(decoratedMove(promotedPawn.getPromotionRook()));
+            if (getTileID() == promotionCoordinate + 2 * promotionOffset)
+                return new PawnPromotion(decoratedMove(promotedPawn.getPromotionKnight()));
+            if (getTileID() == promotionCoordinate + 3 * promotionOffset)
+                return new PawnPromotion(decoratedMove(promotedPawn.getPromotionBishop()));
+            return Move.NULL_MOVE;
+        }
+        
+        private Move decoratedMove(Piece piece) {
+            Tile destination = getBoardPane().getDestinationTile();
+            if (destination.isTileOccupied())
+                return new PawnPromotion(new AttackMove(getBoardPane().getBoard(), piece, destination.getTileCoordinate(), destination.getPiece()));
+            return new PawnPromotion(new MajorMove(getBoardPane().getBoard(), piece, destination.getTileCoordinate()));
+        }
+                
+        private void drawPromotionMode(final Board board) {
+            int promotionCoordinate = getBoardPane().getDestinationTile().getTileCoordinate();
+            int promotionOffset = BoardUtils.NUM_TILES_PER_ROW * 
+                    getBoardPane().getBoard().currentPlayer().getAlliance().getOppositeDirection();
+            if (getTileID() == getBoardPane().getSourceTile().getTileCoordinate()) {
+                getPieceImageView().setImage(null);
+            }
+            if (getTileID() == promotionCoordinate) {
+                getStyleClass().add("promotion-tile");
+                getPieceImageView().setImage(new Image("images/pieces/" + board.currentPlayer().getAlliance().toString()
+                            + "Q.png"));
+            }
+            else if (getTileID() == promotionCoordinate + promotionOffset) {
+                getStyleClass().add("promotion-tile");
+                getPieceImageView().setImage(new Image("images/pieces/" + board.currentPlayer().getAlliance().toString()
+                            + "R.png"));
+            }
+            else if (getTileID() == promotionCoordinate + 2 * promotionOffset) {
+                getStyleClass().add("promotion-tile");
+                getPieceImageView().setImage(new Image("images/pieces/" + board.currentPlayer().getAlliance().toString()
+                            + "N.png"));
+            }
+            else if (getTileID() == promotionCoordinate + 3 * promotionOffset) {
+                getStyleClass().add("promotion-tile");
+                getPieceImageView().setImage(new Image("images/pieces/" + board.currentPlayer().getAlliance().toString()
+                            + "B.png"));
             }
         }
 

@@ -81,6 +81,11 @@ public enum Alliance {
             Collections.sort(topMoves, EvaluatedMoveComparator.DESCENDING);
             return Collections.unmodifiableList(topMoves);
         }
+        
+        @Override
+        public String toString() {
+            return "W";
+        }
     },
     BLACK {
         @Override
@@ -148,6 +153,11 @@ public enum Alliance {
             List<EvaluatedMove> topMoves = new ArrayList<>(moves);
             Collections.sort(topMoves, EvaluatedMoveComparator.ASCENDING);
             return Collections.unmodifiableList(topMoves);
+        }
+        
+        @Override
+        public String toString() {
+            return "B";
         }
     };
 

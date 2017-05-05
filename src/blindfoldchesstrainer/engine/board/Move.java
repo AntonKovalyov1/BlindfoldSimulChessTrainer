@@ -55,7 +55,6 @@ public abstract class Move {
         return getCurrentCoordinate() == otherMove.getCurrentCoordinate() &&
             getDestinationCoordinate() == otherMove.getDestinationCoordinate() &&
             getMovedPiece().equals(otherMove.getMovedPiece());
-
     }
 
     public Board getBoard() {
@@ -288,9 +287,14 @@ public abstract class Move {
         public PawnPromotion(final Move decoratedMove) {
             super(decoratedMove.getBoard(), decoratedMove.getMovedPiece(), decoratedMove.getDestinationCoordinate());
             this.decoratedMove = decoratedMove;
-            this.promotedPawn = (Pawn)decoratedMove.getMovedPiece();
+            this.promotedPawn = getPromotedPawn(decoratedMove);
         }
 
+        private Pawn getPromotedPawn(Move decoratedMove) {
+           Piece decoratedPiece = decoratedMove.getMovedPiece();
+           return new Pawn(decoratedPiece.getPieceAlliance(), decoratedPiece.getPiecePosition(), false);
+        }
+        
         @Override
         public int hashCode() {
             return decoratedMove.hashCode() + (31 * promotedPawn.hashCode());
@@ -298,24 +302,22 @@ public abstract class Move {
 
         @Override
         public boolean equals(final Object other) {
-            return this == other || other instanceof PawnPromotion && (super.equals(other));
+            return this == other || other instanceof PawnPromotion && super.equals(other);
         }
 
         @Override
         public Board execute() {
-
-            final Board pawnMovedBoard = this.decoratedMove.execute();
             final Builder builder = new Builder();
-            for(final Piece piece : pawnMovedBoard.currentPlayer().getActivePieces()) {
+            for(final Piece piece : getBoard().currentPlayer().getActivePieces()) {
                 if(!this.promotedPawn.equals(piece)) {
                     builder.setPiece(piece);
                 }
             }
-            for(final Piece piece : pawnMovedBoard.currentPlayer().getOpponent().getActivePieces()) {
+            for(final Piece piece : getBoard().currentPlayer().getOpponent().getActivePieces()) {
                 builder.setPiece(piece);
             }
-            builder.setPiece(this.promotedPawn.getPromotionPiece().movePiece(this));
-            builder.setMoveMaker(pawnMovedBoard.currentPlayer().getAlliance());
+            builder.setPiece(this.decoratedMove.getMovedPiece().movePiece(this));
+            builder.setMoveMaker(getBoard().currentPlayer().getOpponent().getAlliance());
             builder.setWhitePlayerType(this.board.whitePlayer().getPlayerType());
             builder.setBlackPlayerType(this.board.blackPlayer().getPlayerType());
             return builder.build();
@@ -333,7 +335,7 @@ public abstract class Move {
 
         @Override
         public String toString() {
-            return "";
+            return BoardUtils.ALGEBRAIC_NOTATION[getDestinationCoordinate()] + decoratedMove.getMovedPiece().toString().toUpperCase();
         }
     }
 

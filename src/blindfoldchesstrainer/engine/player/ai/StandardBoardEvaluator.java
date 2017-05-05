@@ -24,6 +24,7 @@ public final class StandardBoardEvaluator implements BoardEvaluator {
     public int scorePlayer(final Player player, final int depth, final Board board) {
         return pieceValueAndPosition(player) +
                checkmate(player, depth) +
+               mobility(player) +
                castle(player);
         // + other heuristics
     }

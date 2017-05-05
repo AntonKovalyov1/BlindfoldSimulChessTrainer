@@ -42,8 +42,6 @@ public class AlphaBeta extends RecursiveTask implements MoveStrategy {
     @Override
     public Move execute(Board board) {
         System.out.println(board.currentPlayer() + "Thinking with depth = " + searchDepth);
-        List<Move> legalMoves = new ArrayList<>(board.currentPlayer().getLegalMoves());
-        Collections.shuffle(legalMoves);
         List<EvaluatedMove> moves = new ArrayList<>(moveOrdering(board));
         for(final EvaluatedMove candidate : moves) {
             candidate.setValue(getPlayerToMove().getAlliance().isWhite() ?
@@ -70,7 +68,7 @@ public class AlphaBeta extends RecursiveTask implements MoveStrategy {
     public List<EvaluatedMove> moveOrdering(Board board) {
         List<Move> legalMoves = new ArrayList<>(board.currentPlayer().getLegalMoves());
         Collections.shuffle(legalMoves);
-        List<EvaluatedMove> moves = initEvaluatedMoves(legalMoves);
+        List<EvaluatedMove> moves = new ArrayList<>(initEvaluatedMoves(legalMoves));
         for(final EvaluatedMove candidate : moves) {
             candidate.setValue(getPlayerToMove().getAlliance().isWhite() ?
                     alphabeta(candidate.getMove().execute(), 
@@ -134,7 +132,7 @@ public class AlphaBeta extends RecursiveTask implements MoveStrategy {
                     candidateEvaluatedMoves.add(new EvaluatedMove(candidate, Integer.MAX_VALUE));
             }
         }
-        return candidateEvaluatedMoves;
+        return Collections.unmodifiableList(candidateEvaluatedMoves);
     }
     
     private boolean isEndGameScenario(Board board) {
