@@ -98,4 +98,9 @@ public class WhitePlayer extends Player {
             return true;
         return false;
     }
+    
+    @Override
+    public String toString() {
+        return "White";
+    }
 }

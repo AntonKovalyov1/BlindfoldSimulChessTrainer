@@ -1,0 +1,35 @@
+1494115543152 <- Hannibal 1.7 x64
+1494115543154 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494115543154 <- Use UCI commands
+1494115543154 <- 
+1494115546052 -> uci
+1494115546053 <- id name Hannibal 1.7 x64
+1494115546054 <- id author Sam Hamilton & Edsel Apostol
+1494115546056 <- option name Hash type spin default 128 min 1 max 65536
+1494115546058 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494115546059 <- option name MultiPV type spin default 1 min 1 max 128
+1494115546060 <- option name Clear Hash type button
+1494115546062 <- option name OwnBook type check default false
+1494115546064 <- option name Book File type string default Hannibal.bin
+1494115546065 <- option name Ponder type check default false
+1494115546068 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494115546070 <- option name Threads type spin default 1 min 1 max 512
+1494115546072 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494115546074 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494115546076 <- option name Contempt type spin default 0 min -100 max 100
+1494115546076 <- uciok
+1494115554092 -> ucinewgame
+1494115571395 -> go depth 21
+1494115571395 == Depth is limited to 21 half moves
+1494115571395 == Search status is THINKING
+1494115574164 -> stop
+1494115574164 == Aborting search: stop
+1494115574172 <- bestmove d2d4 ponder d7d5
+1494115585315 -> go depth 40
+1494115585315 == Depth is limited to 40 half moves
+1494115585315 == Search status is THINKING
+1494115588700 -> stop
+1494115588700 == Aborting search: stop
+1494115588709 <- bestmove e2e4 ponder e7e6
+1494115628795 -> quit
+1494115628795 == Engine quitting

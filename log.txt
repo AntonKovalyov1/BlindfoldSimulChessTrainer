@@ -1,0 +1,3473 @@
+1494105352144 <- Hannibal 1.7 x64
+1494105352145 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494105352145 <- Use UCI commands
+1494105352145 <- 
+1494105352145 -> uci
+1494105352145 <- id name Hannibal 1.7 x64
+1494105352145 <- id author Sam Hamilton & Edsel Apostol
+1494105352145 <- option name Hash type spin default 128 min 1 max 65536
+1494105352145 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494105352145 <- option name MultiPV type spin default 1 min 1 max 128
+1494105352145 <- option name Clear Hash type button
+1494105352145 <- option name OwnBook type check default false
+1494105352145 <- option name Book File type string default Hannibal.bin
+1494105352145 <- option name Ponder type check default false
+1494105352145 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494105352145 <- option name Threads type spin default 1 min 1 max 512
+1494105352145 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494105352145 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494105352145 <- option name Contempt type spin default 0 min -100 max 100
+1494105352145 <- uciok
+1494105352149 -> ucinewgame
+1494105352171 -> isready
+1494105352171 <- readyok
+1494105352171 -> setoption name Threads value 1
+1494105352175 -> setoption name OwnBook value true
+1494105352175 -> setoption name BookFile value src//Engines//book.bin
+1494105352175 <- No such option: BookFile
+1494105352175 -> setoption name Book File value src//Engines//book.bin
+1494105352175 -> setoption name Best Book Line value false
+1494105352175 <- No such option: Best Book Line
+1494105372965 <- Hannibal 1.7 x64
+1494105372965 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494105372965 <- Use UCI commands
+1494105372965 <- 
+1494105372965 -> uci
+1494105372965 <- id name Hannibal 1.7 x64
+1494105372965 <- id author Sam Hamilton & Edsel Apostol
+1494105372965 <- option name Hash type spin default 128 min 1 max 65536
+1494105372965 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494105372965 <- option name MultiPV type spin default 1 min 1 max 128
+1494105372965 <- option name Clear Hash type button
+1494105372965 <- option name OwnBook type check default false
+1494105372965 <- option name Book File type string default Hannibal.bin
+1494105372966 <- option name Ponder type check default false
+1494105372966 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494105372966 <- option name Threads type spin default 1 min 1 max 512
+1494105372966 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494105372966 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494105372966 <- option name Contempt type spin default 0 min -100 max 100
+1494105372966 <- uciok
+1494105372968 -> ucinewgame
+1494105372981 -> isready
+1494105372981 <- readyok
+1494105372981 -> setoption name Threads value 1
+1494105372984 -> setoption name OwnBook value true
+1494105372984 -> setoption name BookFile value src//Engines//book.bin
+1494105372985 <- No such option: BookFile
+1494105372985 -> setoption name Book File value src//Engines//book.bin
+1494105372985 -> setoption name Best Book Line value false
+1494105372985 <- No such option: Best Book Line
+1494105367234 <- Hannibal 1.7 x64
+1494105367235 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494105367235 <- Use UCI commands
+1494105367236 <- 
+1494105367236 -> uci
+1494105367236 <- id name Hannibal 1.7 x64
+1494105367236 <- id author Sam Hamilton & Edsel Apostol
+1494105367236 <- option name Hash type spin default 128 min 1 max 65536
+1494105367236 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494105367236 <- option name MultiPV type spin default 1 min 1 max 128
+1494105367236 <- option name Clear Hash type button
+1494105367236 <- option name OwnBook type check default false
+1494105367236 <- option name Book File type string default Hannibal.bin
+1494105367236 <- option name Ponder type check default false
+1494105367236 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494105367236 <- option name Threads type spin default 1 min 1 max 512
+1494105367236 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494105367236 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494105367236 <- option name Contempt type spin default 0 min -100 max 100
+1494105367236 <- uciok
+1494105367238 -> ucinewgame
+1494105367251 -> isready
+1494105367251 <- readyok
+1494105367252 -> setoption name Threads value 1
+1494105367264 -> setoption name OwnBook value true
+1494105367264 -> setoption name BookFile value src//Engines//book.bin
+1494105367264 <- No such option: BookFile
+1494105367264 -> setoption name Book File value src//Engines//book.bin
+1494105367264 -> setoption name Best Book Line value false
+1494105367264 <- No such option: Best Book Line
+1494105377327 <- Hannibal 1.7 x64
+1494105377327 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494105377327 <- Use UCI commands
+1494105377327 <- 
+1494105377327 -> uci
+1494105377327 <- id name Hannibal 1.7 x64
+1494105377327 <- id author Sam Hamilton & Edsel Apostol
+1494105377327 <- option name Hash type spin default 128 min 1 max 65536
+1494105377327 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494105377327 <- option name MultiPV type spin default 1 min 1 max 128
+1494105377327 <- option name Clear Hash type button
+1494105377327 <- option name OwnBook type check default false
+1494105377327 <- option name Book File type string default Hannibal.bin
+1494105377327 <- option name Ponder type check default false
+1494105377328 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494105377328 <- option name Threads type spin default 1 min 1 max 512
+1494105377328 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494105377328 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494105377328 <- option name Contempt type spin default 0 min -100 max 100
+1494105377328 <- uciok
+1494105377329 -> ucinewgame
+1494105377345 -> isready
+1494105377345 <- readyok
+1494105377346 -> setoption name Threads value 1
+1494105377349 -> setoption name OwnBook value true
+1494105377349 -> setoption name BookFile value src//Engines//book.bin
+1494105377349 <- No such option: BookFile
+1494105377349 -> setoption name Book File value src//Engines//book.bin
+1494105377350 -> setoption name Best Book Line value false
+1494105377350 <- No such option: Best Book Line
+1494105384584 <- Hannibal 1.7 x64
+1494105384585 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494105384585 <- Use UCI commands
+1494105384585 <- 
+1494105384585 -> uci
+1494105384585 <- id name Hannibal 1.7 x64
+1494105384585 <- id author Sam Hamilton & Edsel Apostol
+1494105384585 <- option name Hash type spin default 128 min 1 max 65536
+1494105384585 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494105384585 <- option name MultiPV type spin default 1 min 1 max 128
+1494105384585 <- option name Clear Hash type button
+1494105384585 <- option name OwnBook type check default false
+1494105384585 <- option name Book File type string default Hannibal.bin
+1494105384585 <- option name Ponder type check default false
+1494105384585 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494105384585 <- option name Threads type spin default 1 min 1 max 512
+1494105384585 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494105384585 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494105384585 <- option name Contempt type spin default 0 min -100 max 100
+1494105384585 <- uciok
+1494105384586 -> ucinewgame
+1494105384599 -> isready
+1494105384599 <- readyok
+1494105384599 -> setoption name Threads value 1
+1494105384603 -> setoption name OwnBook value true
+1494105384603 -> setoption name BookFile value src//Engines//book.bin
+1494105384603 <- No such option: BookFile
+1494105384603 -> setoption name Book File value src//Engines//book.bin
+1494105384604 -> setoption name Best Book Line value false
+1494105384604 <- No such option: Best Book Line
+1494111904786 <- Hannibal 1.7 x64
+1494111904787 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494111904787 <- Use UCI commands
+1494111904787 <- 
+1494111904787 -> uci
+1494111904787 <- id name Hannibal 1.7 x64
+1494111904787 <- id author Sam Hamilton & Edsel Apostol
+1494111904787 <- option name Hash type spin default 128 min 1 max 65536
+1494111904787 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494111904787 <- option name MultiPV type spin default 1 min 1 max 128
+1494111904787 <- option name Clear Hash type button
+1494111904787 <- option name OwnBook type check default false
+1494111904787 <- option name Book File type string default Hannibal.bin
+1494111904787 <- option name Ponder type check default false
+1494111904787 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494111904787 <- option name Threads type spin default 1 min 1 max 512
+1494111904787 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494111904787 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494111904787 <- option name Contempt type spin default 0 min -100 max 100
+1494111904787 <- uciok
+1494111904792 -> ucinewgame
+1494111904809 -> isready
+1494111904809 <- readyok
+1494111904809 -> setoption name Threads value 1
+1494111904813 -> setoption name OwnBook value true
+1494111904813 -> setoption name BookFile value src//Engines//book.bin
+1494111904813 <- No such option: BookFile
+1494111904813 -> setoption name Book File value src//Engines//book.bin
+1494111904814 -> setoption name Best Book Line value false
+1494111904814 <- No such option: Best Book Line
+1494111926727 <- Hannibal 1.7 x64
+1494111926727 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494111926727 <- Use UCI commands
+1494111926727 <- 
+1494111926727 -> uci
+1494111926727 <- id name Hannibal 1.7 x64
+1494111926727 <- id author Sam Hamilton & Edsel Apostol
+1494111926727 <- option name Hash type spin default 128 min 1 max 65536
+1494111926727 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494111926727 <- option name MultiPV type spin default 1 min 1 max 128
+1494111926727 <- option name Clear Hash type button
+1494111926727 <- option name OwnBook type check default false
+1494111926727 <- option name Book File type string default Hannibal.bin
+1494111926727 <- option name Ponder type check default false
+1494111926727 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494111926727 <- option name Threads type spin default 1 min 1 max 512
+1494111926727 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494111926727 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494111926727 <- option name Contempt type spin default 0 min -100 max 100
+1494111926727 <- uciok
+1494111926730 -> ucinewgame
+1494111926746 -> isready
+1494111926746 <- readyok
+1494111926746 -> setoption name Threads value 1
+1494111926750 -> setoption name OwnBook value true
+1494111926750 -> setoption name BookFile value src//Engines//book.bin
+1494111926750 <- No such option: BookFile
+1494111926750 -> setoption name Book File value src//Engines//book.bin
+1494111926761 -> setoption name Best Book Line value false
+1494111926761 <- No such option: Best Book Line
+1494112156007 <- Hannibal 1.7 x64
+1494112156008 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494112156008 <- Use UCI commands
+1494112156008 <- 
+1494112156008 -> uci
+1494112156008 <- id name Hannibal 1.7 x64
+1494112156008 <- id author Sam Hamilton & Edsel Apostol
+1494112156008 <- option name Hash type spin default 128 min 1 max 65536
+1494112156008 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494112156008 <- option name MultiPV type spin default 1 min 1 max 128
+1494112156008 <- option name Clear Hash type button
+1494112156008 <- option name OwnBook type check default false
+1494112156008 <- option name Book File type string default Hannibal.bin
+1494112156008 <- option name Ponder type check default false
+1494112156008 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494112156008 <- option name Threads type spin default 1 min 1 max 512
+1494112156008 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494112156008 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494112156008 <- option name Contempt type spin default 0 min -100 max 100
+1494112156008 <- uciok
+1494112156013 -> ucinewgame
+1494112156028 -> isready
+1494112156029 <- readyok
+1494112156029 -> setoption name Threads value 1
+1494112156033 -> setoption name OwnBook value true
+1494112156033 -> setoption name BookFile value src//Engines//book.bin
+1494112156033 <- No such option: BookFile
+1494112156033 -> setoption name Book File value src//Engines//book.bin
+1494112156033 -> setoption name Best Book Line value false
+1494112156033 <- No such option: Best Book Line
+1494112305288 <- Hannibal 1.7 x64
+1494112305289 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494112305289 <- Use UCI commands
+1494112305289 <- 
+1494112305289 -> uci
+1494112305289 <- id name Hannibal 1.7 x64
+1494112305289 <- id author Sam Hamilton & Edsel Apostol
+1494112305289 <- option name Hash type spin default 128 min 1 max 65536
+1494112305289 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494112305289 <- option name MultiPV type spin default 1 min 1 max 128
+1494112305289 <- option name Clear Hash type button
+1494112305289 <- option name OwnBook type check default false
+1494112305289 <- option name Book File type string default Hannibal.bin
+1494112305289 <- option name Ponder type check default false
+1494112305289 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494112305289 <- option name Threads type spin default 1 min 1 max 512
+1494112305289 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494112305289 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494112305289 <- option name Contempt type spin default 0 min -100 max 100
+1494112305289 <- uciok
+1494112305294 -> ucinewgame
+1494112305312 -> isready
+1494112305312 <- readyok
+1494112305313 -> setoption name Threads value 1
+1494112305316 -> setoption name OwnBook value true
+1494112305316 -> setoption name BookFile value src//Engines//book.bin
+1494112305316 <- No such option: BookFile
+1494112305316 -> setoption name Book File value src//Engines//book.bin
+1494112305316 -> setoption name Best Book Line value false
+1494112305317 <- No such option: Best Book Line
+1494112440631 <- Hannibal 1.7 x64
+1494112440632 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494112440632 <- Use UCI commands
+1494112440632 <- 
+1494112440632 -> uci
+1494112440632 <- id name Hannibal 1.7 x64
+1494112440632 <- id author Sam Hamilton & Edsel Apostol
+1494112440632 <- option name Hash type spin default 128 min 1 max 65536
+1494112440632 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494112440632 <- option name MultiPV type spin default 1 min 1 max 128
+1494112440632 <- option name Clear Hash type button
+1494112440632 <- option name OwnBook type check default false
+1494112440632 <- option name Book File type string default Hannibal.bin
+1494112440632 <- option name Ponder type check default false
+1494112440632 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494112440632 <- option name Threads type spin default 1 min 1 max 512
+1494112440632 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494112440632 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494112440632 <- option name Contempt type spin default 0 min -100 max 100
+1494112440632 <- uciok
+1494112440635 -> ucinewgame
+1494112440652 -> isready
+1494112440652 <- readyok
+1494112440652 -> setoption name Threads value 1
+1494112440656 -> setoption name OwnBook value true
+1494112440657 -> setoption name BookFile value src//Engines//book.bin
+1494112440657 <- No such option: BookFile
+1494112440657 -> setoption name Book File value src//Engines//book.bin
+1494112440657 -> setoption name Best Book Line value false
+1494112440657 <- No such option: Best Book Line
+1494112430309 <- Hannibal 1.7 x64
+1494112430309 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494112430309 <- Use UCI commands
+1494112430309 <- 
+1494112430309 -> uci
+1494112430309 <- id name Hannibal 1.7 x64
+1494112430309 <- id author Sam Hamilton & Edsel Apostol
+1494112430309 <- option name Hash type spin default 128 min 1 max 65536
+1494112430309 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494112430309 <- option name MultiPV type spin default 1 min 1 max 128
+1494112430309 <- option name Clear Hash type button
+1494112430309 <- option name OwnBook type check default false
+1494112430309 <- option name Book File type string default Hannibal.bin
+1494112430309 <- option name Ponder type check default false
+1494112430309 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494112430309 <- option name Threads type spin default 1 min 1 max 512
+1494112430309 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494112430309 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494112430309 <- option name Contempt type spin default 0 min -100 max 100
+1494112430309 <- uciok
+1494112430314 -> ucinewgame
+1494112430328 -> isready
+1494112430328 <- readyok
+1494112430329 -> setoption name Threads value 1
+1494112430332 -> setoption name OwnBook value true
+1494112430332 -> setoption name BookFile value src//Engines//book.bin
+1494112430332 <- No such option: BookFile
+1494112430332 -> setoption name Book File value src//Engines//book.bin
+1494112430333 -> setoption name Best Book Line value false
+1494112430333 <- No such option: Best Book Line
+1494112445193 <- Hannibal 1.7 x64
+1494112445194 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494112445194 <- Use UCI commands
+1494112445194 <- 
+1494112445194 -> uci
+1494112445194 <- id name Hannibal 1.7 x64
+1494112445194 <- id author Sam Hamilton & Edsel Apostol
+1494112445194 <- option name Hash type spin default 128 min 1 max 65536
+1494112445194 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494112445194 <- option name MultiPV type spin default 1 min 1 max 128
+1494112445194 <- option name Clear Hash type button
+1494112445194 <- option name OwnBook type check default false
+1494112445194 <- option name Book File type string default Hannibal.bin
+1494112445194 <- option name Ponder type check default false
+1494112445194 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494112445194 <- option name Threads type spin default 1 min 1 max 512
+1494112445194 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494112445194 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494112445194 <- option name Contempt type spin default 0 min -100 max 100
+1494112445194 <- uciok
+1494112445196 -> ucinewgame
+1494112445213 -> isready
+1494112445213 <- readyok
+1494112445213 -> setoption name Threads value 1
+1494112445218 -> setoption name OwnBook value true
+1494112445218 -> setoption name BookFile value src//Engines//book.bin
+1494112445218 <- No such option: BookFile
+1494112445218 -> setoption name Book File value src//Engines//book.bin
+1494112445218 -> setoption name Best Book Line value false
+1494112445218 <- No such option: Best Book Line
+1494114191507 <- Hannibal 1.7 x64
+1494114191508 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494114191508 <- Use UCI commands
+1494114191508 <- 
+1494114191508 -> uci
+1494114191508 <- id name Hannibal 1.7 x64
+1494114191508 <- id author Sam Hamilton & Edsel Apostol
+1494114191508 <- option name Hash type spin default 128 min 1 max 65536
+1494114191508 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494114191508 <- option name MultiPV type spin default 1 min 1 max 128
+1494114191508 <- option name Clear Hash type button
+1494114191508 <- option name OwnBook type check default false
+1494114191508 <- option name Book File type string default Hannibal.bin
+1494114191508 <- option name Ponder type check default false
+1494114191508 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494114191508 <- option name Threads type spin default 1 min 1 max 512
+1494114191508 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494114191508 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494114191508 <- option name Contempt type spin default 0 min -100 max 100
+1494114191508 <- uciok
+1494114191510 -> ucinewgame
+1494114191525 -> isready
+1494114191525 <- readyok
+1494114191525 -> setoption name Threads value 1
+1494114191529 -> setoption name OwnBook value true
+1494114191529 -> setoption name BookFile value src//Engines//book.bin
+1494114191529 <- No such option: BookFile
+1494114191529 -> setoption name Book File value src//Engines//book.bin
+1494114191530 -> setoption name Best Book Line value false
+1494114191530 <- No such option: Best Book Line
+1494114216116 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494114216116 -> go depth 2
+1494114216116 == Depth is limited to 2 half moves
+1494114216116 == Search status is THINKING
+1494114216120 == Aborting search: depth limit: 2
+1494114216120 <- bestmove e7e5 ponder b1c3
+1494114216127 -> stop
+1494114216127 !! Invalid command: stop
+1494114258357 -> position fen rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -  0 1 moves 
+1494114258357 -> go depth 2
+1494114258357 == Depth is limited to 2 half moves
+1494114258357 == Search status is THINKING
+1494114258364 <- bestmove b8c6
+1494114258368 -> stop
+1494114258368 !! Invalid command: stop
+1494114284439 -> position fen r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -  0 1 moves 
+1494114284439 -> go depth 2
+1494114284439 == Depth is limited to 2 half moves
+1494114284439 == Search status is THINKING
+1494114284446 <- bestmove f8c5
+1494114284455 -> stop
+1494114284455 !! Invalid command: stop
+1494114559963 <- Hannibal 1.7 x64
+1494114559963 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494114559964 <- Use UCI commands
+1494114559964 <- 
+1494114559964 -> uci
+1494114559964 <- id name Hannibal 1.7 x64
+1494114559964 <- id author Sam Hamilton & Edsel Apostol
+1494114559964 <- option name Hash type spin default 128 min 1 max 65536
+1494114559964 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494114559964 <- option name MultiPV type spin default 1 min 1 max 128
+1494114559964 <- option name Clear Hash type button
+1494114559964 <- option name OwnBook type check default false
+1494114559966 <- option name Book File type string default Hannibal.bin
+1494114559967 <- option name Ponder type check default false
+1494114559967 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494114559967 <- option name Threads type spin default 1 min 1 max 512
+1494114559967 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494114559968 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494114559968 <- option name Contempt type spin default 0 min -100 max 100
+1494114559968 <- uciok
+1494114559968 -> ucinewgame
+1494114559984 -> isready
+1494114559984 <- readyok
+1494114559984 -> setoption name Threads value 1
+1494114559990 -> setoption name OwnBook value true
+1494114559990 -> setoption name BookFile value src//Engines//book.bin
+1494114559990 <- No such option: BookFile
+1494114559990 -> setoption name Book File value src//Engines//book.bin
+1494114559990 -> setoption name Best Book Line value false
+1494114559990 <- No such option: Best Book Line
+1494114561493 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114561493 -> go depth 13
+1494114561493 == Depth is limited to 13 half moves
+1494114561493 == Search status is THINKING
+1494114561615 == Aborting search: depth limit: 13
+1494114561615 <- bestmove d7d5 ponder d2d4
+1494114561625 -> stop
+1494114561625 !! Invalid command: stop
+1494114561820 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114561820 -> go depth 13
+1494114561820 == Depth is limited to 13 half moves
+1494114561820 == Search status is THINKING
+1494114561877 == Aborting search: depth limit: 13
+1494114561877 <- bestmove d7d5 ponder d2d4
+1494114561881 -> stop
+1494114561881 !! Invalid command: stop
+1494114562081 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114562081 -> go depth 13
+1494114562081 == Depth is limited to 13 half moves
+1494114562081 == Search status is THINKING
+1494114562126 == Aborting search: depth limit: 13
+1494114562130 <- bestmove d7d5 ponder d2d4
+1494114562133 -> stop
+1494114562133 !! Invalid command: stop
+1494114562332 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114562332 -> go depth 13
+1494114562332 == Depth is limited to 13 half moves
+1494114562332 == Search status is THINKING
+1494114562365 == Aborting search: depth limit: 13
+1494114562365 <- bestmove d7d5 ponder d2d4
+1494114562372 -> stop
+1494114562372 !! Invalid command: stop
+1494114562570 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114562570 -> go depth 13
+1494114562570 == Depth is limited to 13 half moves
+1494114562570 == Search status is THINKING
+1494114562610 == Aborting search: depth limit: 13
+1494114562610 <- bestmove d7d5 ponder d2d4
+1494114562612 -> stop
+1494114562612 !! Invalid command: stop
+1494114562815 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114562815 -> go depth 13
+1494114562815 == Depth is limited to 13 half moves
+1494114562815 == Search status is THINKING
+1494114562866 == Aborting search: depth limit: 13
+1494114562867 <- bestmove d7d5 ponder e2e3
+1494114562867 -> stop
+1494114562867 !! Invalid command: stop
+1494114563071 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114563071 -> go depth 13
+1494114563071 == Depth is limited to 13 half moves
+1494114563071 == Search status is THINKING
+1494114563118 == Aborting search: depth limit: 13
+1494114563119 <- bestmove d7d5 ponder g1f3
+1494114563124 -> stop
+1494114563124 !! Invalid command: stop
+1494114563369 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114563369 -> go depth 13
+1494114563369 == Depth is limited to 13 half moves
+1494114563369 == Search status is THINKING
+1494114563397 == Aborting search: depth limit: 13
+1494114563397 <- bestmove d7d5 ponder g1f3
+1494114563410 -> stop
+1494114563410 !! Invalid command: stop
+1494114563626 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114563626 -> go depth 13
+1494114563626 == Depth is limited to 13 half moves
+1494114563626 == Search status is THINKING
+1494114563642 == Aborting search: depth limit: 13
+1494114563642 <- bestmove d7d5 ponder g1f3
+1494114563652 -> stop
+1494114563652 !! Invalid command: stop
+1494114563871 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114563871 -> go depth 13
+1494114563871 == Depth is limited to 13 half moves
+1494114563871 == Search status is THINKING
+1494114563914 == Aborting search: depth limit: 13
+1494114563917 <- bestmove d7d5 ponder g1f3
+1494114563924 -> stop
+1494114563924 !! Invalid command: stop
+1494114564142 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114564142 -> go depth 13
+1494114564142 == Depth is limited to 13 half moves
+1494114564142 == Search status is THINKING
+1494114564174 == Aborting search: depth limit: 13
+1494114564174 <- bestmove d7d5 ponder g1f3
+1494114564182 -> stop
+1494114564182 !! Invalid command: stop
+1494114564401 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114564401 -> go depth 13
+1494114564401 == Depth is limited to 13 half moves
+1494114564401 == Search status is THINKING
+1494114564439 == Aborting search: depth limit: 13
+1494114564439 <- bestmove b8c6 ponder g1f3
+1494114564442 -> stop
+1494114564442 !! Invalid command: stop
+1494114564665 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114564665 -> go depth 13
+1494114564665 == Depth is limited to 13 half moves
+1494114564665 == Search status is THINKING
+1494114564692 == Aborting search: depth limit: 13
+1494114564692 <- bestmove d7d5 ponder d2d4
+1494114564697 -> stop
+1494114564697 !! Invalid command: stop
+1494114564918 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114564918 -> go depth 13
+1494114564918 == Depth is limited to 13 half moves
+1494114564918 == Search status is THINKING
+1494114564939 == Aborting search: depth limit: 13
+1494114564939 <- bestmove d7d5 ponder d2d4
+1494114564940 -> stop
+1494114564940 !! Invalid command: stop
+1494114565162 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114565162 -> go depth 13
+1494114565162 == Depth is limited to 13 half moves
+1494114565162 == Search status is THINKING
+1494114565176 == Aborting search: depth limit: 13
+1494114565176 <- bestmove d7d5 ponder d2d4
+1494114565183 -> stop
+1494114565183 !! Invalid command: stop
+1494114565402 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114565402 -> go depth 13
+1494114565402 == Depth is limited to 13 half moves
+1494114565402 == Search status is THINKING
+1494114565525 == Aborting search: depth limit: 13
+1494114565525 <- bestmove e7e5 ponder d2d4
+1494114565528 -> stop
+1494114565528 !! Invalid command: stop
+1494114565751 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114565751 -> go depth 13
+1494114565751 == Depth is limited to 13 half moves
+1494114565751 == Search status is THINKING
+1494114565892 == Aborting search: depth limit: 13
+1494114565901 -> stop
+1494114565931 !! Invalid command: stop
+1494114565931 <- bestmove e7e5 ponder e2e4
+1494114566121 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114566121 -> go depth 13
+1494114566121 == Depth is limited to 13 half moves
+1494114566121 == Search status is THINKING
+1494114566160 == Aborting search: depth limit: 13
+1494114566160 <- bestmove e7e5 ponder e2e4
+1494114566163 -> stop
+1494114566163 !! Invalid command: stop
+1494114566382 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114566382 -> go depth 13
+1494114566382 == Depth is limited to 13 half moves
+1494114566382 == Search status is THINKING
+1494114566403 == Aborting search: depth limit: 13
+1494114566403 <- bestmove b8c6 ponder d2d4
+1494114566404 -> stop
+1494114566404 !! Invalid command: stop
+1494114566627 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114566627 -> go depth 13
+1494114566627 == Depth is limited to 13 half moves
+1494114566627 == Search status is THINKING
+1494114566687 == Aborting search: depth limit: 13
+1494114566688 <- bestmove b8c6 ponder d2d4
+1494114566689 -> stop
+1494114566689 !! Invalid command: stop
+1494114566907 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114566907 -> go depth 13
+1494114566908 == Depth is limited to 13 half moves
+1494114566908 == Search status is THINKING
+1494114566988 == Aborting search: depth limit: 13
+1494114566990 <- bestmove e7e5 ponder d2d4
+1494114566997 -> stop
+1494114566997 !! Invalid command: stop
+1494114567210 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114567210 -> go depth 13
+1494114567210 == Depth is limited to 13 half moves
+1494114567210 == Search status is THINKING
+1494114567230 == Aborting search: depth limit: 13
+1494114567230 <- bestmove e7e5 ponder d2d4
+1494114567240 -> stop
+1494114567240 !! Invalid command: stop
+1494114567453 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114567453 -> go depth 13
+1494114567453 == Depth is limited to 13 half moves
+1494114567453 == Search status is THINKING
+1494114567470 == Aborting search: depth limit: 13
+1494114567470 <- bestmove e7e5 ponder d2d4
+1494114567474 -> stop
+1494114567474 !! Invalid command: stop
+1494114567693 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114567693 -> go depth 13
+1494114567693 == Depth is limited to 13 half moves
+1494114567693 == Search status is THINKING
+1494114567753 == Aborting search: depth limit: 13
+1494114567753 <- bestmove e7e5 ponder d2d4
+1494114567755 -> stop
+1494114567755 !! Invalid command: stop
+1494114567975 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114567975 -> go depth 13
+1494114567975 == Depth is limited to 13 half moves
+1494114567975 == Search status is THINKING
+1494114568026 == Aborting search: depth limit: 13
+1494114568026 <- bestmove e7e5 ponder d2d4
+1494114568036 -> stop
+1494114568036 !! Invalid command: stop
+1494114568248 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114568248 -> go depth 13
+1494114568248 == Depth is limited to 13 half moves
+1494114568248 == Search status is THINKING
+1494114568272 == Aborting search: depth limit: 13
+1494114568272 <- bestmove e7e5 ponder d2d4
+1494114568281 -> stop
+1494114568281 !! Invalid command: stop
+1494114568495 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114568495 -> go depth 13
+1494114568495 == Depth is limited to 13 half moves
+1494114568495 == Search status is THINKING
+1494114568512 == Aborting search: depth limit: 13
+1494114568512 <- bestmove e7e5 ponder d2d4
+1494114568517 -> stop
+1494114568517 !! Invalid command: stop
+1494114568734 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114568734 -> go depth 13
+1494114568734 == Depth is limited to 13 half moves
+1494114568734 == Search status is THINKING
+1494114568754 == Aborting search: depth limit: 13
+1494114568754 <- bestmove e7e5 ponder d2d4
+1494114568763 -> stop
+1494114568763 !! Invalid command: stop
+1494114568975 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114568975 -> go depth 13
+1494114568975 == Depth is limited to 13 half moves
+1494114568975 == Search status is THINKING
+1494114568985 == Aborting search: depth limit: 13
+1494114568985 <- bestmove e7e5 ponder d2d4
+1494114568987 -> stop
+1494114568987 !! Invalid command: stop
+1494114569204 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114569204 -> go depth 13
+1494114569204 == Depth is limited to 13 half moves
+1494114569204 == Search status is THINKING
+1494114569216 == Aborting search: depth limit: 13
+1494114569216 <- bestmove e7e5 ponder d2d4
+1494114569232 -> stop
+1494114569232 !! Invalid command: stop
+1494114569438 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114569438 -> go depth 13
+1494114569438 == Depth is limited to 13 half moves
+1494114569438 == Search status is THINKING
+1494114569447 == Aborting search: depth limit: 13
+1494114569447 <- bestmove e7e5 ponder d2d4
+1494114569453 -> stop
+1494114569453 !! Invalid command: stop
+1494114569667 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114569668 -> go depth 13
+1494114569668 == Depth is limited to 13 half moves
+1494114569668 == Search status is THINKING
+1494114569677 == Aborting search: depth limit: 13
+1494114569677 <- bestmove e7e5 ponder d2d4
+1494114569679 -> stop
+1494114569679 !! Invalid command: stop
+1494114569898 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114569898 -> go depth 13
+1494114569898 == Depth is limited to 13 half moves
+1494114569898 == Search status is THINKING
+1494114569909 == Aborting search: depth limit: 13
+1494114569909 <- bestmove e7e5 ponder d2d4
+1494114569915 -> stop
+1494114569915 !! Invalid command: stop
+1494114570130 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114570130 -> go depth 13
+1494114570131 == Depth is limited to 13 half moves
+1494114570131 == Search status is THINKING
+1494114570144 == Aborting search: depth limit: 13
+1494114570144 <- bestmove e7e5 ponder d2d4
+1494114570152 -> stop
+1494114570152 !! Invalid command: stop
+1494114570367 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114570367 -> go depth 13
+1494114570367 == Depth is limited to 13 half moves
+1494114570367 == Search status is THINKING
+1494114570377 == Aborting search: depth limit: 13
+1494114570377 <- bestmove e7e5 ponder d2d4
+1494114570378 -> stop
+1494114570378 !! Invalid command: stop
+1494114570597 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114570597 -> go depth 13
+1494114570597 == Depth is limited to 13 half moves
+1494114570597 == Search status is THINKING
+1494114570614 == Aborting search: depth limit: 13
+1494114570614 <- bestmove e7e5 ponder d2d4
+1494114570623 -> stop
+1494114570623 !! Invalid command: stop
+1494114570834 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114570834 -> go depth 13
+1494114570834 == Depth is limited to 13 half moves
+1494114570834 == Search status is THINKING
+1494114570845 == Aborting search: depth limit: 13
+1494114570845 <- bestmove e7e5 ponder d2d4
+1494114570846 -> stop
+1494114570846 !! Invalid command: stop
+1494114571066 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114571066 -> go depth 13
+1494114571066 == Depth is limited to 13 half moves
+1494114571066 == Search status is THINKING
+1494114571078 == Aborting search: depth limit: 13
+1494114571078 <- bestmove e7e5 ponder d2d4
+1494114571087 -> stop
+1494114571087 !! Invalid command: stop
+1494114571297 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114571297 -> go depth 13
+1494114571297 == Depth is limited to 13 half moves
+1494114571297 == Search status is THINKING
+1494114571306 == Aborting search: depth limit: 13
+1494114571306 <- bestmove e7e5 ponder d2d4
+1494114571308 -> stop
+1494114571308 !! Invalid command: stop
+1494114571526 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114571526 -> go depth 13
+1494114571526 == Depth is limited to 13 half moves
+1494114571526 == Search status is THINKING
+1494114571536 == Aborting search: depth limit: 13
+1494114571536 <- bestmove e7e5 ponder d2d4
+1494114571537 -> stop
+1494114571537 !! Invalid command: stop
+1494114571758 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114571758 -> go depth 13
+1494114571758 == Depth is limited to 13 half moves
+1494114571758 == Search status is THINKING
+1494114571767 == Aborting search: depth limit: 13
+1494114571767 <- bestmove e7e5 ponder d2d4
+1494114571769 -> stop
+1494114571769 !! Invalid command: stop
+1494114571986 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114571986 -> go depth 13
+1494114571986 == Depth is limited to 13 half moves
+1494114571986 == Search status is THINKING
+1494114571997 == Aborting search: depth limit: 13
+1494114571997 <- bestmove e7e5 ponder d2d4
+1494114571998 -> stop
+1494114571998 !! Invalid command: stop
+1494114572216 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114572216 -> go depth 13
+1494114572216 == Depth is limited to 13 half moves
+1494114572216 == Search status is THINKING
+1494114572226 == Aborting search: depth limit: 13
+1494114572226 <- bestmove e7e5 ponder d2d4
+1494114572227 -> stop
+1494114572227 !! Invalid command: stop
+1494114572445 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114572445 -> go depth 13
+1494114572446 == Depth is limited to 13 half moves
+1494114572446 == Search status is THINKING
+1494114572456 == Aborting search: depth limit: 13
+1494114572456 <- bestmove e7e5 ponder d2d4
+1494114572461 -> stop
+1494114572461 !! Invalid command: stop
+1494114572676 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114572676 -> go depth 13
+1494114572677 == Depth is limited to 13 half moves
+1494114572677 == Search status is THINKING
+1494114572685 == Aborting search: depth limit: 13
+1494114572686 <- bestmove e7e5 ponder d2d4
+1494114572688 -> stop
+1494114572688 !! Invalid command: stop
+1494114572909 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114572909 -> go depth 13
+1494114572909 == Depth is limited to 13 half moves
+1494114572909 == Search status is THINKING
+1494114572918 == Aborting search: depth limit: 13
+1494114572918 <- bestmove e7e5 ponder d2d4
+1494114572921 -> stop
+1494114572921 !! Invalid command: stop
+1494114573137 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114573137 -> go depth 13
+1494114573137 == Depth is limited to 13 half moves
+1494114573137 == Search status is THINKING
+1494114573147 == Aborting search: depth limit: 13
+1494114573147 <- bestmove e7e5 ponder d2d4
+1494114573148 -> stop
+1494114573148 !! Invalid command: stop
+1494114573367 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114573367 -> go depth 13
+1494114573367 == Depth is limited to 13 half moves
+1494114573367 == Search status is THINKING
+1494114573377 == Aborting search: depth limit: 13
+1494114573377 <- bestmove e7e5 ponder d2d4
+1494114573378 -> stop
+1494114573378 !! Invalid command: stop
+1494114573599 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114573599 -> go depth 13
+1494114573599 == Depth is limited to 13 half moves
+1494114573599 == Search status is THINKING
+1494114573610 == Aborting search: depth limit: 13
+1494114573610 <- bestmove e7e5 ponder d2d4
+1494114573614 -> stop
+1494114573614 !! Invalid command: stop
+1494114573830 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114573830 -> go depth 13
+1494114573830 == Depth is limited to 13 half moves
+1494114573830 == Search status is THINKING
+1494114573840 == Aborting search: depth limit: 13
+1494114573840 <- bestmove e7e5 ponder d2d4
+1494114573842 -> stop
+1494114573842 !! Invalid command: stop
+1494114574055 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114574055 -> go depth 13
+1494114574055 == Depth is limited to 13 half moves
+1494114574055 == Search status is THINKING
+1494114574065 == Aborting search: depth limit: 13
+1494114574066 <- bestmove e7e5 ponder d2d4
+1494114574067 -> stop
+1494114574067 !! Invalid command: stop
+1494114574284 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114574284 -> go depth 13
+1494114574284 == Depth is limited to 13 half moves
+1494114574284 == Search status is THINKING
+1494114574294 == Aborting search: depth limit: 13
+1494114574294 <- bestmove e7e5 ponder d2d4
+1494114574295 -> stop
+1494114574295 !! Invalid command: stop
+1494114574514 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114574514 -> go depth 13
+1494114574514 == Depth is limited to 13 half moves
+1494114574514 == Search status is THINKING
+1494114574523 == Aborting search: depth limit: 13
+1494114574523 <- bestmove e7e5 ponder d2d4
+1494114574526 -> stop
+1494114574526 !! Invalid command: stop
+1494114574741 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114574741 -> go depth 13
+1494114574742 == Depth is limited to 13 half moves
+1494114574742 == Search status is THINKING
+1494114574752 == Aborting search: depth limit: 13
+1494114574752 <- bestmove e7e5 ponder d2d4
+1494114574761 -> stop
+1494114574761 !! Invalid command: stop
+1494114574971 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114574971 -> go depth 13
+1494114574971 == Depth is limited to 13 half moves
+1494114574971 == Search status is THINKING
+1494114574980 == Aborting search: depth limit: 13
+1494114574980 <- bestmove e7e5 ponder d2d4
+1494114574982 -> stop
+1494114574982 !! Invalid command: stop
+1494114575201 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114575201 -> go depth 13
+1494114575201 == Depth is limited to 13 half moves
+1494114575201 == Search status is THINKING
+1494114575210 == Aborting search: depth limit: 13
+1494114575210 <- bestmove e7e5 ponder d2d4
+1494114575212 -> stop
+1494114575212 !! Invalid command: stop
+1494114575430 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114575430 -> go depth 13
+1494114575430 == Depth is limited to 13 half moves
+1494114575430 == Search status is THINKING
+1494114575440 == Aborting search: depth limit: 13
+1494114575440 <- bestmove e7e5 ponder d2d4
+1494114575441 -> stop
+1494114575441 !! Invalid command: stop
+1494114575661 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114575661 -> go depth 13
+1494114575661 == Depth is limited to 13 half moves
+1494114575661 == Search status is THINKING
+1494114575670 == Aborting search: depth limit: 13
+1494114575670 <- bestmove e7e5 ponder d2d4
+1494114575672 -> stop
+1494114575672 !! Invalid command: stop
+1494114575888 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114575888 -> go depth 13
+1494114575888 == Depth is limited to 13 half moves
+1494114575888 == Search status is THINKING
+1494114575898 == Aborting search: depth limit: 13
+1494114575898 <- bestmove e7e5 ponder d2d4
+1494114575899 -> stop
+1494114575899 !! Invalid command: stop
+1494114576117 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114576117 -> go depth 13
+1494114576117 == Depth is limited to 13 half moves
+1494114576117 == Search status is THINKING
+1494114576126 == Aborting search: depth limit: 13
+1494114576126 <- bestmove e7e5 ponder d2d4
+1494114576128 -> stop
+1494114576128 !! Invalid command: stop
+1494114576342 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114576342 -> go depth 13
+1494114576342 == Depth is limited to 13 half moves
+1494114576342 == Search status is THINKING
+1494114576352 == Aborting search: depth limit: 13
+1494114576352 <- bestmove e7e5 ponder d2d4
+1494114576354 -> stop
+1494114576354 !! Invalid command: stop
+1494114576573 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114576573 -> go depth 13
+1494114576573 == Depth is limited to 13 half moves
+1494114576573 == Search status is THINKING
+1494114576582 == Aborting search: depth limit: 13
+1494114576582 <- bestmove e7e5 ponder d2d4
+1494114576591 -> stop
+1494114576591 !! Invalid command: stop
+1494114576808 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114576808 -> go depth 13
+1494114576808 == Depth is limited to 13 half moves
+1494114576808 == Search status is THINKING
+1494114576819 == Aborting search: depth limit: 13
+1494114576819 <- bestmove e7e5 ponder d2d4
+1494114576829 -> stop
+1494114576829 !! Invalid command: stop
+1494114577038 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114577038 -> go depth 13
+1494114577038 == Depth is limited to 13 half moves
+1494114577038 == Search status is THINKING
+1494114577048 == Aborting search: depth limit: 13
+1494114577048 <- bestmove e7e5 ponder d2d4
+1494114577049 -> stop
+1494114577049 !! Invalid command: stop
+1494114577267 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114577267 -> go depth 13
+1494114577267 == Depth is limited to 13 half moves
+1494114577267 == Search status is THINKING
+1494114577277 == Aborting search: depth limit: 13
+1494114577277 <- bestmove e7e5 ponder d2d4
+1494114577280 -> stop
+1494114577280 !! Invalid command: stop
+1494114577498 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114577498 -> go depth 13
+1494114577498 == Depth is limited to 13 half moves
+1494114577498 == Search status is THINKING
+1494114577507 == Aborting search: depth limit: 13
+1494114577507 <- bestmove e7e5 ponder d2d4
+1494114577509 -> stop
+1494114577509 !! Invalid command: stop
+1494114577724 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114577724 -> go depth 13
+1494114577724 == Depth is limited to 13 half moves
+1494114577724 == Search status is THINKING
+1494114577735 == Aborting search: depth limit: 13
+1494114577735 <- bestmove e7e5 ponder d2d4
+1494114577746 -> stop
+1494114577746 !! Invalid command: stop
+1494114577954 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114577954 -> go depth 13
+1494114577954 == Depth is limited to 13 half moves
+1494114577954 == Search status is THINKING
+1494114577966 == Aborting search: depth limit: 13
+1494114577966 <- bestmove e7e5 ponder d2d4
+1494114578010 -> stop
+1494114578010 !! Invalid command: stop
+1494114578187 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114578187 -> go depth 13
+1494114578187 == Depth is limited to 13 half moves
+1494114578187 == Search status is THINKING
+1494114578197 == Aborting search: depth limit: 13
+1494114578197 <- bestmove e7e5 ponder d2d4
+1494114578199 -> stop
+1494114578199 !! Invalid command: stop
+1494114578417 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114578417 -> go depth 13
+1494114578417 == Depth is limited to 13 half moves
+1494114578417 == Search status is THINKING
+1494114578426 == Aborting search: depth limit: 13
+1494114578426 <- bestmove e7e5 ponder d2d4
+1494114578428 -> stop
+1494114578428 !! Invalid command: stop
+1494114578647 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114578647 -> go depth 13
+1494114578647 == Depth is limited to 13 half moves
+1494114578647 == Search status is THINKING
+1494114578657 == Aborting search: depth limit: 13
+1494114578657 <- bestmove e7e5 ponder d2d4
+1494114578660 -> stop
+1494114578660 !! Invalid command: stop
+1494114578875 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114578876 -> go depth 13
+1494114578876 == Depth is limited to 13 half moves
+1494114578876 == Search status is THINKING
+1494114578887 == Aborting search: depth limit: 13
+1494114578887 <- bestmove e7e5 ponder d2d4
+1494114578896 -> stop
+1494114578896 !! Invalid command: stop
+1494114579106 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114579106 -> go depth 13
+1494114579106 == Depth is limited to 13 half moves
+1494114579106 == Search status is THINKING
+1494114579115 == Aborting search: depth limit: 13
+1494114579115 <- bestmove e7e5 ponder d2d4
+1494114579117 -> stop
+1494114579117 !! Invalid command: stop
+1494114579332 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114579332 -> go depth 13
+1494114579332 == Depth is limited to 13 half moves
+1494114579332 == Search status is THINKING
+1494114579342 == Aborting search: depth limit: 13
+1494114579342 <- bestmove e7e5 ponder d2d4
+1494114579343 -> stop
+1494114579343 !! Invalid command: stop
+1494114579561 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114579561 -> go depth 13
+1494114579561 == Depth is limited to 13 half moves
+1494114579561 == Search status is THINKING
+1494114579571 == Aborting search: depth limit: 13
+1494114579571 <- bestmove e7e5 ponder d2d4
+1494114579572 -> stop
+1494114579572 !! Invalid command: stop
+1494114579790 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114579790 -> go depth 13
+1494114579790 == Depth is limited to 13 half moves
+1494114579790 == Search status is THINKING
+1494114579801 == Aborting search: depth limit: 13
+1494114579801 <- bestmove e7e5 ponder d2d4
+1494114579803 -> stop
+1494114579803 !! Invalid command: stop
+1494114580020 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114580020 -> go depth 13
+1494114580020 == Depth is limited to 13 half moves
+1494114580020 == Search status is THINKING
+1494114580031 == Aborting search: depth limit: 13
+1494114580031 <- bestmove e7e5 ponder d2d4
+1494114580032 -> stop
+1494114580032 !! Invalid command: stop
+1494114580251 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114580251 -> go depth 13
+1494114580251 == Depth is limited to 13 half moves
+1494114580251 == Search status is THINKING
+1494114580261 == Aborting search: depth limit: 13
+1494114580261 <- bestmove e7e5 ponder d2d4
+1494114580263 -> stop
+1494114580263 !! Invalid command: stop
+1494114580484 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114580485 -> go depth 13
+1494114580485 == Depth is limited to 13 half moves
+1494114580485 == Search status is THINKING
+1494114580494 == Aborting search: depth limit: 13
+1494114580494 <- bestmove e7e5 ponder d2d4
+1494114580496 -> stop
+1494114580496 !! Invalid command: stop
+1494114580712 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114580712 -> go depth 13
+1494114580712 == Depth is limited to 13 half moves
+1494114580712 == Search status is THINKING
+1494114580722 == Aborting search: depth limit: 13
+1494114580722 <- bestmove e7e5 ponder d2d4
+1494114580723 -> stop
+1494114580723 !! Invalid command: stop
+1494114580940 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114580940 -> go depth 13
+1494114580940 == Depth is limited to 13 half moves
+1494114580940 == Search status is THINKING
+1494114580949 == Aborting search: depth limit: 13
+1494114580949 <- bestmove e7e5 ponder d2d4
+1494114580953 -> stop
+1494114580953 !! Invalid command: stop
+1494114581169 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114581169 -> go depth 13
+1494114581169 == Depth is limited to 13 half moves
+1494114581169 == Search status is THINKING
+1494114581179 == Aborting search: depth limit: 13
+1494114581179 <- bestmove e7e5 ponder d2d4
+1494114581180 -> stop
+1494114581180 !! Invalid command: stop
+1494114581399 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114581399 -> go depth 13
+1494114581399 == Depth is limited to 13 half moves
+1494114581399 == Search status is THINKING
+1494114581409 == Aborting search: depth limit: 13
+1494114581409 <- bestmove e7e5 ponder d2d4
+1494114581412 -> stop
+1494114581412 !! Invalid command: stop
+1494114581626 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114581626 -> go depth 13
+1494114581626 == Depth is limited to 13 half moves
+1494114581626 == Search status is THINKING
+1494114581636 == Aborting search: depth limit: 13
+1494114581636 <- bestmove e7e5 ponder d2d4
+1494114581641 -> stop
+1494114581641 !! Invalid command: stop
+1494114581854 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114581854 -> go depth 13
+1494114581854 == Depth is limited to 13 half moves
+1494114581854 == Search status is THINKING
+1494114581864 == Aborting search: depth limit: 13
+1494114581864 <- bestmove e7e5 ponder d2d4
+1494114581865 -> stop
+1494114581865 !! Invalid command: stop
+1494114582084 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114582084 -> go depth 13
+1494114582084 == Depth is limited to 13 half moves
+1494114582084 == Search status is THINKING
+1494114582093 == Aborting search: depth limit: 13
+1494114582093 <- bestmove e7e5 ponder d2d4
+1494114582095 -> stop
+1494114582095 !! Invalid command: stop
+1494114582312 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114582312 -> go depth 13
+1494114582312 == Depth is limited to 13 half moves
+1494114582312 == Search status is THINKING
+1494114582322 == Aborting search: depth limit: 13
+1494114582322 <- bestmove e7e5 ponder d2d4
+1494114582324 -> stop
+1494114582324 !! Invalid command: stop
+1494114582541 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114582541 -> go depth 13
+1494114582541 == Depth is limited to 13 half moves
+1494114582541 == Search status is THINKING
+1494114582551 == Aborting search: depth limit: 13
+1494114582551 <- bestmove e7e5 ponder d2d4
+1494114582553 -> stop
+1494114582553 !! Invalid command: stop
+1494114582771 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114582771 -> go depth 13
+1494114582771 == Depth is limited to 13 half moves
+1494114582771 == Search status is THINKING
+1494114582779 == Aborting search: depth limit: 13
+1494114582779 <- bestmove e7e5 ponder d2d4
+1494114582782 -> stop
+1494114582782 !! Invalid command: stop
+1494114582997 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114582997 -> go depth 13
+1494114582997 == Depth is limited to 13 half moves
+1494114582997 == Search status is THINKING
+1494114583007 == Aborting search: depth limit: 13
+1494114583007 <- bestmove e7e5 ponder d2d4
+1494114583009 -> stop
+1494114583009 !! Invalid command: stop
+1494114583225 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114583225 -> go depth 13
+1494114583225 == Depth is limited to 13 half moves
+1494114583225 == Search status is THINKING
+1494114583235 == Aborting search: depth limit: 13
+1494114583235 <- bestmove e7e5 ponder d2d4
+1494114583237 -> stop
+1494114583237 !! Invalid command: stop
+1494114583452 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114583452 -> go depth 13
+1494114583452 == Depth is limited to 13 half moves
+1494114583452 == Search status is THINKING
+1494114583463 == Aborting search: depth limit: 13
+1494114583463 <- bestmove e7e5 ponder d2d4
+1494114583467 -> stop
+1494114583467 !! Invalid command: stop
+1494114583680 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114583680 -> go depth 13
+1494114583680 == Depth is limited to 13 half moves
+1494114583680 == Search status is THINKING
+1494114583689 == Aborting search: depth limit: 13
+1494114583689 <- bestmove e7e5 ponder d2d4
+1494114583692 -> stop
+1494114583692 !! Invalid command: stop
+1494114583907 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114583907 -> go depth 13
+1494114583907 == Depth is limited to 13 half moves
+1494114583907 == Search status is THINKING
+1494114583916 == Aborting search: depth limit: 13
+1494114583916 <- bestmove e7e5 ponder d2d4
+1494114583930 -> stop
+1494114583930 !! Invalid command: stop
+1494114584141 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114584141 -> go depth 13
+1494114584141 == Depth is limited to 13 half moves
+1494114584141 == Search status is THINKING
+1494114584149 == Aborting search: depth limit: 13
+1494114584149 <- bestmove e7e5 ponder d2d4
+1494114584152 -> stop
+1494114584152 !! Invalid command: stop
+1494114584367 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114584367 -> go depth 13
+1494114584367 == Depth is limited to 13 half moves
+1494114584367 == Search status is THINKING
+1494114584376 == Aborting search: depth limit: 13
+1494114584376 <- bestmove e7e5 ponder d2d4
+1494114584378 -> stop
+1494114584378 !! Invalid command: stop
+1494114584595 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114584595 -> go depth 13
+1494114584595 == Depth is limited to 13 half moves
+1494114584595 == Search status is THINKING
+1494114584604 == Aborting search: depth limit: 13
+1494114584604 <- bestmove e7e5 ponder d2d4
+1494114584607 -> stop
+1494114584607 !! Invalid command: stop
+1494114584826 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114584826 -> go depth 13
+1494114584826 == Depth is limited to 13 half moves
+1494114584826 == Search status is THINKING
+1494114584835 == Aborting search: depth limit: 13
+1494114584835 <- bestmove e7e5 ponder d2d4
+1494114584837 -> stop
+1494114584837 !! Invalid command: stop
+1494114585056 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114585056 -> go depth 13
+1494114585056 == Depth is limited to 13 half moves
+1494114585056 == Search status is THINKING
+1494114585066 == Aborting search: depth limit: 13
+1494114585066 <- bestmove e7e5 ponder d2d4
+1494114585072 -> stop
+1494114585072 !! Invalid command: stop
+1494114585285 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114585285 -> go depth 13
+1494114585285 == Depth is limited to 13 half moves
+1494114585285 == Search status is THINKING
+1494114585295 == Aborting search: depth limit: 13
+1494114585295 <- bestmove e7e5 ponder d2d4
+1494114585296 -> stop
+1494114585296 !! Invalid command: stop
+1494114585512 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114585512 -> go depth 13
+1494114585512 == Depth is limited to 13 half moves
+1494114585512 == Search status is THINKING
+1494114585521 == Aborting search: depth limit: 13
+1494114585522 <- bestmove e7e5 ponder d2d4
+1494114585523 -> stop
+1494114585523 !! Invalid command: stop
+1494114585741 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114585741 -> go depth 13
+1494114585741 == Depth is limited to 13 half moves
+1494114585741 == Search status is THINKING
+1494114585750 == Aborting search: depth limit: 13
+1494114585750 <- bestmove e7e5 ponder d2d4
+1494114585752 -> stop
+1494114585752 !! Invalid command: stop
+1494114585969 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114585969 -> go depth 13
+1494114585969 == Depth is limited to 13 half moves
+1494114585969 == Search status is THINKING
+1494114585979 == Aborting search: depth limit: 13
+1494114585979 <- bestmove e7e5 ponder d2d4
+1494114585990 -> stop
+1494114585990 !! Invalid command: stop
+1494114586197 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114586197 -> go depth 13
+1494114586197 == Depth is limited to 13 half moves
+1494114586197 == Search status is THINKING
+1494114586205 == Aborting search: depth limit: 13
+1494114586205 <- bestmove e7e5 ponder d2d4
+1494114586208 -> stop
+1494114586208 !! Invalid command: stop
+1494114586425 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114586425 -> go depth 13
+1494114586425 == Depth is limited to 13 half moves
+1494114586425 == Search status is THINKING
+1494114586434 == Aborting search: depth limit: 13
+1494114586434 <- bestmove e7e5 ponder d2d4
+1494114586436 -> stop
+1494114586436 !! Invalid command: stop
+1494114586653 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114586653 -> go depth 13
+1494114586653 == Depth is limited to 13 half moves
+1494114586653 == Search status is THINKING
+1494114586663 == Aborting search: depth limit: 13
+1494114586663 <- bestmove e7e5 ponder d2d4
+1494114586664 -> stop
+1494114586664 !! Invalid command: stop
+1494114586881 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114586881 -> go depth 13
+1494114586881 == Depth is limited to 13 half moves
+1494114586881 == Search status is THINKING
+1494114586890 == Aborting search: depth limit: 13
+1494114586890 <- bestmove e7e5 ponder d2d4
+1494114586892 -> stop
+1494114586892 !! Invalid command: stop
+1494114587111 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114587111 -> go depth 13
+1494114587111 == Depth is limited to 13 half moves
+1494114587111 == Search status is THINKING
+1494114587120 == Aborting search: depth limit: 13
+1494114587120 <- bestmove e7e5 ponder d2d4
+1494114587122 -> stop
+1494114587122 !! Invalid command: stop
+1494114587339 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114587339 -> go depth 13
+1494114587339 == Depth is limited to 13 half moves
+1494114587339 == Search status is THINKING
+1494114587349 == Aborting search: depth limit: 13
+1494114587349 <- bestmove e7e5 ponder d2d4
+1494114587350 -> stop
+1494114587350 !! Invalid command: stop
+1494114587571 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114587571 -> go depth 13
+1494114587571 == Depth is limited to 13 half moves
+1494114587571 == Search status is THINKING
+1494114587581 == Aborting search: depth limit: 13
+1494114587581 <- bestmove e7e5 ponder d2d4
+1494114587582 -> stop
+1494114587583 !! Invalid command: stop
+1494114587798 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114587798 -> go depth 13
+1494114587798 == Depth is limited to 13 half moves
+1494114587798 == Search status is THINKING
+1494114587809 == Aborting search: depth limit: 13
+1494114587809 <- bestmove e7e5 ponder d2d4
+1494114587810 -> stop
+1494114587810 !! Invalid command: stop
+1494114588029 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114588029 -> go depth 13
+1494114588029 == Depth is limited to 13 half moves
+1494114588029 == Search status is THINKING
+1494114588038 == Aborting search: depth limit: 13
+1494114588038 <- bestmove e7e5 ponder d2d4
+1494114588040 -> stop
+1494114588040 !! Invalid command: stop
+1494114588258 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114588258 -> go depth 13
+1494114588258 == Depth is limited to 13 half moves
+1494114588258 == Search status is THINKING
+1494114588268 == Aborting search: depth limit: 13
+1494114588268 <- bestmove e7e5 ponder d2d4
+1494114588271 -> stop
+1494114588271 !! Invalid command: stop
+1494114588487 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114588487 -> go depth 13
+1494114588487 == Depth is limited to 13 half moves
+1494114588487 == Search status is THINKING
+1494114588497 == Aborting search: depth limit: 13
+1494114588497 <- bestmove e7e5 ponder d2d4
+1494114588504 -> stop
+1494114588504 !! Invalid command: stop
+1494114588716 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114588716 -> go depth 13
+1494114588716 == Depth is limited to 13 half moves
+1494114588716 == Search status is THINKING
+1494114588728 == Aborting search: depth limit: 13
+1494114588728 <- bestmove e7e5 ponder d2d4
+1494114588738 -> stop
+1494114588738 !! Invalid command: stop
+1494114588946 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114588946 -> go depth 13
+1494114588946 == Depth is limited to 13 half moves
+1494114588946 == Search status is THINKING
+1494114588956 == Aborting search: depth limit: 13
+1494114588956 <- bestmove e7e5 ponder d2d4
+1494114588959 -> stop
+1494114588959 !! Invalid command: stop
+1494114589171 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114589171 -> go depth 13
+1494114589171 == Depth is limited to 13 half moves
+1494114589171 == Search status is THINKING
+1494114589182 == Aborting search: depth limit: 13
+1494114589182 <- bestmove e7e5 ponder d2d4
+1494114589192 -> stop
+1494114589192 !! Invalid command: stop
+1494114589401 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114589401 -> go depth 13
+1494114589401 == Depth is limited to 13 half moves
+1494114589402 == Search status is THINKING
+1494114589410 == Aborting search: depth limit: 13
+1494114589410 <- bestmove e7e5 ponder d2d4
+1494114589413 -> stop
+1494114589413 !! Invalid command: stop
+1494114589629 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114589629 -> go depth 13
+1494114589629 == Depth is limited to 13 half moves
+1494114589629 == Search status is THINKING
+1494114589639 == Aborting search: depth limit: 13
+1494114589639 <- bestmove e7e5 ponder d2d4
+1494114589641 -> stop
+1494114589641 !! Invalid command: stop
+1494114589855 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114589855 -> go depth 13
+1494114589855 == Depth is limited to 13 half moves
+1494114589855 == Search status is THINKING
+1494114589866 == Aborting search: depth limit: 13
+1494114589866 <- bestmove e7e5 ponder d2d4
+1494114589867 -> stop
+1494114589867 !! Invalid command: stop
+1494114590084 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114590084 -> go depth 13
+1494114590084 == Depth is limited to 13 half moves
+1494114590084 == Search status is THINKING
+1494114590095 == Aborting search: depth limit: 13
+1494114590095 <- bestmove e7e5 ponder d2d4
+1494114590097 -> stop
+1494114590097 !! Invalid command: stop
+1494114590312 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114590312 -> go depth 13
+1494114590313 == Depth is limited to 13 half moves
+1494114590313 == Search status is THINKING
+1494114590322 == Aborting search: depth limit: 13
+1494114590322 <- bestmove e7e5 ponder d2d4
+1494114590324 -> stop
+1494114590324 !! Invalid command: stop
+1494114590540 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114590540 -> go depth 13
+1494114590540 == Depth is limited to 13 half moves
+1494114590540 == Search status is THINKING
+1494114590550 == Aborting search: depth limit: 13
+1494114590550 <- bestmove e7e5 ponder d2d4
+1494114590552 -> stop
+1494114590552 !! Invalid command: stop
+1494114590769 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114590770 -> go depth 13
+1494114590770 == Depth is limited to 13 half moves
+1494114590770 == Search status is THINKING
+1494114590779 == Aborting search: depth limit: 13
+1494114590779 <- bestmove e7e5 ponder d2d4
+1494114590781 -> stop
+1494114590781 !! Invalid command: stop
+1494114590999 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114590999 -> go depth 13
+1494114590999 == Depth is limited to 13 half moves
+1494114590999 == Search status is THINKING
+1494114591007 == Aborting search: depth limit: 13
+1494114591007 <- bestmove e7e5 ponder d2d4
+1494114591014 -> stop
+1494114591014 !! Invalid command: stop
+1494114591229 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114591229 -> go depth 13
+1494114591229 == Depth is limited to 13 half moves
+1494114591229 == Search status is THINKING
+1494114591239 == Aborting search: depth limit: 13
+1494114591239 <- bestmove e7e5 ponder d2d4
+1494114591241 -> stop
+1494114591241 !! Invalid command: stop
+1494114591454 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114591454 -> go depth 13
+1494114591454 == Depth is limited to 13 half moves
+1494114591454 == Search status is THINKING
+1494114591463 == Aborting search: depth limit: 13
+1494114591463 <- bestmove e7e5 ponder d2d4
+1494114591465 -> stop
+1494114591465 !! Invalid command: stop
+1494114591683 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114591683 -> go depth 13
+1494114591683 == Depth is limited to 13 half moves
+1494114591683 == Search status is THINKING
+1494114591692 == Aborting search: depth limit: 13
+1494114591692 <- bestmove e7e5 ponder d2d4
+1494114591694 -> stop
+1494114591694 !! Invalid command: stop
+1494114591910 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114591910 -> go depth 13
+1494114591910 == Depth is limited to 13 half moves
+1494114591910 == Search status is THINKING
+1494114591920 == Aborting search: depth limit: 13
+1494114591920 <- bestmove e7e5 ponder d2d4
+1494114591921 -> stop
+1494114591921 !! Invalid command: stop
+1494114592141 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114592141 -> go depth 13
+1494114592141 == Depth is limited to 13 half moves
+1494114592141 == Search status is THINKING
+1494114592154 == Aborting search: depth limit: 13
+1494114592154 <- bestmove e7e5 ponder d2d4
+1494114592160 -> stop
+1494114592160 !! Invalid command: stop
+1494114592372 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114592373 -> go depth 13
+1494114592373 == Depth is limited to 13 half moves
+1494114592373 == Search status is THINKING
+1494114592382 == Aborting search: depth limit: 13
+1494114592382 <- bestmove e7e5 ponder d2d4
+1494114592384 -> stop
+1494114592384 !! Invalid command: stop
+1494114592601 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114592602 -> go depth 13
+1494114592602 == Depth is limited to 13 half moves
+1494114592602 == Search status is THINKING
+1494114592610 == Aborting search: depth limit: 13
+1494114592611 <- bestmove e7e5 ponder d2d4
+1494114592613 -> stop
+1494114592613 !! Invalid command: stop
+1494114592828 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114592828 -> go depth 13
+1494114592828 == Depth is limited to 13 half moves
+1494114592828 == Search status is THINKING
+1494114592838 == Aborting search: depth limit: 13
+1494114592838 <- bestmove e7e5 ponder d2d4
+1494114592839 -> stop
+1494114592839 !! Invalid command: stop
+1494114593056 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114593056 -> go depth 13
+1494114593056 == Depth is limited to 13 half moves
+1494114593056 == Search status is THINKING
+1494114593065 == Aborting search: depth limit: 13
+1494114593065 <- bestmove e7e5 ponder d2d4
+1494114593067 -> stop
+1494114593067 !! Invalid command: stop
+1494114593284 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114593284 -> go depth 13
+1494114593284 == Depth is limited to 13 half moves
+1494114593284 == Search status is THINKING
+1494114593294 == Aborting search: depth limit: 13
+1494114593294 <- bestmove e7e5 ponder d2d4
+1494114593295 -> stop
+1494114593295 !! Invalid command: stop
+1494114593514 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114593514 -> go depth 13
+1494114593514 == Depth is limited to 13 half moves
+1494114593514 == Search status is THINKING
+1494114593525 == Aborting search: depth limit: 13
+1494114593525 <- bestmove e7e5 ponder d2d4
+1494114593526 -> stop
+1494114593526 !! Invalid command: stop
+1494114593747 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114593747 -> go depth 13
+1494114593747 == Depth is limited to 13 half moves
+1494114593747 == Search status is THINKING
+1494114593757 == Aborting search: depth limit: 13
+1494114593757 <- bestmove e7e5 ponder d2d4
+1494114593762 -> stop
+1494114593762 !! Invalid command: stop
+1494114593975 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114593975 -> go depth 13
+1494114593975 == Depth is limited to 13 half moves
+1494114593975 == Search status is THINKING
+1494114593987 == Aborting search: depth limit: 13
+1494114593987 <- bestmove e7e5 ponder d2d4
+1494114594000 -> stop
+1494114594000 !! Invalid command: stop
+1494114594206 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114594206 -> go depth 13
+1494114594206 == Depth is limited to 13 half moves
+1494114594206 == Search status is THINKING
+1494114594215 == Aborting search: depth limit: 13
+1494114594215 <- bestmove e7e5 ponder d2d4
+1494114594217 -> stop
+1494114594217 !! Invalid command: stop
+1494114594433 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114594433 -> go depth 13
+1494114594433 == Depth is limited to 13 half moves
+1494114594433 == Search status is THINKING
+1494114594442 == Aborting search: depth limit: 13
+1494114594442 <- bestmove e7e5 ponder d2d4
+1494114594444 -> stop
+1494114594444 !! Invalid command: stop
+1494114594663 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114594663 -> go depth 13
+1494114594663 == Depth is limited to 13 half moves
+1494114594663 == Search status is THINKING
+1494114594672 == Aborting search: depth limit: 13
+1494114594672 <- bestmove e7e5 ponder d2d4
+1494114594674 -> stop
+1494114594674 !! Invalid command: stop
+1494114594891 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114594891 -> go depth 13
+1494114594891 == Depth is limited to 13 half moves
+1494114594891 == Search status is THINKING
+1494114594901 == Aborting search: depth limit: 13
+1494114594901 <- bestmove e7e5 ponder d2d4
+1494114594903 -> stop
+1494114594903 !! Invalid command: stop
+1494114595120 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114595120 -> go depth 13
+1494114595120 == Depth is limited to 13 half moves
+1494114595120 == Search status is THINKING
+1494114595130 == Aborting search: depth limit: 13
+1494114595130 <- bestmove e7e5 ponder d2d4
+1494114595132 -> stop
+1494114595132 !! Invalid command: stop
+1494114595348 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114595348 -> go depth 13
+1494114595348 == Depth is limited to 13 half moves
+1494114595348 == Search status is THINKING
+1494114595357 == Aborting search: depth limit: 13
+1494114595357 <- bestmove e7e5 ponder d2d4
+1494114595359 -> stop
+1494114595359 !! Invalid command: stop
+1494114595575 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114595575 -> go depth 13
+1494114595575 == Depth is limited to 13 half moves
+1494114595575 == Search status is THINKING
+1494114595586 == Aborting search: depth limit: 13
+1494114595586 <- bestmove e7e5 ponder d2d4
+1494114595587 -> stop
+1494114595587 !! Invalid command: stop
+1494114595806 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114595806 -> go depth 13
+1494114595806 == Depth is limited to 13 half moves
+1494114595806 == Search status is THINKING
+1494114595816 == Aborting search: depth limit: 13
+1494114595816 <- bestmove e7e5 ponder d2d4
+1494114595840 -> stop
+1494114595840 !! Invalid command: stop
+1494114596036 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114596036 -> go depth 13
+1494114596036 == Depth is limited to 13 half moves
+1494114596036 == Search status is THINKING
+1494114596045 == Aborting search: depth limit: 13
+1494114596045 <- bestmove e7e5 ponder d2d4
+1494114596048 -> stop
+1494114596048 !! Invalid command: stop
+1494114596262 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114596262 -> go depth 13
+1494114596262 == Depth is limited to 13 half moves
+1494114596262 == Search status is THINKING
+1494114596272 == Aborting search: depth limit: 13
+1494114596272 <- bestmove e7e5 ponder d2d4
+1494114596274 -> stop
+1494114596274 !! Invalid command: stop
+1494114596491 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114596491 -> go depth 13
+1494114596491 == Depth is limited to 13 half moves
+1494114596491 == Search status is THINKING
+1494114596500 == Aborting search: depth limit: 13
+1494114596500 <- bestmove e7e5 ponder d2d4
+1494114596502 -> stop
+1494114596502 !! Invalid command: stop
+1494114596720 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114596720 -> go depth 13
+1494114596720 == Depth is limited to 13 half moves
+1494114596720 == Search status is THINKING
+1494114596729 == Aborting search: depth limit: 13
+1494114596729 <- bestmove e7e5 ponder d2d4
+1494114596731 -> stop
+1494114596731 !! Invalid command: stop
+1494114596949 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114596949 -> go depth 13
+1494114596949 == Depth is limited to 13 half moves
+1494114596949 == Search status is THINKING
+1494114596960 == Aborting search: depth limit: 13
+1494114596960 <- bestmove e7e5 ponder d2d4
+1494114596960 -> stop
+1494114596960 !! Invalid command: stop
+1494114597177 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114597178 -> go depth 13
+1494114597178 == Depth is limited to 13 half moves
+1494114597178 == Search status is THINKING
+1494114597187 == Aborting search: depth limit: 13
+1494114597187 <- bestmove e7e5 ponder d2d4
+1494114597188 -> stop
+1494114597188 !! Invalid command: stop
+1494114597407 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114597407 -> go depth 13
+1494114597407 == Depth is limited to 13 half moves
+1494114597407 == Search status is THINKING
+1494114597416 == Aborting search: depth limit: 13
+1494114597416 <- bestmove e7e5 ponder d2d4
+1494114597418 -> stop
+1494114597418 !! Invalid command: stop
+1494114597635 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114597636 -> go depth 13
+1494114597636 == Depth is limited to 13 half moves
+1494114597636 == Search status is THINKING
+1494114597645 == Aborting search: depth limit: 13
+1494114597645 <- bestmove e7e5 ponder d2d4
+1494114597649 -> stop
+1494114597649 !! Invalid command: stop
+1494114597864 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114597864 -> go depth 13
+1494114597864 == Depth is limited to 13 half moves
+1494114597864 == Search status is THINKING
+1494114597874 == Aborting search: depth limit: 13
+1494114597874 <- bestmove e7e5 ponder d2d4
+1494114597875 -> stop
+1494114597875 !! Invalid command: stop
+1494114598096 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114598096 -> go depth 13
+1494114598096 == Depth is limited to 13 half moves
+1494114598096 == Search status is THINKING
+1494114598106 == Aborting search: depth limit: 13
+1494114598106 <- bestmove e7e5 ponder d2d4
+1494114598107 -> stop
+1494114598107 !! Invalid command: stop
+1494114598322 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114598322 -> go depth 13
+1494114598322 == Depth is limited to 13 half moves
+1494114598322 == Search status is THINKING
+1494114598331 == Aborting search: depth limit: 13
+1494114598331 <- bestmove e7e5 ponder d2d4
+1494114598333 -> stop
+1494114598333 !! Invalid command: stop
+1494114598549 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114598549 -> go depth 13
+1494114598549 == Depth is limited to 13 half moves
+1494114598549 == Search status is THINKING
+1494114598558 == Aborting search: depth limit: 13
+1494114598558 <- bestmove e7e5 ponder d2d4
+1494114598560 -> stop
+1494114598560 !! Invalid command: stop
+1494114598776 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114598776 -> go depth 13
+1494114598776 == Depth is limited to 13 half moves
+1494114598776 == Search status is THINKING
+1494114598785 == Aborting search: depth limit: 13
+1494114598785 <- bestmove e7e5 ponder d2d4
+1494114598787 -> stop
+1494114598787 !! Invalid command: stop
+1494114599003 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114599003 -> go depth 13
+1494114599003 == Depth is limited to 13 half moves
+1494114599003 == Search status is THINKING
+1494114599012 == Aborting search: depth limit: 13
+1494114599012 <- bestmove e7e5 ponder d2d4
+1494114599017 -> stop
+1494114599017 !! Invalid command: stop
+1494114599230 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114599230 -> go depth 13
+1494114599230 == Depth is limited to 13 half moves
+1494114599230 == Search status is THINKING
+1494114599239 == Aborting search: depth limit: 13
+1494114599239 <- bestmove e7e5 ponder d2d4
+1494114599241 -> stop
+1494114599241 !! Invalid command: stop
+1494114599459 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114599459 -> go depth 13
+1494114599459 == Depth is limited to 13 half moves
+1494114599459 == Search status is THINKING
+1494114599468 == Aborting search: depth limit: 13
+1494114599468 <- bestmove e7e5 ponder d2d4
+1494114599470 -> stop
+1494114599470 !! Invalid command: stop
+1494114599686 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114599686 -> go depth 13
+1494114599686 == Depth is limited to 13 half moves
+1494114599686 == Search status is THINKING
+1494114599697 == Aborting search: depth limit: 13
+1494114599697 <- bestmove e7e5 ponder d2d4
+1494114599703 -> stop
+1494114599703 !! Invalid command: stop
+1494114599913 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114599913 -> go depth 13
+1494114599913 == Depth is limited to 13 half moves
+1494114599913 == Search status is THINKING
+1494114599921 == Aborting search: depth limit: 13
+1494114599921 <- bestmove e7e5 ponder d2d4
+1494114599924 -> stop
+1494114599924 !! Invalid command: stop
+1494114600140 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114600140 -> go depth 13
+1494114600140 == Depth is limited to 13 half moves
+1494114600140 == Search status is THINKING
+1494114600150 == Aborting search: depth limit: 13
+1494114600150 <- bestmove e7e5 ponder d2d4
+1494114600156 -> stop
+1494114600156 !! Invalid command: stop
+1494114600368 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114600368 -> go depth 13
+1494114600368 == Depth is limited to 13 half moves
+1494114600368 == Search status is THINKING
+1494114600378 == Aborting search: depth limit: 13
+1494114600378 <- bestmove e7e5 ponder d2d4
+1494114600379 -> stop
+1494114600379 !! Invalid command: stop
+1494114600594 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114600594 -> go depth 13
+1494114600594 == Depth is limited to 13 half moves
+1494114600594 == Search status is THINKING
+1494114600602 == Aborting search: depth limit: 13
+1494114600603 <- bestmove e7e5 ponder d2d4
+1494114600605 -> stop
+1494114600605 !! Invalid command: stop
+1494114600818 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114600818 -> go depth 13
+1494114600818 == Depth is limited to 13 half moves
+1494114600818 == Search status is THINKING
+1494114600828 == Aborting search: depth limit: 13
+1494114600828 <- bestmove e7e5 ponder d2d4
+1494114600829 -> stop
+1494114600829 !! Invalid command: stop
+1494114601047 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114601047 -> go depth 13
+1494114601047 == Depth is limited to 13 half moves
+1494114601047 == Search status is THINKING
+1494114601057 == Aborting search: depth limit: 13
+1494114601057 <- bestmove e7e5 ponder d2d4
+1494114601059 -> stop
+1494114601059 !! Invalid command: stop
+1494114601278 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114601278 -> go depth 13
+1494114601278 == Depth is limited to 13 half moves
+1494114601278 == Search status is THINKING
+1494114601287 == Aborting search: depth limit: 13
+1494114601287 <- bestmove e7e5 ponder d2d4
+1494114601289 -> stop
+1494114601289 !! Invalid command: stop
+1494114601510 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114601510 -> go depth 13
+1494114601510 == Depth is limited to 13 half moves
+1494114601510 == Search status is THINKING
+1494114601519 == Aborting search: depth limit: 13
+1494114601519 <- bestmove e7e5 ponder d2d4
+1494114601521 -> stop
+1494114601521 !! Invalid command: stop
+1494114601739 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114601739 -> go depth 13
+1494114601739 == Depth is limited to 13 half moves
+1494114601739 == Search status is THINKING
+1494114601749 == Aborting search: depth limit: 13
+1494114601749 <- bestmove e7e5 ponder d2d4
+1494114601750 -> stop
+1494114601750 !! Invalid command: stop
+1494114601968 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114601968 -> go depth 13
+1494114601968 == Depth is limited to 13 half moves
+1494114601968 == Search status is THINKING
+1494114601979 == Aborting search: depth limit: 13
+1494114601979 <- bestmove e7e5 ponder d2d4
+1494114601990 -> stop
+1494114601990 !! Invalid command: stop
+1494114602216 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114602216 -> go depth 13
+1494114602216 == Depth is limited to 13 half moves
+1494114602216 == Search status is THINKING
+1494114602227 == Aborting search: depth limit: 13
+1494114602227 <- bestmove e7e5 ponder d2d4
+1494114602237 -> stop
+1494114602237 !! Invalid command: stop
+1494114602446 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114602446 -> go depth 13
+1494114602446 == Depth is limited to 13 half moves
+1494114602446 == Search status is THINKING
+1494114602455 == Aborting search: depth limit: 13
+1494114602455 <- bestmove e7e5 ponder d2d4
+1494114602457 -> stop
+1494114602457 !! Invalid command: stop
+1494114602671 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114602671 -> go depth 13
+1494114602671 == Depth is limited to 13 half moves
+1494114602671 == Search status is THINKING
+1494114602681 == Aborting search: depth limit: 13
+1494114602681 <- bestmove e7e5 ponder d2d4
+1494114602682 -> stop
+1494114602682 !! Invalid command: stop
+1494114602900 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114602900 -> go depth 13
+1494114602900 == Depth is limited to 13 half moves
+1494114602900 == Search status is THINKING
+1494114602910 == Aborting search: depth limit: 13
+1494114602910 <- bestmove e7e5 ponder d2d4
+1494114602912 -> stop
+1494114602912 !! Invalid command: stop
+1494114603129 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114603129 -> go depth 13
+1494114603129 == Depth is limited to 13 half moves
+1494114603129 == Search status is THINKING
+1494114603140 == Aborting search: depth limit: 13
+1494114603140 <- bestmove e7e5 ponder d2d4
+1494114603144 -> stop
+1494114603144 !! Invalid command: stop
+1494114603360 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114603360 -> go depth 13
+1494114603360 == Depth is limited to 13 half moves
+1494114603360 == Search status is THINKING
+1494114603369 == Aborting search: depth limit: 13
+1494114603369 <- bestmove e7e5 ponder d2d4
+1494114603372 -> stop
+1494114603372 !! Invalid command: stop
+1494114603587 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114603587 -> go depth 13
+1494114603587 == Depth is limited to 13 half moves
+1494114603587 == Search status is THINKING
+1494114603598 == Aborting search: depth limit: 13
+1494114603598 <- bestmove e7e5 ponder d2d4
+1494114603600 -> stop
+1494114603600 !! Invalid command: stop
+1494114603818 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114603818 -> go depth 13
+1494114603818 == Depth is limited to 13 half moves
+1494114603818 == Search status is THINKING
+1494114603827 == Aborting search: depth limit: 13
+1494114603827 <- bestmove e7e5 ponder d2d4
+1494114603829 -> stop
+1494114603829 !! Invalid command: stop
+1494114604041 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114604041 -> go depth 13
+1494114604041 == Depth is limited to 13 half moves
+1494114604041 == Search status is THINKING
+1494114604052 == Aborting search: depth limit: 13
+1494114604052 <- bestmove e7e5 ponder d2d4
+1494114604062 -> stop
+1494114604062 !! Invalid command: stop
+1494114604271 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114604271 -> go depth 13
+1494114604271 == Depth is limited to 13 half moves
+1494114604271 == Search status is THINKING
+1494114604281 == Aborting search: depth limit: 13
+1494114604281 <- bestmove e7e5 ponder d2d4
+1494114604283 -> stop
+1494114604283 !! Invalid command: stop
+1494114604499 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114604499 -> go depth 13
+1494114604499 == Depth is limited to 13 half moves
+1494114604499 == Search status is THINKING
+1494114604509 == Aborting search: depth limit: 13
+1494114604509 <- bestmove e7e5 ponder d2d4
+1494114604511 -> stop
+1494114604511 !! Invalid command: stop
+1494114604735 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114604735 -> go depth 13
+1494114604735 == Depth is limited to 13 half moves
+1494114604735 == Search status is THINKING
+1494114604745 == Aborting search: depth limit: 13
+1494114604745 <- bestmove e7e5 ponder d2d4
+1494114604756 -> stop
+1494114604756 !! Invalid command: stop
+1494114604963 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114604963 -> go depth 13
+1494114604963 == Depth is limited to 13 half moves
+1494114604963 == Search status is THINKING
+1494114604972 == Aborting search: depth limit: 13
+1494114604972 <- bestmove e7e5 ponder d2d4
+1494114604974 -> stop
+1494114604974 !! Invalid command: stop
+1494114605191 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114605191 -> go depth 13
+1494114605191 == Depth is limited to 13 half moves
+1494114605191 == Search status is THINKING
+1494114605202 == Aborting search: depth limit: 13
+1494114605202 <- bestmove e7e5 ponder d2d4
+1494114605202 -> stop
+1494114605202 !! Invalid command: stop
+1494114605418 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114605418 -> go depth 13
+1494114605418 == Depth is limited to 13 half moves
+1494114605418 == Search status is THINKING
+1494114605427 == Aborting search: depth limit: 13
+1494114605427 <- bestmove e7e5 ponder d2d4
+1494114605429 -> stop
+1494114605429 !! Invalid command: stop
+1494114605647 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114605647 -> go depth 13
+1494114605647 == Depth is limited to 13 half moves
+1494114605647 == Search status is THINKING
+1494114605657 == Aborting search: depth limit: 13
+1494114605657 <- bestmove e7e5 ponder d2d4
+1494114605659 -> stop
+1494114605659 !! Invalid command: stop
+1494114605876 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114605876 -> go depth 13
+1494114605876 == Depth is limited to 13 half moves
+1494114605876 == Search status is THINKING
+1494114605887 == Aborting search: depth limit: 13
+1494114605887 <- bestmove e7e5 ponder d2d4
+1494114605888 -> stop
+1494114605888 !! Invalid command: stop
+1494114606105 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114606105 -> go depth 13
+1494114606105 == Depth is limited to 13 half moves
+1494114606105 == Search status is THINKING
+1494114606115 == Aborting search: depth limit: 13
+1494114606115 <- bestmove e7e5 ponder d2d4
+1494114606116 -> stop
+1494114606116 !! Invalid command: stop
+1494114606332 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114606332 -> go depth 13
+1494114606332 == Depth is limited to 13 half moves
+1494114606332 == Search status is THINKING
+1494114606341 == Aborting search: depth limit: 13
+1494114606341 <- bestmove e7e5 ponder d2d4
+1494114606343 -> stop
+1494114606343 !! Invalid command: stop
+1494114606560 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114606560 -> go depth 13
+1494114606560 == Depth is limited to 13 half moves
+1494114606560 == Search status is THINKING
+1494114606569 == Aborting search: depth limit: 13
+1494114606569 <- bestmove e7e5 ponder d2d4
+1494114606571 -> stop
+1494114606571 !! Invalid command: stop
+1494114606786 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114606786 -> go depth 13
+1494114606786 == Depth is limited to 13 half moves
+1494114606786 == Search status is THINKING
+1494114606795 == Aborting search: depth limit: 13
+1494114606795 <- bestmove e7e5 ponder d2d4
+1494114606798 -> stop
+1494114606798 !! Invalid command: stop
+1494114607014 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114607014 -> go depth 13
+1494114607014 == Depth is limited to 13 half moves
+1494114607014 == Search status is THINKING
+1494114607024 == Aborting search: depth limit: 13
+1494114607024 <- bestmove e7e5 ponder d2d4
+1494114607025 -> stop
+1494114607025 !! Invalid command: stop
+1494114607243 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114607243 -> go depth 13
+1494114607243 == Depth is limited to 13 half moves
+1494114607243 == Search status is THINKING
+1494114607253 == Aborting search: depth limit: 13
+1494114607253 <- bestmove e7e5 ponder d2d4
+1494114607254 -> stop
+1494114607254 !! Invalid command: stop
+1494114607472 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114607472 -> go depth 13
+1494114607472 == Depth is limited to 13 half moves
+1494114607472 == Search status is THINKING
+1494114607481 == Aborting search: depth limit: 13
+1494114607481 <- bestmove e7e5 ponder d2d4
+1494114607488 -> stop
+1494114607488 !! Invalid command: stop
+1494114607700 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114607700 -> go depth 13
+1494114607700 == Depth is limited to 13 half moves
+1494114607700 == Search status is THINKING
+1494114607709 == Aborting search: depth limit: 13
+1494114607709 <- bestmove e7e5 ponder d2d4
+1494114607712 -> stop
+1494114607712 !! Invalid command: stop
+1494114607926 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114607926 -> go depth 13
+1494114607926 == Depth is limited to 13 half moves
+1494114607926 == Search status is THINKING
+1494114607936 == Aborting search: depth limit: 13
+1494114607936 <- bestmove e7e5 ponder d2d4
+1494114607938 -> stop
+1494114607938 !! Invalid command: stop
+1494114608152 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114608152 -> go depth 13
+1494114608152 == Depth is limited to 13 half moves
+1494114608152 == Search status is THINKING
+1494114608161 == Aborting search: depth limit: 13
+1494114608161 <- bestmove e7e5 ponder d2d4
+1494114608167 -> stop
+1494114608167 !! Invalid command: stop
+1494114608380 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114608380 -> go depth 13
+1494114608380 == Depth is limited to 13 half moves
+1494114608380 == Search status is THINKING
+1494114608390 == Aborting search: depth limit: 13
+1494114608390 <- bestmove e7e5 ponder d2d4
+1494114608394 -> stop
+1494114608394 !! Invalid command: stop
+1494114608610 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114608610 -> go depth 13
+1494114608610 == Depth is limited to 13 half moves
+1494114608610 == Search status is THINKING
+1494114608619 == Aborting search: depth limit: 13
+1494114608619 <- bestmove e7e5 ponder d2d4
+1494114608621 -> stop
+1494114608621 !! Invalid command: stop
+1494114608837 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114608837 -> go depth 13
+1494114608837 == Depth is limited to 13 half moves
+1494114608837 == Search status is THINKING
+1494114608846 == Aborting search: depth limit: 13
+1494114608846 <- bestmove e7e5 ponder d2d4
+1494114608849 -> stop
+1494114608849 !! Invalid command: stop
+1494114609061 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114609061 -> go depth 13
+1494114609061 == Depth is limited to 13 half moves
+1494114609061 == Search status is THINKING
+1494114609071 == Aborting search: depth limit: 13
+1494114609071 <- bestmove e7e5 ponder d2d4
+1494114609072 -> stop
+1494114609072 !! Invalid command: stop
+1494114609289 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114609289 -> go depth 13
+1494114609289 == Depth is limited to 13 half moves
+1494114609289 == Search status is THINKING
+1494114609299 == Aborting search: depth limit: 13
+1494114609299 <- bestmove e7e5 ponder d2d4
+1494114609301 -> stop
+1494114609301 !! Invalid command: stop
+1494114609515 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114609516 -> go depth 13
+1494114609516 == Depth is limited to 13 half moves
+1494114609516 == Search status is THINKING
+1494114609526 == Aborting search: depth limit: 13
+1494114609526 <- bestmove e7e5 ponder d2d4
+1494114609532 -> stop
+1494114609532 !! Invalid command: stop
+1494114609745 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114609745 -> go depth 13
+1494114609745 == Depth is limited to 13 half moves
+1494114609745 == Search status is THINKING
+1494114609756 == Aborting search: depth limit: 13
+1494114609756 <- bestmove e7e5 ponder d2d4
+1494114609758 -> stop
+1494114609758 !! Invalid command: stop
+1494114609974 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114609974 -> go depth 13
+1494114609974 == Depth is limited to 13 half moves
+1494114609974 == Search status is THINKING
+1494114609983 == Aborting search: depth limit: 13
+1494114609983 <- bestmove e7e5 ponder d2d4
+1494114609985 -> stop
+1494114609985 !! Invalid command: stop
+1494114610198 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114610198 -> go depth 13
+1494114610198 == Depth is limited to 13 half moves
+1494114610198 == Search status is THINKING
+1494114610208 == Aborting search: depth limit: 13
+1494114610208 <- bestmove e7e5 ponder d2d4
+1494114610214 -> stop
+1494114610214 !! Invalid command: stop
+1494114610426 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114610426 -> go depth 13
+1494114610426 == Depth is limited to 13 half moves
+1494114610426 == Search status is THINKING
+1494114610436 == Aborting search: depth limit: 13
+1494114610436 <- bestmove e7e5 ponder d2d4
+1494114610437 -> stop
+1494114610437 !! Invalid command: stop
+1494114610654 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114610654 -> go depth 13
+1494114610654 == Depth is limited to 13 half moves
+1494114610654 == Search status is THINKING
+1494114610663 == Aborting search: depth limit: 13
+1494114610663 <- bestmove e7e5 ponder d2d4
+1494114610665 -> stop
+1494114610665 !! Invalid command: stop
+1494114610880 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114610880 -> go depth 13
+1494114610880 == Depth is limited to 13 half moves
+1494114610880 == Search status is THINKING
+1494114610890 == Aborting search: depth limit: 13
+1494114610890 <- bestmove e7e5 ponder d2d4
+1494114610891 -> stop
+1494114610891 !! Invalid command: stop
+1494114611112 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114611112 -> go depth 13
+1494114611112 == Depth is limited to 13 half moves
+1494114611112 == Search status is THINKING
+1494114611122 == Aborting search: depth limit: 13
+1494114611122 <- bestmove e7e5 ponder d2d4
+1494114611124 -> stop
+1494114611124 !! Invalid command: stop
+1494114611340 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114611340 -> go depth 13
+1494114611340 == Depth is limited to 13 half moves
+1494114611340 == Search status is THINKING
+1494114611349 == Aborting search: depth limit: 13
+1494114611349 <- bestmove e7e5 ponder d2d4
+1494114611352 -> stop
+1494114611352 !! Invalid command: stop
+1494114611565 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114611565 -> go depth 13
+1494114611565 == Depth is limited to 13 half moves
+1494114611565 == Search status is THINKING
+1494114611575 == Aborting search: depth limit: 13
+1494114611575 <- bestmove e7e5 ponder d2d4
+1494114611576 -> stop
+1494114611576 !! Invalid command: stop
+1494114611790 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114611790 -> go depth 13
+1494114611790 == Depth is limited to 13 half moves
+1494114611790 == Search status is THINKING
+1494114611799 == Aborting search: depth limit: 13
+1494114611799 <- bestmove e7e5 ponder d2d4
+1494114611802 -> stop
+1494114611802 !! Invalid command: stop
+1494114612016 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114612016 -> go depth 13
+1494114612016 == Depth is limited to 13 half moves
+1494114612016 == Search status is THINKING
+1494114612027 == Aborting search: depth limit: 13
+1494114612027 <- bestmove e7e5 ponder d2d4
+1494114612027 -> stop
+1494114612027 !! Invalid command: stop
+1494114612243 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114612243 -> go depth 13
+1494114612243 == Depth is limited to 13 half moves
+1494114612243 == Search status is THINKING
+1494114612253 == Aborting search: depth limit: 13
+1494114612253 <- bestmove e7e5 ponder d2d4
+1494114612255 -> stop
+1494114612255 !! Invalid command: stop
+1494114517379 <- Hannibal 1.7 x64
+1494114517379 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494114517379 <- Use UCI commands
+1494114517379 <- 
+1494114517379 -> uci
+1494114517379 <- id name Hannibal 1.7 x64
+1494114517379 <- id author Sam Hamilton & Edsel Apostol
+1494114517379 <- option name Hash type spin default 128 min 1 max 65536
+1494114517379 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494114517379 <- option name MultiPV type spin default 1 min 1 max 128
+1494114517379 <- option name Clear Hash type button
+1494114517379 <- option name OwnBook type check default false
+1494114517379 <- option name Book File type string default Hannibal.bin
+1494114517379 <- option name Ponder type check default false
+1494114517379 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494114517379 <- option name Threads type spin default 1 min 1 max 512
+1494114517379 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494114517379 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494114517379 <- option name Contempt type spin default 0 min -100 max 100
+1494114517379 <- uciok
+1494114517383 -> ucinewgame
+1494114517398 -> isready
+1494114517398 <- readyok
+1494114517398 -> setoption name Threads value 1
+1494114517403 -> setoption name OwnBook value true
+1494114517403 -> setoption name BookFile value src//Engines//book.bin
+1494114517403 <- No such option: BookFile
+1494114517403 -> setoption name Book File value src//Engines//book.bin
+1494114517403 -> setoption name Best Book Line value false
+1494114517403 <- No such option: Best Book Line
+1494114519123 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494114519123 -> go depth 2
+1494114519123 == Depth is limited to 2 half moves
+1494114519123 == Search status is THINKING
+1494114519131 == Aborting search: depth limit: 2
+1494114519131 <- bestmove e7e5 ponder b1c3
+1494114519135 -> stop
+1494114519135 !! Invalid command: stop
+1494114648329 <- Hannibal 1.7 x64
+1494114648329 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494114648329 <- Use UCI commands
+1494114648329 <- 
+1494114648329 -> uci
+1494114648329 <- id name Hannibal 1.7 x64
+1494114648329 <- id author Sam Hamilton & Edsel Apostol
+1494114648329 <- option name Hash type spin default 128 min 1 max 65536
+1494114648329 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494114648329 <- option name MultiPV type spin default 1 min 1 max 128
+1494114648329 <- option name Clear Hash type button
+1494114648329 <- option name OwnBook type check default false
+1494114648329 <- option name Book File type string default Hannibal.bin
+1494114648329 <- option name Ponder type check default false
+1494114648329 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494114648329 <- option name Threads type spin default 1 min 1 max 512
+1494114648329 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494114648329 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494114648329 <- option name Contempt type spin default 0 min -100 max 100
+1494114648329 <- uciok
+1494114648367 -> ucinewgame
+1494114648382 -> isready
+1494114648382 <- readyok
+1494114648382 -> setoption name Threads value 1
+1494114648386 -> setoption name OwnBook value true
+1494114648386 -> setoption name BookFile value src//Engines//book.bin
+1494114648386 <- No such option: BookFile
+1494114648386 -> setoption name Book File value src//Engines//book.bin
+1494114648387 -> setoption name Best Book Line value false
+1494114648387 <- No such option: Best Book Line
+1494114650172 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494114650172 -> go depth 13
+1494114650172 == Depth is limited to 13 half moves
+1494114650172 == Search status is THINKING
+1494114650423 == Aborting search: depth limit: 13
+1494114650423 <- bestmove d7d5 ponder e4e5
+1494114650433 -> stop
+1494114650433 !! Invalid command: stop
+1494114655857 -> position fen rnbqkbnr/ppp1pppp/8/3P4/8/8/PPPP1PPP/RNBQKBNR b KQkq -  0 1 moves 
+1494114655857 -> go depth 13
+1494114655857 == Depth is limited to 13 half moves
+1494114655857 == Search status is THINKING
+1494114655861 <- bestmove d8d5
+1494114655868 -> stop
+1494114655868 !! Invalid command: stop
+1494114658061 -> position fen rnb1kbnr/ppp1pppp/8/3q4/8/2N5/PPPP1PPP/R1BQKBNR b KQkq -  0 1 moves 
+1494114658061 -> go depth 13
+1494114658061 == Depth is limited to 13 half moves
+1494114658061 == Search status is THINKING
+1494114658066 <- bestmove d5a5
+1494114658073 -> stop
+1494114658073 !! Invalid command: stop
+1494114659981 -> position fen rnb1kbnr/ppp1pppp/8/q7/3P4/2N5/PPP2PPP/R1BQKBNR b KQkq d3  0 1 moves 
+1494114659981 -> go depth 13
+1494114659981 == Depth is limited to 13 half moves
+1494114659981 == Search status is THINKING
+1494114660288 == Aborting search: depth limit: 13
+1494114660288 <- bestmove g8f6 ponder g1f3
+1494114660295 -> stop
+1494114660295 !! Invalid command: stop
+1494114661963 -> position fen rnb1kb1r/ppp1pppp/5n2/q7/3P4/2N5/PPPB1PPP/R2QKBNR b KQkq -  0 1 moves 
+1494114661963 -> go depth 13
+1494114661963 == Depth is limited to 13 half moves
+1494114661963 == Search status is THINKING
+1494114662895 == Aborting search: depth limit: 13
+1494114662895 <- bestmove a5b6 ponder g1f3
+1494114662901 -> stop
+1494114662901 !! Invalid command: stop
+1494114667144 -> position fen rnb1kb1r/ppp1pppp/1q3n2/8/3P4/2N2N2/PPPB1PPP/R2QKB1R b KQkq -  0 1 moves 
+1494114667144 -> go depth 13
+1494114667144 == Depth is limited to 13 half moves
+1494114667144 == Search status is THINKING
+1494114667393 == Aborting search: depth limit: 13
+1494114667393 <- bestmove c8f5 ponder f1b5
+1494114667397 -> stop
+1494114667397 !! Invalid command: stop
+1494114671758 -> position fen rn2kb1r/ppp1pppp/1q3n2/5b2/N2P4/5N2/PPPB1PPP/R2QKB1R b KQkq -  0 1 moves 
+1494114671758 -> go depth 13
+1494114671758 == Depth is limited to 13 half moves
+1494114671758 == Search status is THINKING
+1494114672435 == Aborting search: depth limit: 13
+1494114672435 <- bestmove b6d6 ponder a4c5
+1494114672437 -> stop
+1494114672437 !! Invalid command: stop
+1494114675412 -> position fen rn2kb1r/ppp1pppp/3q1n2/1B3b2/N2P4/5N2/PPPB1PPP/R2QK2R b KQkq -  0 1 moves 
+1494114675412 -> go depth 13
+1494114675412 == Depth is limited to 13 half moves
+1494114675412 == Search status is THINKING
+1494114675645 == Aborting search: depth limit: 13
+1494114675645 <- bestmove b8c6 ponder a4c5
+1494114675655 -> stop
+1494114675655 !! Invalid command: stop
+1494114677924 -> position fen r3kb1r/ppp1pppp/2nq1n2/1B3b2/N2P4/5N2/PPPB1PPP/R2Q1RK1 b kq -  0 1 moves 
+1494114677924 -> go depth 13
+1494114677924 == Depth is limited to 13 half moves
+1494114677924 == Search status is THINKING
+1494114678423 == Aborting search: depth limit: 13
+1494114678423 <- bestmove e8c8 ponder c2c3
+1494114678430 -> stop
+1494114678430 !! Invalid command: stop
+1494114684722 -> position fen 2kr1b1r/ppp1pppp/2nq1n2/1B3b2/N2P4/2P2N2/PP1B1PPP/R2Q1RK1 b - -  0 1 moves 
+1494114684722 -> go depth 13
+1494114684722 == Depth is limited to 13 half moves
+1494114684722 == Search status is THINKING
+1494114685258 == Aborting search: depth limit: 13
+1494114685258 <- bestmove f6e4 ponder d2e3
+1494114685267 -> stop
+1494114685267 !! Invalid command: stop
+1494114687879 -> position fen 2kr1b1r/ppp1pppp/2nq4/1B3b2/N2Pn3/2P2N2/PP1B1PPP/R2QR1K1 b - -  0 1 moves 
+1494114687879 -> go depth 13
+1494114687879 == Depth is limited to 13 half moves
+1494114687879 == Search status is THINKING
+1494114688706 == Aborting search: depth limit: 13
+1494114688706 <- bestmove e4d2 ponder d1d2
+1494114688710 -> stop
+1494114688710 !! Invalid command: stop
+1494114689881 -> position fen 2kr1b1r/ppp1pppp/2nq4/1B3b2/N2P4/2P2N2/PP1Q1PPP/R3R1K1 b - -  0 1 moves 
+1494114689881 -> go depth 13
+1494114689881 == Depth is limited to 13 half moves
+1494114689881 == Search status is THINKING
+1494114690084 == Aborting search: depth limit: 13
+1494114690085 <- bestmove c8b8 ponder a4c5
+1494114690086 -> stop
+1494114690086 !! Invalid command: stop
+1494114698216 -> position fen 1k1r1b1r/ppp1pppp/2Bq4/5b2/N2P4/2P2N2/PP1Q1PPP/R3R1K1 b - -  0 1 moves 
+1494114698216 -> go depth 13
+1494114698216 == Depth is limited to 13 half moves
+1494114698216 == Search status is THINKING
+1494114698304 == Aborting search: depth limit: 13
+1494114698304 <- bestmove d6c6 ponder f3e5
+1494114698307 -> stop
+1494114698307 !! Invalid command: stop
+1494114699479 -> position fen 1k1r1b1r/ppp1pppp/2q5/4Nb2/N2P4/2P5/PP1Q1PPP/R3R1K1 b - -  0 1 moves 
+1494114699479 -> go depth 13
+1494114699479 == Depth is limited to 13 half moves
+1494114699479 == Search status is THINKING
+1494114699626 == Aborting search: depth limit: 13
+1494114699626 <- bestmove c6e8 ponder a4c5
+1494114699631 -> stop
+1494114699631 !! Invalid command: stop
+1494114702820 -> position fen 1k1rqb1r/ppp1pppp/8/2N1Nb2/3P4/2P5/PP1Q1PPP/R3R1K1 b - -  0 1 moves 
+1494114702820 -> go depth 13
+1494114702820 == Depth is limited to 13 half moves
+1494114702820 == Search status is THINKING
+1494114702980 == Aborting search: depth limit: 13
+1494114702981 <- bestmove e7e6 ponder e5d3
+1494114702981 -> stop
+1494114702981 !! Invalid command: stop
+1494114704638 -> position fen 1k1rqb1r/ppp2ppp/4p3/2N1Nb2/3P4/2P1Q3/PP3PPP/R3R1K1 b - -  0 1 moves 
+1494114704638 -> go depth 13
+1494114704638 == Depth is limited to 13 half moves
+1494114704638 == Search status is THINKING
+1494114704882 == Aborting search: depth limit: 13
+1494114704882 <- bestmove f8c5 ponder d4c5
+1494114704890 -> stop
+1494114704890 !! Invalid command: stop
+1494114707176 -> position fen 1k1rq2r/ppp2ppp/4p3/2P1Nb2/8/2P1Q3/PP3PPP/R3R1K1 b - -  0 1 moves 
+1494114707176 -> go depth 13
+1494114707176 == Depth is limited to 13 half moves
+1494114707176 == Search status is THINKING
+1494114707237 == Aborting search: depth limit: 13
+1494114707237 <- bestmove f7f6 ponder g2g4
+1494114707248 -> stop
+1494114707248 !! Invalid command: stop
+1494114708946 -> position fen 1k1rq2r/ppp3pp/4pp2/2P2b2/8/2P1QN2/PP3PPP/R3R1K1 b - -  0 1 moves 
+1494114708946 -> go depth 13
+1494114708946 == Depth is limited to 13 half moves
+1494114708946 == Search status is THINKING
+1494114709278 == Aborting search: depth limit: 13
+1494114709279 <- bestmove e6e5 ponder f3h4
+1494114709280 -> stop
+1494114709280 !! Invalid command: stop
+1494115196678 <- Hannibal 1.7 x64
+1494115196678 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494115196678 <- Use UCI commands
+1494115196678 <- 
+1494115196678 -> uci
+1494115196678 <- id name Hannibal 1.7 x64
+1494115196678 <- id author Sam Hamilton & Edsel Apostol
+1494115196678 <- option name Hash type spin default 128 min 1 max 65536
+1494115196678 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494115196678 <- option name MultiPV type spin default 1 min 1 max 128
+1494115196679 <- option name Clear Hash type button
+1494115196679 <- option name OwnBook type check default false
+1494115196679 <- option name Book File type string default Hannibal.bin
+1494115196679 <- option name Ponder type check default false
+1494115196679 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494115196679 <- option name Threads type spin default 1 min 1 max 512
+1494115196679 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494115196679 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494115196679 <- option name Contempt type spin default 0 min -100 max 100
+1494115196679 <- uciok
+1494115196685 -> ucinewgame
+1494115196699 -> isready
+1494115196699 <- readyok
+1494115196699 -> setoption name Threads value 1
+1494115196704 -> setoption name OwnBook value true
+1494115196704 -> setoption name BookFile value src\Engines\book.bin
+1494115196704 <- No such option: BookFile
+1494115196704 -> setoption name Book File value src\Engines\book.bin
+1494115196705 -> setoption name Best Book Line value false
+1494115196705 <- No such option: Best Book Line
+1494115197878 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494115197878 -> go depth 2
+1494115197878 == Depth is limited to 2 half moves
+1494115197878 == Search status is THINKING
+1494115197879 == Aborting search: depth limit: 2
+1494115197879 <- bestmove e7e5 ponder b1c3
+1494115197891 -> stop
+1494115197891 !! Invalid command: stop
+1494116500088 <- Hannibal 1.7 x64
+1494116500088 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494116500088 <- Use UCI commands
+1494116500088 <- 
+1494116500088 -> uci
+1494116500088 <- id name Hannibal 1.7 x64
+1494116500088 <- id author Sam Hamilton & Edsel Apostol
+1494116500088 <- option name Hash type spin default 128 min 1 max 65536
+1494116500088 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494116500088 <- option name MultiPV type spin default 1 min 1 max 128
+1494116500088 <- option name Clear Hash type button
+1494116500088 <- option name OwnBook type check default false
+1494116500088 <- option name Book File type string default Hannibal.bin
+1494116500088 <- option name Ponder type check default false
+1494116500088 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494116500088 <- option name Threads type spin default 1 min 1 max 512
+1494116500089 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494116500089 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494116500089 <- option name Contempt type spin default 0 min -100 max 100
+1494116500089 <- uciok
+1494116500094 -> ucinewgame
+1494116500107 -> isready
+1494116500107 <- readyok
+1494116500107 -> setoption name Threads value 1
+1494116500112 -> setoption name OwnBook value true
+1494116500112 -> setoption name Book File value src\Engines\book.bin
+1494116500112 -> setoption name Best Book Line value false
+1494116500112 <- No such option: Best Book Line
+1494116502179 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494116502179 -> go depth 2
+1494116502179 == Depth is limited to 2 half moves
+1494116502179 == Search status is THINKING
+1494116502181 == Aborting search: depth limit: 2
+1494116502181 <- bestmove e7e5 ponder b1c3
+1494116502191 -> stop
+1494116502191 !! Invalid command: stop
+1494116514176 -> position fen rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -  0 1 moves 
+1494116514176 -> go depth 2
+1494116514176 == Depth is limited to 2 half moves
+1494116514176 == Search status is THINKING
+1494116514181 <- bestmove b8c6
+1494116514196 -> stop
+1494116514196 !! Invalid command: stop
+1494116516628 -> position fen r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -  0 1 moves 
+1494116516628 -> go depth 2
+1494116516628 == Depth is limited to 2 half moves
+1494116516628 == Search status is THINKING
+1494116516629 <- bestmove f8c5
+1494116516640 -> stop
+1494116516640 !! Invalid command: stop
+1494116518978 -> position fen r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R b KQkq -  0 1 moves 
+1494116518978 -> go depth 2
+1494116518978 == Depth is limited to 2 half moves
+1494116518978 == Search status is THINKING
+1494116518979 <- bestmove g8f6
+1494116518979 -> stop
+1494116518980 !! Invalid command: stop
+1494116520965 -> position fen r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R b KQkq -  0 1 moves 
+1494116520965 -> go depth 2
+1494116520965 == Depth is limited to 2 half moves
+1494116520965 == Search status is THINKING
+1494116520968 <- bestmove d7d6
+1494116520977 -> stop
+1494116520977 !! Invalid command: stop
+1494116525860 -> position fen r1bqk2r/ppp2ppp/2np1n2/2b1p3/2B1P3/2NP1N2/PPP2PPP/R1BQ1RK1 b kq -  0 1 moves 
+1494116525860 -> go depth 2
+1494116525860 == Depth is limited to 2 half moves
+1494116525860 == Search status is THINKING
+1494116525862 <- bestmove c6a5
+1494116525863 -> stop
+1494116525863 !! Invalid command: stop
+1494116527628 -> position fen r1bqk2r/ppp2ppp/3p1n2/nBb1p3/4P3/2NP1N2/PPP2PPP/R1BQ1RK1 b kq -  0 1 moves 
+1494116527628 -> go depth 2
+1494116527628 == Depth is limited to 2 half moves
+1494116527628 == Search status is THINKING
+1494116527632 == Aborting search: depth limit: 2
+1494116527632 <- bestmove c7c6 ponder b5a4
+1494116527640 -> stop
+1494116527640 !! Invalid command: stop
+1494116529166 -> position fen r1bqk2r/pp3ppp/2pp1n2/n1b1p3/B3P3/2NP1N2/PPP2PPP/R1BQ1RK1 b kq -  0 1 moves 
+1494116529166 -> go depth 2
+1494116529166 == Depth is limited to 2 half moves
+1494116529166 == Search status is THINKING
+1494116529170 == Aborting search: depth limit: 2
+1494116529170 <- bestmove b7b5 ponder a4b3
+1494116529180 -> stop
+1494116529180 !! Invalid command: stop
+1494116530626 -> position fen r1bqk2r/p4ppp/2pp1n2/npb1p3/4P3/1BNP1N2/PPP2PPP/R1BQ1RK1 b kq -  0 1 moves 
+1494116530626 -> go depth 2
+1494116530626 == Depth is limited to 2 half moves
+1494116530626 == Search status is THINKING
+1494116530628 == Aborting search: depth limit: 2
+1494116530628 <- bestmove e8g8 ponder c1e3
+1494116530673 -> stop
+1494116530673 !! Invalid command: stop
+1494116569890 <- Hannibal 1.7 x64
+1494116569891 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494116569891 <- Use UCI commands
+1494116569891 <- 
+1494116569891 -> uci
+1494116569891 <- id name Hannibal 1.7 x64
+1494116569891 <- id author Sam Hamilton & Edsel Apostol
+1494116569891 <- option name Hash type spin default 128 min 1 max 65536
+1494116569891 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494116569891 <- option name MultiPV type spin default 1 min 1 max 128
+1494116569891 <- option name Clear Hash type button
+1494116569891 <- option name OwnBook type check default false
+1494116569891 <- option name Book File type string default Hannibal.bin
+1494116569891 <- option name Ponder type check default false
+1494116569891 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494116569891 <- option name Threads type spin default 1 min 1 max 512
+1494116569891 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494116569891 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494116569891 <- option name Contempt type spin default 0 min -100 max 100
+1494116569891 <- uciok
+1494116569930 -> ucinewgame
+1494116569947 -> isready
+1494116569947 <- readyok
+1494116569948 -> setoption name Threads value 1
+1494116569951 -> setoption name OwnBook value true
+1494116569952 -> setoption name Book File value src\Engines\book.bin
+1494116569952 -> setoption name Best Book Line value false
+1494116569952 <- No such option: Best Book Line
+1494116571466 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494116571467 -> go depth 13
+1494116571467 == Depth is limited to 13 half moves
+1494116571467 == Search status is THINKING
+1494116571662 == Aborting search: depth limit: 13
+1494116571662 <- bestmove d7d5 ponder e4e5
+1494116571671 -> stop
+1494116571671 !! Invalid command: stop
+1494116575847 -> position fen rnbqkbnr/ppp1pppp/8/3P4/8/8/PPPP1PPP/RNBQKBNR b KQkq -  0 1 moves 
+1494116575847 -> go depth 13
+1494116575847 == Depth is limited to 13 half moves
+1494116575847 == Search status is THINKING
+1494116575864 <- bestmove d8d5
+1494116575898 -> stop
+1494116575898 !! Invalid command: stop
+1494116584651 <- Hannibal 1.7 x64
+1494116584651 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494116584651 <- Use UCI commands
+1494116584651 <- 
+1494116584651 -> uci
+1494116584651 <- id name Hannibal 1.7 x64
+1494116584651 <- id author Sam Hamilton & Edsel Apostol
+1494116584651 <- option name Hash type spin default 128 min 1 max 65536
+1494116584651 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494116584651 <- option name MultiPV type spin default 1 min 1 max 128
+1494116584657 <- option name Clear Hash type button
+1494116584657 <- option name OwnBook type check default false
+1494116584657 <- option name Book File type string default Hannibal.bin
+1494116584657 <- option name Ponder type check default false
+1494116584658 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494116584658 <- option name Threads type spin default 1 min 1 max 512
+1494116584658 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494116584658 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494116584658 <- option name Contempt type spin default 0 min -100 max 100
+1494116584658 <- uciok
+1494116584661 -> ucinewgame
+1494116584675 -> isready
+1494116584675 <- readyok
+1494116584676 -> setoption name Threads value 1
+1494116584680 -> setoption name OwnBook value true
+1494116584680 -> setoption name Book File value src\Engines\book.bin
+1494116584680 -> setoption name Best Book Line value false
+1494116584680 <- No such option: Best Book Line
+1494116585841 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494116585841 -> go depth 13
+1494116585842 == Depth is limited to 13 half moves
+1494116585842 == Search status is THINKING
+1494116586055 == Aborting search: depth limit: 13
+1494116586056 -> stop
+1494116586059 !! Invalid command: stop
+1494116586059 <- bestmove d7d5 ponder e4e5
+1494117036117 <- Hannibal 1.7 x64
+1494117036118 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494117036118 <- Use UCI commands
+1494117036118 <- 
+1494117036118 -> uci
+1494117036118 <- id name Hannibal 1.7 x64
+1494117036118 <- id author Sam Hamilton & Edsel Apostol
+1494117036118 <- option name Hash type spin default 128 min 1 max 65536
+1494117036118 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494117036118 <- option name MultiPV type spin default 1 min 1 max 128
+1494117036118 <- option name Clear Hash type button
+1494117036118 <- option name OwnBook type check default false
+1494117036118 <- option name Book File type string default Hannibal.bin
+1494117036118 <- option name Ponder type check default false
+1494117036118 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494117036118 <- option name Threads type spin default 1 min 1 max 512
+1494117036118 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494117036118 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494117036118 <- option name Contempt type spin default 0 min -100 max 100
+1494117036118 <- uciok
+1494117036121 -> ucinewgame
+1494117036136 -> isready
+1494117036136 <- readyok
+1494117036137 -> setoption name Threads value 1
+1494117036140 -> setoption name OwnBook value true
+1494117036140 -> setoption name Book File value src\Engines\book.bin
+1494117036140 -> setoption name Best Book Line value false
+1494117036141 <- No such option: Best Book Line
+1494117039328 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494117039328 -> go depth 2
+1494117039328 == Depth is limited to 2 half moves
+1494117039328 == Search status is THINKING
+1494117039328 == Aborting search: depth limit: 2
+1494117039328 <- bestmove e7e5 ponder b1c3
+1494117039342 -> stop
+1494117039342 !! Invalid command: stop
+1494117045981 -> position fen rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -  0 1 moves 
+1494117045981 -> go depth 2
+1494117045981 == Depth is limited to 2 half moves
+1494117045981 == Search status is THINKING
+1494117045981 <- bestmove b8c6
+1494117045982 -> stop
+1494117045982 !! Invalid command: stop
+1494117052622 -> position fen r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -  0 1 moves 
+1494117052622 -> go depth 2
+1494117052622 == Depth is limited to 2 half moves
+1494117052622 == Search status is THINKING
+1494117052622 <- bestmove g8f6
+1494117052624 -> stop
+1494117052624 !! Invalid command: stop
+1494116998278 <- Hannibal 1.7 x64
+1494116998279 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494116998279 <- Use UCI commands
+1494116998279 <- 
+1494116998279 -> uci
+1494116998279 <- id name Hannibal 1.7 x64
+1494116998279 <- id author Sam Hamilton & Edsel Apostol
+1494116998279 <- option name Hash type spin default 128 min 1 max 65536
+1494116998279 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494116998279 <- option name MultiPV type spin default 1 min 1 max 128
+1494116998279 <- option name Clear Hash type button
+1494116998279 <- option name OwnBook type check default false
+1494116998279 <- option name Book File type string default Hannibal.bin
+1494116998279 <- option name Ponder type check default false
+1494116998279 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494116998279 <- option name Threads type spin default 1 min 1 max 512
+1494116998279 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494116998279 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494116998279 <- option name Contempt type spin default 0 min -100 max 100
+1494116998279 <- uciok
+1494116998281 -> ucinewgame
+1494116998297 -> isready
+1494116998297 <- readyok
+1494116998297 -> setoption name Threads value 1
+1494116998301 -> setoption name OwnBook value true
+1494116998301 -> setoption name Book File value src\Engines\book.bin
+1494116998301 -> setoption name Best Book Line value false
+1494116998301 <- No such option: Best Book Line
+1494116999659 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494116999659 -> go depth 2
+1494116999659 == Depth is limited to 2 half moves
+1494116999659 == Search status is THINKING
+1494116999660 == Aborting search: depth limit: 2
+1494116999660 <- bestmove e7e5 ponder b1c3
+1494116999670 -> stop
+1494116999670 !! Invalid command: stop
+1494117009963 -> position fen rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -  0 1 moves 
+1494117009963 -> go depth 2
+1494117009963 == Depth is limited to 2 half moves
+1494117009963 == Search status is THINKING
+1494117009964 <- bestmove b8c6
+1494117009970 -> stop
+1494117009970 !! Invalid command: stop
+1494117015082 -> position fen r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -  0 1 moves 
+1494117015082 -> go depth 2
+1494117015082 == Depth is limited to 2 half moves
+1494117015082 == Search status is THINKING
+1494117015085 <- bestmove g8f6
+1494117015085 -> stop
+1494117015085 !! Invalid command: stop
+1494117017795 -> position fen r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -  0 1 moves 
+1494117017795 -> go depth 2
+1494117017795 == Depth is limited to 2 half moves
+1494117017795 == Search status is THINKING
+1494117017795 <- bestmove f8c5
+1494117017798 -> stop
+1494117017798 !! Invalid command: stop
+1494117020374 -> position fen r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R b KQkq -  0 1 moves 
+1494117020374 -> go depth 2
+1494117020374 == Depth is limited to 2 half moves
+1494117020374 == Search status is THINKING
+1494117020375 <- bestmove h7h6
+1494117020375 -> stop
+1494117020375 !! Invalid command: stop
+1494117036764 <- Hannibal 1.7 x64
+1494117036764 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494117036764 <- Use UCI commands
+1494117036764 <- 
+1494117036764 -> uci
+1494117036764 <- id name Hannibal 1.7 x64
+1494117036764 <- id author Sam Hamilton & Edsel Apostol
+1494117036764 <- option name Hash type spin default 128 min 1 max 65536
+1494117036764 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494117036764 <- option name MultiPV type spin default 1 min 1 max 128
+1494117036764 <- option name Clear Hash type button
+1494117036764 <- option name OwnBook type check default false
+1494117036765 <- option name Book File type string default Hannibal.bin
+1494117036765 <- option name Ponder type check default false
+1494117036765 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494117036765 <- option name Threads type spin default 1 min 1 max 512
+1494117036765 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494117036765 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494117036765 <- option name Contempt type spin default 0 min -100 max 100
+1494117036765 <- uciok
+1494117036767 -> ucinewgame
+1494117036780 -> isready
+1494117036782 <- readyok
+1494117036782 -> setoption name Threads value 1
+1494117036791 -> setoption name OwnBook value true
+1494117036791 -> setoption name Book File value src\Engines\book.bin
+1494117036792 -> setoption name Best Book Line value false
+1494117036792 <- No such option: Best Book Line
+1494117043515 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494117043515 -> go depth 2
+1494117043515 == Depth is limited to 2 half moves
+1494117043515 == Search status is THINKING
+1494117043516 == Aborting search: depth limit: 2
+1494117043516 <- bestmove e7e5 ponder b1c3
+1494117043527 -> stop
+1494117043527 !! Invalid command: stop
+1494117050026 -> position fen rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -  0 1 moves 
+1494117050026 -> go depth 2
+1494117050026 == Depth is limited to 2 half moves
+1494117050026 == Search status is THINKING
+1494117050026 <- bestmove b8c6
+1494117050027 -> stop
+1494117050027 !! Invalid command: stop
+1494117058046 -> position fen r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -  0 1 moves 
+1494117058046 -> go depth 2
+1494117058046 == Depth is limited to 2 half moves
+1494117058046 == Search status is THINKING
+1494117058047 <- bestmove g8f6
+1494117058057 -> stop
+1494117058057 !! Invalid command: stop
+1494117036412 <- Hannibal 1.7 x64
+1494117036413 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494117036413 <- Use UCI commands
+1494117036413 <- 
+1494117036413 -> uci
+1494117036413 <- id name Hannibal 1.7 x64
+1494117036413 <- id author Sam Hamilton & Edsel Apostol
+1494117036413 <- option name Hash type spin default 128 min 1 max 65536
+1494117036413 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494117036413 <- option name MultiPV type spin default 1 min 1 max 128
+1494117036413 <- option name Clear Hash type button
+1494117036413 <- option name OwnBook type check default false
+1494117036413 <- option name Book File type string default Hannibal.bin
+1494117036413 <- option name Ponder type check default false
+1494117036413 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494117036413 <- option name Threads type spin default 1 min 1 max 512
+1494117036413 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494117036413 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494117036413 <- option name Contempt type spin default 0 min -100 max 100
+1494117036413 <- uciok
+1494117036416 -> ucinewgame
+1494117036429 -> isready
+1494117036429 <- readyok
+1494117036429 -> setoption name Threads value 1
+1494117036433 -> setoption name OwnBook value true
+1494117036433 -> setoption name Book File value src\Engines\book.bin
+1494117036433 -> setoption name Best Book Line value false
+1494117036433 <- No such option: Best Book Line
+1494117041494 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494117041494 -> go depth 2
+1494117041494 == Depth is limited to 2 half moves
+1494117041494 == Search status is THINKING
+1494117041497 == Aborting search: depth limit: 2
+1494117041497 <- bestmove e7e5 ponder b1c3
+1494117041505 -> stop
+1494117041505 !! Invalid command: stop
+1494117048058 -> position fen rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -  0 1 moves 
+1494117048058 -> go depth 2
+1494117048058 == Depth is limited to 2 half moves
+1494117048058 == Search status is THINKING
+1494117048058 <- bestmove b8c6
+1494117048068 -> stop
+1494117048069 !! Invalid command: stop
+1494117055696 -> position fen r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -  0 1 moves 
+1494117055696 -> go depth 2
+1494117055696 == Depth is limited to 2 half moves
+1494117055696 == Search status is THINKING
+1494117055696 <- bestmove g8f6
+1494117055697 -> stop
+1494117055697 !! Invalid command: stop
+1494117244862 <- Hannibal 1.7 x64
+1494117244863 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494117244863 <- Use UCI commands
+1494117244863 <- 
+1494117244863 -> uci
+1494117244863 <- id name Hannibal 1.7 x64
+1494117244863 <- id author Sam Hamilton & Edsel Apostol
+1494117244863 <- option name Hash type spin default 128 min 1 max 65536
+1494117244863 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494117244863 <- option name MultiPV type spin default 1 min 1 max 128
+1494117244863 <- option name Clear Hash type button
+1494117244863 <- option name OwnBook type check default false
+1494117244863 <- option name Book File type string default Hannibal.bin
+1494117244863 <- option name Ponder type check default false
+1494117244863 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494117244863 <- option name Threads type spin default 1 min 1 max 512
+1494117244863 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494117244863 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494117244863 <- option name Contempt type spin default 0 min -100 max 100
+1494117244863 <- uciok
+1494117244896 -> ucinewgame
+1494117244911 -> isready
+1494117244911 <- readyok
+1494117244911 -> setoption name Threads value 1
+1494117244915 -> setoption name OwnBook value true
+1494117244915 -> setoption name BookFile value src\Engines\book.bin
+1494117244915 <- No such option: BookFile
+1494117244915 -> setoption name Book File value src\Engines\book.bin
+1494117244915 -> setoption name Best Book Line value false
+1494117244915 <- No such option: Best Book Line
+1494117246735 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494117246735 -> go depth 12
+1494117246735 == Depth is limited to 12 half moves
+1494117246735 == Search status is THINKING
+1494117246844 == Aborting search: depth limit: 12
+1494117246844 <- bestmove d7d5 ponder e4e5
+1494117246848 -> stop
+1494117246848 !! Invalid command: stop
+1494117378976 <- Hannibal 1.7 x64
+1494117378976 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494117378976 <- Use UCI commands
+1494117378976 <- 
+1494117378976 -> uci
+1494117378976 <- id name Hannibal 1.7 x64
+1494117378976 <- id author Sam Hamilton & Edsel Apostol
+1494117378976 <- option name Hash type spin default 128 min 1 max 65536
+1494117378977 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494117378977 <- option name MultiPV type spin default 1 min 1 max 128
+1494117378977 <- option name Clear Hash type button
+1494117378977 <- option name OwnBook type check default false
+1494117378977 <- option name Book File type string default Hannibal.bin
+1494117378977 <- option name Ponder type check default false
+1494117378977 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494117378977 <- option name Threads type spin default 1 min 1 max 512
+1494117378977 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494117378977 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494117378977 <- option name Contempt type spin default 0 min -100 max 100
+1494117378977 <- uciok
+1494117379008 -> ucinewgame
+1494117379041 -> setoption name Threads value 1
+1494117379049 -> setoption name OwnBook value true
+1494117379049 -> setoption name BookFile value src\Engines\book.bin
+1494117379049 <- No such option: BookFile
+1494117379049 -> setoption name Book File value src\Engines\book.bin
+1494117379049 -> setoption name Best Book Line value false
+1494117379050 <- No such option: Best Book Line
+1494117380232 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494117380232 -> go depth 12
+1494117380232 == Depth is limited to 12 half moves
+1494117380232 == Search status is THINKING
+1494117380351 == Aborting search: depth limit: 12
+1494117380351 <- bestmove d7d5 ponder e4e5
+1494117380354 -> stop
+1494117380354 !! Invalid command: stop
+1494117382764 -> position fen rnbqkbnr/ppp1pppp/8/3P4/8/8/PPPP1PPP/RNBQKBNR b KQkq -  0 1 moves 
+1494117382764 -> go depth 12
+1494117382764 == Depth is limited to 12 half moves
+1494117382764 == Search status is THINKING
+1494117382764 <- bestmove d8d5
+1494117382791 -> stop
+1494117382791 !! Invalid command: stop
+1494117384898 -> position fen rnb1kbnr/ppp1pppp/8/3q4/8/2N5/PPPP1PPP/R1BQKBNR b KQkq -  0 1 moves 
+1494117384898 -> go depth 12
+1494117384898 == Depth is limited to 12 half moves
+1494117384898 == Search status is THINKING
+1494117384899 <- bestmove d5a5
+1494117384912 -> stop
+1494117384912 !! Invalid command: stop
+1494117386624 -> position fen rnb1kbnr/ppp1pppp/8/q7/3P4/2N5/PPP2PPP/R1BQKBNR b KQkq d3  0 1 moves 
+1494117386624 -> go depth 12
+1494117386624 == Depth is limited to 12 half moves
+1494117386624 == Search status is THINKING
+1494117386897 == Aborting search: depth limit: 12
+1494117386897 <- bestmove c8f5 ponder a2a3
+1494117386900 -> stop
+1494117386900 !! Invalid command: stop
+1494117388878 -> position fen rn2kbnr/ppp1pppp/8/q4b2/3P4/2NB4/PPP2PPP/R1BQK1NR b KQkq -  0 1 moves 
+1494117388878 -> go depth 12
+1494117388878 == Depth is limited to 12 half moves
+1494117388878 == Search status is THINKING
+1494117389011 == Aborting search: depth limit: 12
+1494117389011 <- bestmove e7e6 ponder g1f3
+1494117389019 -> stop
+1494117389019 !! Invalid command: stop
+1494117390752 -> position fen rn2kbnr/ppp2ppp/4p3/q4B2/3P4/2N5/PPP2PPP/R1BQK1NR b KQkq -  0 1 moves 
+1494117390752 -> go depth 12
+1494117390752 == Depth is limited to 12 half moves
+1494117390752 == Search status is THINKING
+1494117390864 == Aborting search: depth limit: 12
+1494117390868 -> stop
+1494117390869 !! Invalid command: stop
+1494117390869 <- bestmove a5f5 ponder g1f3
+1494117392226 -> position fen rn2kbnr/ppp2ppp/4p3/5q2/3P4/2N2N2/PPP2PPP/R1BQK2R b KQkq -  0 1 moves 
+1494117392226 -> go depth 12
+1494117392226 == Depth is limited to 12 half moves
+1494117392226 == Search status is THINKING
+1494117392321 == Aborting search: depth limit: 12
+1494117392321 <- bestmove b8c6 ponder f3h4
+1494117392340 -> stop
+1494117392340 !! Invalid command: stop
+1494118674212 <- Hannibal 1.7 x64
+1494118674213 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494118674213 <- Use UCI commands
+1494118674213 <- 
+1494118674213 -> uci
+1494118674213 <- id name Hannibal 1.7 x64
+1494118674213 <- id author Sam Hamilton & Edsel Apostol
+1494118674213 <- option name Hash type spin default 128 min 1 max 65536
+1494118674213 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494118674213 <- option name MultiPV type spin default 1 min 1 max 128
+1494118674213 <- option name Clear Hash type button
+1494118674213 <- option name OwnBook type check default false
+1494118674213 <- option name Book File type string default Hannibal.bin
+1494118674213 <- option name Ponder type check default false
+1494118674213 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494118674213 <- option name Threads type spin default 1 min 1 max 512
+1494118674213 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494118674213 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494118674213 <- option name Contempt type spin default 0 min -100 max 100
+1494118674213 <- uciok
+1494118674248 -> ucinewgame
+1494118674261 -> isready
+1494118674261 <- readyok
+1494118679365 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494118679365 -> go depth 12
+1494118679365 == Depth is limited to 12 half moves
+1494118679365 == Search status is THINKING
+1494118679471 == Aborting search: depth limit: 12
+1494118679471 <- bestmove d7d5 ponder e4e5
+1494118679482 -> stop
+1494118679482 !! Invalid command: stop
+1494180140407 <- Hannibal 1.7 x64
+1494180140408 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494180140408 <- Use UCI commands
+1494180140408 <- 
+1494180140408 -> uci
+1494180140408 <- id name Hannibal 1.7 x64
+1494180140408 <- id author Sam Hamilton & Edsel Apostol
+1494180140408 <- option name Hash type spin default 128 min 1 max 65536
+1494180140408 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494180140408 <- option name MultiPV type spin default 1 min 1 max 128
+1494180140408 <- option name Clear Hash type button
+1494180140408 <- option name OwnBook type check default false
+1494180140408 <- option name Book File type string default Hannibal.bin
+1494180140408 <- option name Ponder type check default false
+1494180140408 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494180140408 <- option name Threads type spin default 1 min 1 max 512
+1494180140408 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494180140408 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494180140408 <- option name Contempt type spin default 0 min -100 max 100
+1494180140408 <- uciok
+1494180140415 -> ucinewgame
+1494180140436 -> isready
+1494180140437 <- readyok
+1494180140437 -> setoption name Threads value 1
+1494180140441 -> setoption name OwnBook value true
+1494180140441 -> setoption name Book File value src\Engines\book.bin
+1494180140441 -> setoption name Best Book Line value false
+1494180140441 <- No such option: Best Book Line
+1494180153556 -> isready
+1494180153556 <- readyok
+1494180153557 -> position fen rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3  0 1 moves 
+1494180153557 -> go depth 2
+1494180153557 == Depth is limited to 2 half moves
+1494180153557 == Search status is THINKING
+1494180153558 == Aborting search: depth limit: 2
+1494180153559 <- bestmove e7e5 ponder b1c3
+1494180153559 -> stop
+1494180153559 !! Invalid command: stop
+1494180165584 -> isready
+1494180165584 <- readyok
+1494180165585 -> position fen rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -  0 1 moves 
+1494180165585 -> go depth 2
+1494180165585 == Depth is limited to 2 half moves
+1494180165585 == Search status is THINKING
+1494180165585 <- bestmove b8c6
+1494180165586 -> stop
+1494180165586 !! Invalid command: stop
+1494180178336 -> isready
+1494180178336 <- readyok
+1494180178336 -> position fen r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -  0 1 moves 
+1494180178336 -> go depth 2
+1494180178336 == Depth is limited to 2 half moves
+1494180178336 == Search status is THINKING
+1494180178337 <- bestmove f8c5
+1494180178338 -> stop
+1494180178338 !! Invalid command: stop
+1494180190972 -> isready
+1494180190972 <- readyok
+1494180190973 -> position fen r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -  0 1 moves 
+1494180190973 -> go depth 2
+1494180190973 == Depth is limited to 2 half moves
+1494180190973 == Search status is THINKING
+1494180190973 <- bestmove g8f6
+1494180190976 -> stop
+1494180190976 !! Invalid command: stop
+1494180206559 -> isready
+1494180206559 <- readyok
+1494180206560 -> position fen r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -  0 1 moves 
+1494180206560 -> go depth 2
+1494180206560 == Depth is limited to 2 half moves
+1494180206560 == Search status is THINKING
+1494180206561 <- bestmove d7d6
+1494180206568 -> stop
+1494180206568 !! Invalid command: stop
+1494180220988 -> isready
+1494180220988 <- readyok
+1494180220988 -> position fen r1bqk2r/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 b kq -  0 1 moves 
+1494180220988 -> go depth 2
+1494180220988 == Depth is limited to 2 half moves
+1494180220988 == Search status is THINKING
+1494180220989 <- bestmove a7a6
+1494180220999 -> stop
+1494180220999 !! Invalid command: stop
+1494180236616 -> isready
+1494180236616 <- readyok
+1494180236617 -> position fen r1bqk2r/1pp2ppp/p1np1n2/2b1p1B1/2B1P3/2PP1N2/PP3PPP/RN1Q1RK1 b kq -  0 1 moves 
+1494180236617 -> go depth 2
+1494180236617 == Depth is limited to 2 half moves
+1494180236617 == Search status is THINKING
+1494180236618 == Aborting search: depth limit: 2
+149411494181553675 <- Hannibal 1.7 x64
+1494181553676 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494181553676 <- Use UCI commands
+1494181553676 <- 
+1494181553676 -> uci
+1494181553676 <- id name Hannibal 1.7 x64
+1494181553676 <- id author Sam Hamilton & Edsel Apostol
+1494181553676 <- option name Hash type spin default 128 min 1 max 65536
+1494181553676 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494181553676 <- option name MultiPV type spin default 1 min 1 max 128
+1494181553676 <- option name Clear Hash type button
+1494181553676 <- option name OwnBook type check default false
+1494181553676 <- option name Book File type string default Hannibal.bin
+1494181553676 <- option name Ponder type check default false
+1494181553676 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494181553676 <- option name Threads type spin default 1 min 1 max 512
+1494181553676 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494181553676 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494181553676 <- option name Contempt type spin default 0 min -100 max 100
+1494181553676 <- uciok
+1494181553680 -> ucinewgame
+1494181553698 -> isready
+1494181553698 <- readyok
+1494181553698 -> setoption name Threads value 1
+1494181553703 -> setoption name OwnBook value true
+1494181553703 -> setoption name Book File value src\Engines\book.bin
+1494181553703 -> setoption name Best Book Line value false
+1494181553703 <- No such option: Best Book Line
+1494181555248 -> isready
+1494181555248 <- readyok
+1494181555248 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181555248 -> go depth 2
+1494181555248 == Depth is limited to 2 half moves
+1494181555248 == Search status is THINKING
+1494181555249 == Aborting search: depth limit: 2
+1494181555249 <- bestmove g8f6 ponder b1c3
+1494181555249 -> stop
+1494181555249 !! Invalid command: stop
+1494181555468 -> isready
+1494181555468 <- readyok
+1494181555468 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181555468 -> go depth 2
+1494181555468 == Depth is limited to 2 half moves
+1494181555468 == Search status is THINKING
+1494181555468 == Aborting search: depth limit: 2
+1494181555468 <- bestmove g8f6 ponder b1c3
+1494181555470 -> stop
+1494181555470 !! Invalid command: stop
+1494181555689 -> isready
+1494181555689 <- readyok
+1494181555689 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181555689 -> go depth 2
+1494181555689 == Depth is limited to 2 half moves
+1494181555689 == Search status is THINKING
+1494181555690 == Aborting search: depth limit: 2
+1494181555690 <- bestmove g8f6 ponder b1c3
+1494181555692 -> stop
+1494181555692 !! Invalid command: stop
+1494181555907 -> isready
+1494181555907 <- readyok
+1494181555907 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181555907 -> go depth 2
+1494181555907 == Depth is limited to 2 half moves
+1494181555907 == Search status is THINKING
+1494181555907 == Aborting search: depth limit: 2
+1494181555907 <- bestmove g8f6 ponder b1c3
+1494181555909 -> stop
+1494181555909 !! Invalid command: stop
+1494181556127 -> isready
+1494181556127 <- readyok
+1494181556128 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181556128 -> go depth 2
+1494181556128 == Depth is limited to 2 half moves
+1494181556128 == Search status is THINKING
+1494181556128 == Aborting search: depth limit: 2
+1494181556131 <- bestmove g8f6 ponder b1c3
+1494181556134 -> stop
+1494181556134 !! Invalid command: stop
+1494181556350 -> isready
+1494181556350 <- readyok
+1494181556350 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181556350 -> go depth 2
+1494181556350 == Depth is limited to 2 half moves
+1494181556350 == Search status is THINKING
+1494181556350 == Aborting search: depth limit: 2
+1494181556350 <- bestmove g8f6 ponder b1c3
+1494181556352 -> stop
+1494181556352 !! Invalid command: stop
+1494181556571 -> isready
+1494181556571 <- readyok
+1494181556571 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181556571 -> go depth 2
+1494181556571 == Depth is limited to 2 half moves
+1494181556571 == Search status is THINKING
+1494181556572 == Aborting search: depth limit: 2
+1494181556572 <- bestmove g8f6 ponder b1c3
+1494181556582 -> stop
+1494181556582 !! Invalid command: stop
+1494181556791 -> isready
+1494181556791 <- readyok
+1494181556791 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181556791 -> go depth 2
+1494181556791 == Depth is limited to 2 half moves
+1494181556791 == Search status is THINKING
+1494181556792 == Aborting search: depth limit: 2
+1494181556803 <- bestmove g8f6 ponder b1c3
+1494181556814 -> stop
+1494181556814 !! Invalid command: stop
+1494181557012 -> isready
+1494181557012 <- readyok
+1494181557012 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181557012 -> go depth 2
+1494181557013 == Depth is limited to 2 half moves
+1494181557013 == Search status is THINKING
+1494181557013 == Aborting search: depth limit: 2
+1494181557013 <- bestmove g8f6 ponder b1c3
+1494181557046 -> stop
+1494181557046 !! Invalid command: stop
+1494181557235 -> isready
+1494181557235 <- readyok
+1494181557235 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181557235 -> go depth 2
+1494181557235 == Depth is limited to 2 half moves
+1494181557235 == Search status is THINKING
+1494181557236 == Aborting search: depth limit: 2
+1494181557236 <- bestmove g8f6 ponder b1c3
+1494181557249 -> stop
+1494181557249 !! Invalid command: stop
+1494181557457 -> isready
+1494181557457 <- readyok
+1494181557457 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181557458 -> go depth 2
+1494181557458 == Depth is limited to 2 half moves
+1494181557458 == Search status is THINKING
+1494181557458 == Aborting search: depth limit: 2
+1494181557459 <- bestmove g8f6 ponder b1c3
+1494181557461 -> stop
+1494181557461 !! Invalid command: stop
+1494181557680 -> isready
+1494181557680 <- readyok
+1494181557680 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181557680 -> go depth 2
+1494181557680 == Depth is limited to 2 half moves
+1494181557680 == Search status is THINKING
+1494181557681 == Aborting search: depth limit: 2
+1494181557699 <- bestmove g8f6 ponder b1c3
+1494181557753 -> stop
+1494181557753 !! Invalid command: stop
+1494181557901 -> isready
+1494181557901 <- readyok
+1494181557901 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181557901 -> go depth 2
+1494181557901 == Depth is limited to 2 half moves
+1494181557901 == Search status is THINKING
+1494181557901 == Aborting search: depth limit: 2
+1494181557901 <- bestmove g8f6 ponder b1c3
+1494181557903 -> stop
+1494181557903 !! Invalid command: stop
+1494181558123 -> isready
+1494181558123 <- readyok
+1494181558124 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181558124 -> go depth 2
+1494181558124 == Depth is limited to 2 half moves
+1494181558124 == Search status is THINKING
+1494181558124 == Aborting search: depth limit: 2
+1494181558124 <- bestmove g8f6 ponder b1c3
+1494181558127 -> stop
+1494181558127 !! Invalid command: stop
+1494181558344 -> isready
+1494181558344 <- readyok
+1494181558345 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181558345 -> go depth 2
+1494181558345 == Depth is limited to 2 half moves
+1494181558345 == Search status is THINKING
+1494181558345 == Aborting search: depth limit: 2
+1494181558345 <- bestmove g8f6 ponder b1c3
+1494181558346 -> stop
+1494181558346 !! Invalid command: stop
+1494181558564 -> isready
+1494181558564 <- readyok
+1494181558564 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181558564 -> go depth 2
+1494181558564 == Depth is limited to 2 half moves
+1494181558564 == Search status is THINKING
+1494181558564 == Aborting search: depth limit: 2
+1494181558565 <- bestmove g8f6 ponder b1c3
+1494181558566 -> stop
+1494181558566 !! Invalid command: stop
+1494181558784 -> isready
+1494181558784 <- readyok
+1494181558784 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181558785 -> go depth 2
+1494181558785 == Depth is limited to 2 half moves
+1494181558785 == Search status is THINKING
+1494181558785 == Aborting search: depth limit: 2
+1494181558785 <- bestmove g8f6 ponder b1c3
+1494181558786 -> stop
+1494181558786 !! Invalid command: stop
+1494181559005 -> isready
+1494181559005 <- readyok
+1494181559005 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181559005 -> go depth 2
+1494181559005 == Depth is limited to 2 half moves
+1494181559005 == Search status is THINKING
+1494181559005 == Aborting search: depth limit: 2
+1494181559005 <- bestmove g8f6 ponder b1c3
+1494181559010 -> stop
+1494181559010 !! Invalid command: stop
+1494181559227 -> isready
+1494181559227 <- readyok
+1494181559227 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181559227 -> go depth 2
+1494181559228 == Depth is limited to 2 half moves
+1494181559228 == Search status is THINKING
+1494181559228 == Aborting search: depth limit: 2
+1494181559228 <- bestmove g8f6 ponder b1c3
+1494181559228 -> stop
+1494181559228 !! Invalid command: stop
+1494181559447 -> isready
+1494181559447 <- readyok
+1494181559447 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181559447 -> go depth 2
+1494181559447 == Depth is limited to 2 half moves
+1494181559447 == Search status is THINKING
+1494181559447 == Aborting search: depth limit: 2
+1494181559447 <- bestmove g8f6 ponder b1c3
+1494181559448 -> stop
+1494181559448 !! Invalid command: stop
+1494181559667 -> isready
+1494181559667 <- readyok
+1494181559667 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181559667 -> go depth 2
+1494181559667 == Depth is limited to 2 half moves
+1494181559667 == Search status is THINKING
+1494181559667 == Aborting search: depth limit: 2
+1494181559667 <- bestmove g8f6 ponder b1c3
+1494181559668 -> stop
+1494181559668 !! Invalid command: stop
+1494181559888 -> isready
+1494181559888 <- readyok
+1494181559888 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181559888 -> go depth 2
+1494181559888 == Depth is limited to 2 half moves
+1494181559888 == Search status is THINKING
+1494181559888 == Aborting search: depth limit: 2
+1494181559888 <- bestmove g8f6 ponder b1c3
+1494181559889 -> stop
+1494181559889 !! Invalid command: stop
+1494181560106 -> isready
+1494181560106 <- readyok
+1494181560106 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181560106 -> go depth 2
+1494181560106 == Depth is limited to 2 half moves
+1494181560106 == Search status is THINKING
+1494181560107 == Aborting search: depth limit: 2
+1494181560107 <- bestmove g8f6 ponder b1c3
+1494181560109 -> stop
+1494181560109 !! Invalid command: stop
+1494181560327 -> isready
+1494181560327 <- readyok
+1494181560327 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181560327 -> go depth 2
+1494181560327 == Depth is limited to 2 half moves
+1494181560327 == Search status is THINKING
+1494181560327 == Aborting search: depth limit: 2
+1494181560327 <- bestmove g8f6 ponder b1c3
+1494181560328 -> stop
+1494181560328 !! Invalid command: stop
+1494181560546 -> isready
+1494181560546 <- readyok
+1494181560546 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181560546 -> go depth 2
+1494181560546 == Depth is limited to 2 half moves
+1494181560546 == Search status is THINKING
+1494181560546 == Aborting search: depth limit: 2
+1494181560547 <- bestmove g8f6 ponder b1c3
+1494181560549 -> stop
+1494181560549 !! Invalid command: stop
+1494181560767 -> isready
+1494181560767 <- readyok
+1494181560768 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181560768 -> go depth 2
+1494181560768 == Depth is limited to 2 half moves
+1494181560768 == Search status is THINKING
+1494181560768 == Aborting search: depth limit: 2
+1494181560768 <- bestmove g8f6 ponder b1c3
+1494181560769 -> stop
+1494181560769 !! Invalid command: stop
+1494181560989 -> isready
+1494181560989 <- readyok
+1494181560989 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181560989 -> go depth 2
+1494181560989 == Depth is limited to 2 half moves
+1494181560989 == Search status is THINKING
+1494181560989 == Aborting search: depth limit: 2
+1494181560989 <- bestmove g8f6 ponder b1c3
+1494181560991 -> stop
+1494181560991 !! Invalid command: stop
+1494181561209 -> isready
+1494181561209 <- readyok
+1494181561209 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181561209 -> go depth 2
+1494181561209 == Depth is limited to 2 half moves
+1494181561209 == Search status is THINKING
+1494181561211 == Aborting search: depth limit: 2
+1494181561211 <- bestmove g8f6 ponder b1c3
+1494181561214 -> stop
+1494181561214 !! Invalid command: stop
+1494181561429 -> isready
+1494181561429 <- readyok
+1494181561429 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181561429 -> go depth 2
+1494181561429 == Depth is limited to 2 half moves
+1494181561429 == Search status is THINKING
+1494181561429 == Aborting search: depth limit: 2
+1494181561429 <- bestmove g8f6 ponder b1c3
+1494181561431 -> stop
+1494181561431 !! Invalid command: stop
+1494181561648 -> isready
+1494181561648 <- readyok
+1494181561648 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181561648 -> go depth 2
+1494181561648 == Depth is limited to 2 half moves
+1494181561648 == Search status is THINKING
+1494181561649 == Aborting search: depth limit: 2
+1494181561649 <- bestmove g8f6 ponder b1c3
+1494181561680 -> stop
+1494181561680 !! Invalid command: stop
+1494181561868 -> isready
+1494181561868 <- readyok
+1494181561868 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181561868 -> go depth 2
+1494181561869 == Depth is limited to 2 half moves
+1494181561869 == Search status is THINKING
+1494181561869 == Aborting search: depth limit: 2
+1494181561869 <- bestmove g8f6 ponder b1c3
+1494181561870 -> stop
+1494181561870 !! Invalid command: stop
+1494181562089 -> isready
+1494181562089 <- readyok
+1494181562089 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181562089 -> go depth 2
+1494181562089 == Depth is limited to 2 half moves
+1494181562090 == Search status is THINKING
+1494181562090 == Aborting search: depth limit: 2
+1494181562090 <- bestmove g8f6 ponder b1c3
+1494181562093 -> stop
+1494181562093 !! Invalid command: stop
+1494181562310 -> isready
+1494181562310 <- readyok
+1494181562310 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181562310 -> go depth 2
+1494181562310 == Depth is limited to 2 half moves
+1494181562310 == Search status is THINKING
+1494181562311 == Aborting search: depth limit: 2
+1494181562311 <- bestmove g8f6 ponder b1c3
+1494181562313 -> stop
+1494181562313 !! Invalid command: stop
+1494181562532 -> isready
+1494181562532 <- readyok
+1494181562532 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181562532 -> go depth 2
+1494181562532 == Depth is limited to 2 half moves
+1494181562532 == Search status is THINKING
+1494181562532 == Aborting search: depth limit: 2
+1494181562532 <- bestmove g8f6 ponder b1c3
+1494181562533 -> stop
+1494181562533 !! Invalid command: stop
+1494181562752 -> isready
+1494181562752 <- readyok
+1494181562752 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181562752 -> go depth 2
+1494181562752 == Depth is limited to 2 half moves
+1494181562752 == Search status is THINKING
+1494181562752 == Aborting search: depth limit: 2
+1494181562752 <- bestmove g8f6 ponder b1c3
+1494181562753 -> stop
+1494181562753 !! Invalid command: stop
+1494181562971 -> isready
+1494181562971 <- readyok
+1494181562971 -> position fen rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq -  0 1 moves 
+1494181562971 -> go depth 2
+1494181562971 == Depth is limited to 2 half mo1494196455179 <- Hannibal 1.7 x64
+1494196455180 <- Copyright (C) 2016 Sam Hamilton & Edsel Apostol
+1494196455180 <- Use UCI commands
+1494196455180 <- 
+1494196455180 -> uci
+1494196455180 <- id name Hannibal 1.7 x64
+1494196455180 <- id author Sam Hamilton & Edsel Apostol
+1494196455180 <- option name Hash type spin default 128 min 1 max 65536
+1494196455180 <- option name Pawn Hash type spin default 64 min 1 max 1024
+1494196455180 <- option name MultiPV type spin default 1 min 1 max 128
+1494196455180 <- option name Clear Hash type button
+1494196455180 <- option name OwnBook type check default false
+1494196455180 <- option name Book File type string default Hannibal.bin
+1494196455180 <- option name Ponder type check default false
+1494196455180 <- option name Time Buffer type spin default 1000 min 0 max 10000
+1494196455180 <- option name Threads type spin default 1 min 1 max 512
+1494196455180 <- option name Min Split Depth type spin default 4 min 1 max 8
+1494196455180 <- option name Max Active Splits/Thread type spin default 4 min 1 max 8
+1494196455180 <- option name Contempt type spin default 0 min -100 max 100
+1494196455180 <- uciok
+1494196455181 -> ucinewgame
+1494196455194 -> isready
+1494196455194 <- readyok
+1494196455194 -> setoption name Threads value 1
+1494196455198 -> setoption name OwnBook value true
+1494196455199 -> setoption name Book File value src\Engines\book.bin
+1494196455199 -> setoption name Best Book Line value false
+1494196455199 <- No such option: Best Book Line

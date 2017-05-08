@@ -24,7 +24,7 @@ public enum Difficulty {
 
         @Override
         public int getDepth() {
-            return 4;
+            return 5;
         }
     },
     HARD {
@@ -35,8 +35,21 @@ public enum Difficulty {
 
         @Override
         public int getDepth() {
-            return 5;
+            return 8;
         }
+        
+    },
+    INSANE {
+        @Override
+        public String toString() {
+            return "Insane";
+        }
+
+        @Override
+        public int getDepth() {
+            return 12;
+        }
+        
     },
     RANDOM {
         @Override

@@ -99,4 +99,9 @@ public class BlackPlayer extends Player {
             return true;
         return false;
     }
+    
+    @Override
+    public String toString() {
+        return "Black";
+    }
 }

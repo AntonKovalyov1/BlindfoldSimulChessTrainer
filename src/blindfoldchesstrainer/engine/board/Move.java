@@ -3,6 +3,7 @@ package blindfoldchesstrainer.engine.board;
 import blindfoldchesstrainer.engine.pieces.Pawn;
 import blindfoldchesstrainer.engine.pieces.Piece;
 import blindfoldchesstrainer.engine.board.Board.Builder;
+import blindfoldchesstrainer.engine.pieces.Piece.PieceType;
 import blindfoldchesstrainer.engine.pieces.Rook;
 
 /**
@@ -55,6 +56,10 @@ public abstract class Move {
         return getCurrentCoordinate() == otherMove.getCurrentCoordinate() &&
             getDestinationCoordinate() == otherMove.getDestinationCoordinate() &&
             getMovedPiece().equals(otherMove.getMovedPiece());
+    }
+    
+    public String getUCIformat() {
+        return BoardUtils.ALGEBRAIC_NOTATION[getCurrentCoordinate()] + BoardUtils.ALGEBRAIC_NOTATION[getDestinationCoordinate()];
     }
 
     public Board getBoard() {
@@ -322,6 +327,13 @@ public abstract class Move {
             builder.setBlackPlayerType(this.board.blackPlayer().getPlayerType());
             return builder.build();
         }
+        
+        @Override
+        public String getUCIformat() {
+            return BoardUtils.ALGEBRAIC_NOTATION[getCurrentCoordinate()] + 
+                   BoardUtils.ALGEBRAIC_NOTATION[getDestinationCoordinate()] +
+                   decoratedMove.getMovedPiece().toString().toLowerCase();
+        }
 
         @Override
         public boolean isAttack() {
@@ -503,6 +515,11 @@ public abstract class Move {
                 return true;
             return false;
         }
+        
+        @Override
+        public String getUCIformat() {
+            return "0000";
+        }
     }
 
     public static class MoveFactory {
@@ -516,7 +533,21 @@ public abstract class Move {
                                       final int destinationCoordinate) {
             for(final Move move : board.getAllLegalMoves()) {
                 if(move.getCurrentCoordinate() == currentCoordinate &&
-                        move.getDestinationCoordinate() == destinationCoordinate) {
+                   move.getDestinationCoordinate() == destinationCoordinate) {
+                   return move;
+                }
+            }
+            return NULL_MOVE;
+        }
+        
+        public static Move createMove(final Board board,
+                                      final int currentCoordinate,
+                                      final int destinationCoordinate,
+                                      final PieceType movedPieceType) {
+            for(final Move move : board.getAllLegalMoves()) {
+                if(move.getCurrentCoordinate() == currentCoordinate &&
+                        move.getDestinationCoordinate() == destinationCoordinate &&
+                        move.getMovedPiece().getPieceType() == movedPieceType) {
                     return move;
                 }
             }

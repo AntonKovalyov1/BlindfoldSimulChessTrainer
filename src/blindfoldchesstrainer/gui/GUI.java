@@ -18,6 +18,8 @@ import blindfoldchesstrainer.engine.player.MoveTransition;
 import blindfoldchesstrainer.engine.player.Player;
 import blindfoldchesstrainer.engine.player.PlayerType;
 import blindfoldchesstrainer.engine.player.ai.AlphaBeta;
+import blindfoldchesstrainer.engine.uci.Engine;
+import blindfoldchesstrainer.engine.uci.UCIEngine;
 import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -54,6 +56,7 @@ public class GUI extends Stage {
     private final HBox footer = makeFooter(getStatus());
     private final int GAME_OVER_PAUSE_TIME = 2000;
     private final int GAME_NOT_OVER_PAUSE_TIME = 200;
+    private EditUCIEngines enginesWindow = new EditUCIEngines();
 
     public GUI() {
         initialize();
@@ -74,6 +77,7 @@ public class GUI extends Stage {
         show();
         setOnCloseRequest(e -> {
             getComputerMoveExecutor().shutdownNow();
+            closeEngines(enginesWindow.getEngines());
             close();
         });
         fullScreenProperty().addListener(e -> {
@@ -118,7 +122,7 @@ public class GUI extends Stage {
         final MenuBar menuBar = new MenuBar();
 
         final Menu playMenu = new Menu("Play");
-        final Menu preferencesMenu = new Menu("Preferences");
+        final Menu settingsMenu = new Menu("Settings");
 
         final CheckMenuItem cheatCheckMenuItem = new CheckMenuItem("See Pieces");
         cheatCheckMenuItem.setOnAction(e -> {
@@ -148,37 +152,46 @@ public class GUI extends Stage {
         highlightCheckMenuItem.setSelected(true);
         this.setHighlightLegalMoves(true);
         // set highliting to false as default
+                        
+        final MenuItem enginesMenuItem = new MenuItem("Edit Engines");
+        enginesMenuItem.setOnAction(e -> {
+            enginesWindow = new EditUCIEngines();
+            enginesWindow.showAndWait();
+        });
 
         final MenuItem newGameMenuItem = new MenuItem("New Game/s");
         newGameMenuItem.setOnAction(e -> {
-            CreateGame createGame = new CreateGame("New Game/s");
-            if (createGame.getNumberOfGames() != -1) {
-                final int numberOfGames = createGame.getNumberOfGames();
-                final ColorChoice colorChoice = createGame.getColorChoice();
-                final Difficulty difficulty = createGame.getDifficulty();
-                List<GamePane> games = match(numberOfGames, colorChoice, difficulty, 0);
+            CreateMatch createMatch = new CreateMatch("New Game/s", enginesWindow.getEngines());
+            if (createMatch.getNumberOfGames() != -1) {
+                closeEngines(enginesWindow.getEngines());
+                final int numberOfGames = createMatch.getNumberOfGames();
+                final ColorChoice colorChoice = createMatch.getColorChoice();
+                final Difficulty difficulty = createMatch.getDifficulty();
+                final Engine engine = createMatch.getEngine();
+                List<GamePane> games = match(numberOfGames, colorChoice, difficulty, engine, 0);
                 setGamesViewer(new GamesViewer(games));
                 getMainBorderPane().setCenter(getGamesViewer());
             }
         });
         final MenuItem addGameMenuItem = new MenuItem("Add Game/s");
         addGameMenuItem.setOnAction(e -> {
-            CreateGame createGame = new CreateGame("Add Game/s");
-            if (createGame.getNumberOfGames() != -1) {
-                final int numberOfGames = createGame.getNumberOfGames();
-                final ColorChoice colorChoice = createGame.getColorChoice();
-                final Difficulty difficulty = createGame.getDifficulty();
+            CreateMatch createMatch = new CreateMatch("Add Game/s", enginesWindow.getEngines());
+            if (createMatch.getNumberOfGames() != -1) {
+                final int numberOfGames = createMatch.getNumberOfGames();
+                final ColorChoice colorChoice = createMatch.getColorChoice();
+                final Difficulty difficulty = createMatch.getDifficulty();
+                final Engine engine = createMatch.getEngine();
                 List<GamePane> games = new ArrayList<>();
                 if (getGamesViewer().getActiveGamesCounter() < 1) {
                     getComputerMoveExecutor().shutdownNow();
                     setComputerMoveExecutor(Executors.newScheduledThreadPool(1));
-                    games.addAll(match(numberOfGames, colorChoice, difficulty, 0));
+                    games.addAll(match(numberOfGames, colorChoice, difficulty, engine, 0));
                     setGamesViewer(new GamesViewer(games));
                     getMainBorderPane().setCenter(getGamesViewer());
                 }
                 else {
                     final int offset = getGamesViewer().getGames().size();
-                    games.addAll(match(numberOfGames, colorChoice, difficulty, offset));
+                    games.addAll(match(numberOfGames, colorChoice, difficulty, engine, offset));
                     getGamesViewer().addGames(games);
                 }
             }
@@ -193,19 +206,28 @@ public class GUI extends Stage {
 
         playMenu.getItems().addAll(newGameMenuItem, addGameMenuItem);
 
-        preferencesMenu.getItems().addAll(getFullScreenMenuItem(), flipBoardMenuItem, highlightCheckMenuItem, cheatCheckMenuItem, getSmoothTransitionMenuItem());
+        settingsMenu.getItems().addAll(getFullScreenMenuItem(), flipBoardMenuItem, highlightCheckMenuItem, cheatCheckMenuItem, getSmoothTransitionMenuItem(), enginesMenuItem);
 
-        menuBar.getMenus().addAll(playMenu, preferencesMenu);
+        menuBar.getMenus().addAll(playMenu, settingsMenu);
         return menuBar;
     }
     
-    public List<GamePane> match(int numberOfGames, ColorChoice colorChoice, Difficulty difficulty, int offset) {
+    public List<GamePane> match(int numberOfGames, ColorChoice colorChoice, Difficulty difficulty, Engine engine, int offset) {
         List<GamePane> games = new ArrayList<>();
         for (int i = offset; i < numberOfGames + offset; i++) {
+            UCIEngine uci_engine = engine.getUCIEngine();
+            if (!uci_engine.isStarted())
+                uci_engine.start();
             if (colorChoice.getAlliance().isWhite())
-                games.add(new GamePane(i, Board.createStandardGameBoard(PlayerType.HUMAN, PlayerType.COMPUTER), difficulty.getDepth()));
+                games.add(new GamePane(i, 
+                        Board.createStandardGameBoard(PlayerType.HUMAN, PlayerType.COMPUTER), 
+                        uci_engine, 
+                        difficulty.getDepth()));
             else
-                games.add(new GamePane(i, Board.createStandardGameBoard(PlayerType.COMPUTER, PlayerType.HUMAN), difficulty.getDepth()));
+                games.add(new GamePane(i, Board.createStandardGameBoard(PlayerType.COMPUTER, 
+                        PlayerType.HUMAN), 
+                        uci_engine, 
+                        difficulty.getDepth()));
         }
         return games;
     }
@@ -262,6 +284,14 @@ public class GUI extends Stage {
         return footer;
     }
 
+    private void closeEngines(List<Engine> engines) {
+        for (Engine engine : engines) {
+            UCIEngine uci_engine = engine.getUCIEngine();
+            if (uci_engine.isStarted())
+                uci_engine.close();
+        }
+    }
+
     public final class GamesViewer extends GridPane {
 
         private final List<GamePane> games;
@@ -282,7 +312,7 @@ public class GUI extends Stage {
         private int activeGamesCounter = 0;
 
         public GamesViewer() {
-            this.currentGame = new GamePane(0, Board.createStandardGameBoard(PlayerType.HUMAN, PlayerType.HUMAN), Difficulty.EASY.getDepth());
+            this.currentGame = new GamePane(0, Board.createStandardGameBoard(PlayerType.HUMAN, PlayerType.HUMAN), null, Difficulty.EASY.getDepth());
             this.games = new ArrayList<>();
             this.games.add(this.currentGame);
             this.pagination = createPaginationControl(0);
@@ -659,9 +689,9 @@ public class GUI extends Stage {
         private boolean showable = true;
         private boolean gameOver;
 
-        public GamePane(final int gameID, Board board, final int depth) {
+        public GamePane(final int gameID, Board board, UCIEngine engine, final int depth) {
             this.gameID = gameID;
-            this.boardPane = new BoardPane(this, board, depth);
+            this.boardPane = new BoardPane(this, board, engine, depth);
             initialize(board);
         }
 
@@ -1068,10 +1098,12 @@ public class GUI extends Stage {
         private volatile boolean running;
         private int currentBoardIndex = 0;
         private boolean promotionMode;
+        private final UCIEngine engine;
 
-        public BoardPane(GamePane game, Board board, int depth) {
+        public BoardPane(GamePane game, Board board, UCIEngine engine, int depth) {
             this.game = game;
             this.board = board;
+            this.engine = engine;
             this.depth = depth;
             initialize();
         }
@@ -1102,6 +1134,7 @@ public class GUI extends Stage {
             checkGameOver(board);
             redrawBoard(board);
             if (board.currentPlayer().getPlayerType().isComputer() && !getGame().isGameOver()) {
+                System.out.println(board.currentPlayer().getAlliance());
                 makeMove();
             }
         }
@@ -1367,6 +1400,13 @@ public class GUI extends Stage {
          */
         public void setPromotionMode(boolean promotionMode) {
             this.promotionMode = promotionMode;
+        }
+
+        /**
+         * @return the engine
+         */
+        public UCIEngine getEngine() {
+            return engine;
         }
     }
 
@@ -1654,17 +1694,24 @@ public class GUI extends Stage {
             if (!getBoardPane().getGame().isGameOver()) {
                 getBoardPane().getGame().thinking();
                 Board board = getBoardPane().getBoard();
-                AlphaBeta minimax = new AlphaBeta(board, getSearchDepth());
-                getBoardPane().setRunning(true);
-                Move bestMove = minimax.compute();
-                if (!getBoardPane().isInterrupt()) {
-                    getBoardPane().getMoves().push(bestMove);
-                    Platform.runLater(() -> {
-                        getBoardPane().updateBoard(board.currentPlayer().makeMove(bestMove).getTransitionBoard());
-                    });
+                UCIEngine engine = getBoardPane().getEngine();
+                if (engine.isReady()) {
+                    //AlphaBeta minimax = new AlphaBeta(board, getSearchDepth());
+                    getBoardPane().setRunning(true);
+                    Move bestMove = engine.executeMove(getSearchDepth(), board);
+                    //Move bestMove = minimax.compute();
+                    if (!getBoardPane().isInterrupt()) {
+                        getBoardPane().getMoves().push(bestMove);
+                        Platform.runLater(() -> {
+                            getBoardPane().updateBoard(board.currentPlayer().makeMove(bestMove).getTransitionBoard());
+                        });
+                    }
+                    getBoardPane().setInterrupt(false);
+                    getBoardPane().setRunning(false);
                 }
-                getBoardPane().setInterrupt(false);
-                getBoardPane().setRunning(false);
+                else {
+                    //Corrupted executable
+                }
             }
         }
 
