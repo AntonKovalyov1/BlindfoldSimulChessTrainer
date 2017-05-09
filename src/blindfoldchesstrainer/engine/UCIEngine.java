@@ -73,7 +73,7 @@ public class UCIEngine extends Engine {
                 engine.send_uci_cmd("stop");
             }
         }).start();
-        Move engineMove = UCIUtilities.getMoveFromUCIformat(engine.get_BestMove(true), board);
+        Move engineMove = UCIUtilities.getMoveFromUCIformat(engine.get_BestMove(false), board);
         forceMoveExecution = false;
         running = false;
         return engineMove;

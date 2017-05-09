@@ -50,8 +50,9 @@ public class GUI extends Stage {
     private final Scene scene = new Scene(mainBorderPane, 700, 760);
     private final CheckMenuItem fullScreenMenuItem = new CheckMenuItem("Full Screen");
     private final CheckMenuItem smoothTransitionMenuItem = new CheckMenuItem("Smooth Transition");
-    private final Text status = new Text("No games in progress");
-    private final HBox footer = makeFooter(getStatus());
+    private final Text currentGameStatus = new Text("No games in progress");
+    private final Text matchStatus = new Text("");
+    private final BorderPane footer = makeFooter(getCurrentGameStatus(), getMatchStatus());
     private final int GAME_OVER_PAUSE_TIME = 2000;
     private final int GAME_NOT_OVER_PAUSE_TIME = 200;
     private EditUCIEngines enginesWindow = new EditUCIEngines();
@@ -109,13 +110,14 @@ public class GUI extends Stage {
         });
     }
 
-    private HBox makeFooter(Text status) {
-        HBox hb = new HBox();
-        hb.setId("footer");
-        status.setId("status-text");
-        hb.setAlignment(Pos.BASELINE_LEFT);
-        hb.getChildren().add(status);
-        return hb;
+    private BorderPane makeFooter(Text currentGameStatus, Text matchStatus) {
+       BorderPane bp = new BorderPane();
+        bp.setId("footer");
+        currentGameStatus.setId("current-game-status-text");
+        matchStatus.setId("match-status-text");
+        bp.setLeft(currentGameStatus);
+        bp.setRight(matchStatus);
+        return bp;
     }
 
     private MenuBar createMenuBar() {
@@ -275,11 +277,11 @@ public class GUI extends Stage {
         return smoothTransitionMenuItem;
     }
 
-    public Text getStatus() {
-        return status;
+    public Text getCurrentGameStatus() {
+        return currentGameStatus;
     }
 
-    public HBox getFooter() {
+    public BorderPane getFooter() {
         return footer;
     }
 
@@ -290,10 +292,15 @@ public class GUI extends Stage {
     }    
             
     public void updateFooter() {
-        if (getGamesViewer().isNoGameMode())
-            getStatus().setText("No games in progress");
-        else
-            getStatus().setText(gameInfo(getGamesViewer().getCurrentGame().getBoardPane()));   
+        if (getGamesViewer().isNoGameMode()) {
+            getCurrentGameStatus().setText("No games in progress");
+        }
+        else {
+            getCurrentGameStatus().setText(gameInfo(getGamesViewer().getCurrentGame().getBoardPane()));
+            String scoreHumanString = Double.toString(getGamesViewer().getScoreHuman()).replace(".0", "");
+            String scoreComputerString = Double.toString(getGamesViewer().getScoreComputer()).replace(".0", "");
+            getMatchStatus().setText("  Score: " + scoreHumanString + "-" + scoreComputerString);
+        }
     }
 
     public String gameInfo(BoardPane boardPane) {
@@ -307,6 +314,13 @@ public class GUI extends Stage {
             s += engineName + " vs. " + user + "/t";
         s += boardPane.getGameOverText();
         return s;
+    }
+
+    /**
+     * @return the matchStatus
+     */
+    private Text getMatchStatus() {
+        return matchStatus;
     }
 
     public final class GamesViewer extends GridPane {
@@ -328,6 +342,8 @@ public class GUI extends Stage {
         private final StackPane gameContainer = new StackPane();
         private int activeGamesCounter = 0;
         private boolean noGameMode;
+        private double scoreHuman = 0;
+        private double scoreComputer = 0;
 
         public GamesViewer() {
             this.currentGame = new GamePane(0, Board.createStandardGameBoard(PlayerType.HUMAN, PlayerType.HUMAN), null, Difficulty.EASY.getDepth());
@@ -488,6 +504,7 @@ public class GUI extends Stage {
             Button b = new Button();
             b.setId("make-move-button");
             b.getStyleClass().add("options-buttons");
+            b.setTooltip(new Tooltip("play!"));
             b.setOnAction(e -> {
                 getCurrentGame().makeAMove();
             });
@@ -498,6 +515,7 @@ public class GUI extends Stage {
             Button b = new Button();
             b.setId("resign-button");
             b.getStyleClass().add("options-buttons");
+            b.setTooltip(new Tooltip("resign"));
             b.setOnAction(e -> {
                 getCurrentGame().resign();
             });
@@ -508,6 +526,7 @@ public class GUI extends Stage {
             Button b = new Button();
             b.setId("draw-button");
             b.getStyleClass().add("options-buttons");
+            b.setTooltip(new Tooltip("draw"));
             b.setOnAction(e -> {
                 getCurrentGame().makeDraw();
             });
@@ -518,6 +537,7 @@ public class GUI extends Stage {
             Button b = new Button();
             b.setId("win-button");
             b.getStyleClass().add("options-buttons");
+            b.setTooltip(new Tooltip("win"));
             b.setOnAction(e -> {
                 getCurrentGame().win();
             });
@@ -528,17 +548,20 @@ public class GUI extends Stage {
             Button b = new Button();
             b.setId("cheat-button");
             b.getStyleClass().add("options-buttons");
+            b.setTooltip(new Tooltip("cheat"));
             b.setOnAction(e -> {
                 BoardPane boardPane = getCurrentGame().getBoardPane();
                 if (boardPane.isCheat()) {
                     boardPane.setCheat(false);
                     boardPane.redrawBoard(boardPane.getCurrentViewBoard());
                     b.setId("cheat-button");
+                    b.setTooltip(new Tooltip("cheat"));
                 }
                 else {
                     boardPane.setCheat(true);
                     boardPane.redrawBoard(boardPane.getCurrentViewBoard());
                     b.setId("play-fair-button");
+                    b.setTooltip(new Tooltip("play fair"));
                 }
             });
             return b;
@@ -548,6 +571,7 @@ public class GUI extends Stage {
             Button b = new Button();
             b.setId("flip-button");
             b.getStyleClass().add("options-buttons");
+            b.setTooltip(new Tooltip("flip board"));
             b.setOnAction(e -> {
                 getCurrentGame().flipBoard();
             });
@@ -558,6 +582,7 @@ public class GUI extends Stage {
             Button b = new Button();
             b.setId("take-back-button");
             b.getStyleClass().add("options-buttons");
+            b.setTooltip(new Tooltip("take back"));
             b.setOnAction(e -> {
                 getCurrentGame().takeBack();
             });
@@ -568,6 +593,7 @@ public class GUI extends Stage {
             Button b = new Button();
             b.setId("reset-button");
             b.getStyleClass().add("options-buttons");
+            b.setTooltip(new Tooltip("reset game"));
             b.setOnAction(e -> {
                 getCurrentGame().resetGame();
             });
@@ -704,6 +730,34 @@ public class GUI extends Stage {
          */
         private void setNoGameMode(boolean noGameMode) {
             this.noGameMode = noGameMode;
+        }
+
+        /**
+         * @return the scoreHuman
+         */
+        private double getScoreHuman() {
+            return scoreHuman;
+        }
+
+        /**
+         * @param scoreHuman the scoreHuman to set
+         */
+        private void setScoreHuman(double scoreHuman) {
+            this.scoreHuman = scoreHuman;
+        }
+
+        /**
+         * @return the scoreComputer
+         */
+        private double getScoreComputer() {
+            return scoreComputer;
+        }
+
+        /**
+         * @param scoreComputer the scoreComputer to set
+         */
+        private void setScoreComputer(double scoreComputer) {
+            this.scoreComputer = scoreComputer;
         }
     }
 
@@ -1176,6 +1230,10 @@ public class GUI extends Stage {
                     getGame().getWhiteMoveText().setText("0-1");
                 else
                     getGame().getBlackMoveText().setText("0-1");
+                if (getBoard().blackPlayer().getPlayerType().isComputer())
+                    getGamesViewer().setScoreComputer(getGamesViewer().getScoreComputer() + 1);
+                else
+                    getGamesViewer().setScoreHuman(getGamesViewer().getScoreHuman() + 1);
             }
             else {
                 setGameOverText("1-0");
@@ -1183,6 +1241,10 @@ public class GUI extends Stage {
                     getGame().getWhiteMoveText().setText("1-0");
                 else
                     getGame().getBlackMoveText().setText("1-0");
+                if (getBoard().whitePlayer().getPlayerType().isComputer())
+                    getGamesViewer().setScoreComputer(getGamesViewer().getScoreComputer() + 1);
+                else
+                    getGamesViewer().setScoreHuman(getGamesViewer().getScoreHuman() + 1);
             }
             updateFooter();
         }
@@ -1193,6 +1255,8 @@ public class GUI extends Stage {
                 getGame().getWhiteMoveText().setText("1/2-1/2");
             else
                 getGame().getBlackMoveText().setText("1/2-1/2");
+            getGamesViewer().setScoreHuman(getGamesViewer().getScoreHuman() + 0.5);
+            getGamesViewer().setScoreComputer(getGamesViewer().getScoreComputer() + 0.5);
             updateFooter();
         }
 

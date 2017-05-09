@@ -37,12 +37,14 @@
 }
 
 .source-tile-white { 
-    -fx-border-width: 3;
+    -fx-border-width: 4;
+    -fx-padding: -4;
     -fx-border-color: #859C27;
 }
 
 .source-tile-black {
-    -fx-border-width: 3;
+    -fx-border-width: 4;
+    -fx-padding: -4;
     -fx-border-color: #CD0000;
 }
 
@@ -179,8 +181,13 @@
     -fx-padding: 3 5 3 5;
 }
 
-#status-text {
+#current-game-status-text {
     -fx-font-size: 14;
+}
+
+#match-status-text {
+    -fx-font-size: 14;
+    -fx-alignment: BASELINE_RIGHT;
 }
 
 .move-text {
