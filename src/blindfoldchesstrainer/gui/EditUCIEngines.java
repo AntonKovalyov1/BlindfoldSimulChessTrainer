@@ -1,9 +1,9 @@
 package blindfoldchesstrainer.gui;
 
-import blindfoldchesstrainer.engine.uci.Engine;
-import blindfoldchesstrainer.engine.uci.Engine.SpecificUCIEngine;
+import blindfoldchesstrainer.engine.*;
+import blindfoldchesstrainer.engine.CustomEngine;
 import blindfoldchesstrainer.engine.uci.ExecutableChooser;
-import blindfoldchesstrainer.engine.uci.UCIEngine;
+import blindfoldchesstrainer.engine.UCIEngine;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
@@ -86,6 +86,7 @@ public class EditUCIEngines extends Stage {
         
         Scene scene = new Scene(bp);
         setScene(scene);
+        scene.getStylesheets().add("main.css");
         setTitle("Edit Engines");
         getIcons().add(new Image("images/mainIcon.jpg"));
         setResizable(false);
@@ -103,10 +104,10 @@ public class EditUCIEngines extends Stage {
         try {
             in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(ENGINES_PATH)));
             List<String> list = (ArrayList<String>)in.readObject();
+            //Add my custom engine always in first position
+            addEngine(new CustomEngine());
             for (String s : list) {
-                UCIEngine uci_engine = new UCIEngine(s);
-                enginesList.add(new SpecificUCIEngine(uci_engine));
-                updatedEnginesList.add(new SpecificUCIEngine(uci_engine));
+                addEngine(new UCIEngine(s));
             }
             in.close();
         }
@@ -118,7 +119,10 @@ public class EditUCIEngines extends Stage {
     public void saveEnginesFile() {
         List<String> list = new ArrayList<>();
         for (Engine engine : updatedEnginesList) {
-            list.add(engine.getUCIEngine().getFileString());
+            if (engine instanceof UCIEngine) {
+                UCIEngine uci_engine = (UCIEngine)engine;
+                list.add(uci_engine.getFileString());
+            }
         }
         try {
             out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(ENGINES_PATH)));
@@ -144,7 +148,7 @@ public class EditUCIEngines extends Stage {
                     UCIEngine newEngine = new UCIEngine(newEnginePath);
                     if (newEngine.start()) {
                         errorText.setText("");
-                        enginesList.add(new SpecificUCIEngine(newEngine));
+                        enginesList.add(newEngine);
                     }
                     else {
                         errorText.setText("Engine not added: Bad executable");
@@ -164,7 +168,7 @@ public class EditUCIEngines extends Stage {
         b.setOnAction(e -> {
             if (!enginesList.isEmpty()) {
                 int selectedIndex = enginesLV.getSelectionModel().getSelectedIndex();
-                if (selectedIndex < 3)
+                if (selectedIndex < 1)
                     errorText.setText("Default engine cannot be removed");
                 else if (selectedIndex < enginesList.size()) {
                     errorText.setText("");
@@ -201,5 +205,10 @@ public class EditUCIEngines extends Stage {
     
     public List<Engine> getEngines() {
         return Collections.unmodifiableList(updatedEnginesList);
+    }
+    
+    public void addEngine(Engine engine) {
+        enginesList.add(engine);
+        updatedEnginesList.add(engine);
     }
 }

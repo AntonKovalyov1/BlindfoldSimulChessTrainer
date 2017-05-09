@@ -8,138 +8,165 @@ package blindfoldchesstrainer.engine.player.ai;
 import blindfoldchesstrainer.engine.board.Board;
 import blindfoldchesstrainer.engine.board.Move;
 import blindfoldchesstrainer.engine.player.MoveTransition;
-import blindfoldchesstrainer.engine.player.Player;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.RecursiveTask;
 
 /**
  *
  * @author Anton
  */
-public class AlphaBeta extends RecursiveTask implements MoveStrategy {
+public class AlphaBeta implements MoveStrategy {
     
     private final BoardEvaluator boardEvaluator;
     private final int searchDepth;
     private final Board board;
-    private final Player playerToMove;
-    private final int THRESHOLD = 25;
-    private final int FIXED_ORDERING_DEPTH = 2;
+    private final int FIXED_ORDERING_DEPTH = 3;
+    private boolean running;
+    private boolean forceMoveExecution;
+    private long startRunningTime;
+    private final long FIXED_TIME_LIMIT = 3000;
     
     public AlphaBeta(final Board board, final int searchDepth) {
         this.boardEvaluator = new StandardBoardEvaluator();
         this.board = board;
         this.searchDepth = searchDepth;
-        this.playerToMove = board.currentPlayer();
-    }
-
-    @Override
-    public Move compute() {
-        return execute(getBoard());
     }
 
     @Override
     public Move execute(Board board) {
-        System.out.println(board.currentPlayer() + "Thinking with depth = " + searchDepth);
-        List<EvaluatedMove> moves = new ArrayList<>(moveOrdering(board));
-        for(final EvaluatedMove candidate : moves) {
-            candidate.setValue(getPlayerToMove().getAlliance().isWhite() ?
-                    alphabeta(candidate.getMove().execute(), 
+        running = true;
+        startRunningTime = System.currentTimeMillis();
+        System.out.println(forceMoveExecution);
+        int maxSeenValue = Integer.MIN_VALUE;
+        int minSeenValue = Integer.MAX_VALUE;
+        List<Move> possibleMoves = getPossibleMoves(board);
+        Move quickBestMove = getQuickBestMove(board);
+        Move bestMove = getQuickBestMove(board);
+        for(final Move candidate : possibleMoves) {
+            int currentValue;
+            if (board.currentPlayer().getAlliance().isWhite()) {
+                currentValue = alphabeta(candidate.execute(), 
                               getSearchDepth() - 1, 
-                              Integer.MIN_VALUE, 
-                              Integer.MAX_VALUE, 
-                              false) :
-                    alphabeta(candidate.getMove().execute(), 
-                              getSearchDepth() - 1, 
-                              Integer.MIN_VALUE, 
-                              Integer.MAX_VALUE,
-                              true));            
-            try {
-                Thread.sleep(0);
+                              maxSeenValue, 
+                              minSeenValue, 
+                              false);
+                if (currentValue > maxSeenValue) {
+                    bestMove = candidate;
+                    maxSeenValue = currentValue;
+                }
             }
-            catch (InterruptedException ex) {
-                return pickBestMove(moves);
+            else {
+                currentValue = alphabeta(candidate.execute(), 
+                              getSearchDepth() - 1, 
+                              maxSeenValue, 
+                              minSeenValue,
+                              true);
+                if (currentValue < minSeenValue) {
+                    bestMove = candidate;
+                    minSeenValue = currentValue;
+                }
+            }
+            if (forceMoveExecution || System.currentTimeMillis() - startRunningTime > FIXED_TIME_LIMIT) {
+                forceMoveExecution = false;
+                running = false;
+                return quickBestMove;
             }
         }
-        return pickBestMove(moves);
+        forceMoveExecution = false;
+        running = false;
+        return bestMove;
     }
     
-    public List<EvaluatedMove> moveOrdering(Board board) {
-        List<Move> legalMoves = new ArrayList<>(board.currentPlayer().getLegalMoves());
-        Collections.shuffle(legalMoves);
-        List<EvaluatedMove> moves = new ArrayList<>(initEvaluatedMoves(legalMoves));
-        for(final EvaluatedMove candidate : moves) {
-            candidate.setValue(getPlayerToMove().getAlliance().isWhite() ?
-                    alphabeta(candidate.getMove().execute(), 
+    public Move getQuickBestMove(Board board) {
+        int maxSeenValue = Integer.MIN_VALUE;
+        int minSeenValue = Integer.MAX_VALUE;
+        List<Move> possibleMoves = getPossibleMoves(board);
+        Move quickBestMove = possibleMoves.get(0);
+        for(final Move candidate : possibleMoves) {
+            int currentValue;
+            if (board.currentPlayer().getAlliance().isWhite()) {
+                currentValue = alphabeta(candidate.execute(), 
                               FIXED_ORDERING_DEPTH - 1, 
-                              Integer.MIN_VALUE, 
-                              Integer.MAX_VALUE, 
-                              false) :
-                    alphabeta(candidate.getMove().execute(), 
+                              maxSeenValue, 
+                              minSeenValue, 
+                              false);
+                if (currentValue > maxSeenValue) {
+                    quickBestMove = candidate;
+                    maxSeenValue = currentValue;
+                }
+            }
+            else {
+                currentValue = alphabeta(candidate.execute(), 
                               FIXED_ORDERING_DEPTH - 1, 
-                              Integer.MIN_VALUE, 
-                              Integer.MAX_VALUE,
-                              true));            
+                              maxSeenValue, 
+                              minSeenValue,
+                              true);
+                if (currentValue < minSeenValue) {
+                    quickBestMove = candidate;
+                    minSeenValue = currentValue;
+                }
+            }
         }
-        return Collections.unmodifiableList(moves);
+        return quickBestMove;           
     }
     
     private int alphabeta(Board board, int depth, int alpha, int beta, boolean maximizingPlayer) {
         if (depth == 0 || isEndGameScenario(board))
             return getBoardEvaluator().evaluate(board, depth);
-        List<Move> legalMoves = new ArrayList<>(board.currentPlayer().getLegalMoves());
-        Collections.shuffle(legalMoves);
+        List<Move> possibleMoves = getPossibleMoves(board);
         if (maximizingPlayer) {
             int v = Integer.MIN_VALUE;
-            for (Move move : board.currentPlayer().getLegalMoves()) {
-                final MoveTransition moveTransition = board.currentPlayer().makeMove(move);
-                if (moveTransition.getMoveStatus().isDone()) {
-                    v = Integer.max(v, alphabeta(move.execute(), depth - 1, alpha, beta, false));
-                    alpha = Integer.max(alpha, v);
-                    if (beta <= alpha)
-                        break; // Beta cut-off
+            for (Move move : possibleMoves) {
+                if (forceMoveExecution || System.currentTimeMillis() - startRunningTime > FIXED_TIME_LIMIT) {
+                    break;
                 }
+                v = Integer.max(v, alphabeta(move.execute(), depth - 1, alpha, beta, false));
+                alpha = Integer.max(alpha, v);
+                if (beta <= alpha)
+                    break; // Beta cut-off
             }
             return v;
         }
         int v = Integer.MAX_VALUE;
-        for (Move move : board.currentPlayer().getLegalMoves()) {
-            final MoveTransition moveTransition = board.currentPlayer().makeMove(move);
-            if (moveTransition.getMoveStatus().isDone()) {
-                v = Integer.min(v, alphabeta(move.execute(), depth - 1, alpha, beta, true));
-                beta = Integer.min(beta, v);
-                if (beta <= alpha)
-                    break; // alpha cut-off
+        for (Move move : possibleMoves) {
+            if (forceMoveExecution || System.currentTimeMillis() - startRunningTime > FIXED_TIME_LIMIT) {
+                break;
             }
+            v = Integer.min(v, alphabeta(move.execute(), depth - 1, alpha, beta, true));
+            beta = Integer.min(beta, v);
+            if (beta <= alpha)
+                break; // alpha cut-off
         }
         return v;
-    }
-    
-    private List<EvaluatedMove> initEvaluatedMoves(List<Move> legalMoves) {
-        List<EvaluatedMove> candidateEvaluatedMoves = new ArrayList<>();
-        if (getBoard().currentPlayer().getAlliance().isWhite()) {
-            for (Move candidate : legalMoves) {
-                final MoveTransition moveTransition = getBoard().currentPlayer().makeMove(candidate);
-                if (moveTransition.getMoveStatus().isDone())
-                    candidateEvaluatedMoves.add(new EvaluatedMove(candidate, Integer.MIN_VALUE));
-            }
-        }
-        else {
-            for (Move candidate : legalMoves) {
-                final MoveTransition moveTransition = getBoard().currentPlayer().makeMove(candidate);
-                if (moveTransition.getMoveStatus().isDone())
-                    candidateEvaluatedMoves.add(new EvaluatedMove(candidate, Integer.MAX_VALUE));
-            }
-        }
-        return Collections.unmodifiableList(candidateEvaluatedMoves);
     }
     
     private boolean isEndGameScenario(Board board) {
         return board.currentPlayer().isInCheckMate() ||
                board.currentPlayer().isInStalemate();
+    }   
+    
+    private List<Move> getPossibleMoves(Board board) {
+        List<Move> possibleMoves = new ArrayList<>();
+        List<Move> allLegalMoves = new ArrayList<>(board.currentPlayer().getLegalMoves());
+        Collections.shuffle(allLegalMoves);
+        for (final Move move : allLegalMoves) {
+            MoveTransition moveTransition = board.currentPlayer().makeMove(move);
+            if (moveTransition.getMoveStatus().isDone())
+                possibleMoves.add(move);
+        }
+        return possibleMoves;
     }
     
+    public boolean isRunning() {
+        return running;
+    }
+    
+    public void forceMoveExecution() {
+        if (isRunning())
+            forceMoveExecution = true;
+    }
+
     @Override
     public String toString() {
         return "MiniMax + AlpaBeta";
@@ -164,28 +191,5 @@ public class AlphaBeta extends RecursiveTask implements MoveStrategy {
      */
     public Board getBoard() {
         return board;
-    }
-
-    private Move pickBestMove(List<EvaluatedMove> moves) {
-        List<EvaluatedMove> sortedMoves = new ArrayList<>(getPlayerToMove().getAlliance().orderMoves(moves));
-        for (int i = 0; i < sortedMoves.size(); i++) {
-            System.out.print("{" + sortedMoves.get(i).getValue() + " " + sortedMoves.get(i).getMove() + "} ");            
-        }
-        System.out.println("");
-        List<EvaluatedMove> bestMoves = new ArrayList<>();
-        EvaluatedMove topMove = sortedMoves.get(0);
-        for (EvaluatedMove candidate : sortedMoves) {
-            if (Math.abs(topMove.getValue() - candidate.getValue()) <= THRESHOLD)
-                bestMoves.add(candidate);
-        }
-        int movesNumber = bestMoves.size();
-        return bestMoves.get((int)(Math.random() * movesNumber)).getMove();
-    }
-
-    /**
-     * @return the playerToMove
-     */
-    public Player getPlayerToMove() {
-        return playerToMove;
     }
 }

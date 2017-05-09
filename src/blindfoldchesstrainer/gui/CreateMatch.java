@@ -1,8 +1,7 @@
 package blindfoldchesstrainer.gui;
 
-import blindfoldchesstrainer.engine.uci.Engine;
-import blindfoldchesstrainer.engine.uci.Engine.RandomUCIEngine;
-import blindfoldchesstrainer.engine.uci.UCIEngine;
+import blindfoldchesstrainer.engine.RandomEngine;
+import blindfoldchesstrainer.engine.*;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -70,7 +69,7 @@ public class CreateMatch extends Stage {
         difficultyHB.getChildren().addAll(difficultyLabel, difficultyComboBox);
         
         final ObservableList<Engine> enginesList = FXCollections.observableArrayList(engines);
-        enginesList.add(makeRandomEngine(engines));
+        enginesList.add(new RandomEngine(engines));
         final Label enginesLabel = new Label("Engines: ");
         enginesLabel.setPrefWidth(160);
         final HBox enginesHB = new HBox(10);
@@ -93,7 +92,7 @@ public class CreateMatch extends Stage {
                 else {
                     colorChoice = (ColorChoice) colorComboBox.getValue();
                     difficulty = (Difficulty) difficultyComboBox.getValue();
-                    engine = (Engine) enginesComboBox.getValue();
+                    engine = (Engine)enginesComboBox.getValue();
                     close();
                 }
             }
@@ -125,6 +124,7 @@ public class CreateMatch extends Stage {
         mainVB.getChildren().addAll(numberOfGamesHB, colorHB, difficultyHB, enginesHB, errorText, buttonsHB);
 
         Scene scene = new Scene(mainVB);
+        scene.getStylesheets().add("main.css");
         setScene(scene);
         setResizable(false);
         initModality(Modality.APPLICATION_MODAL);
@@ -155,13 +155,5 @@ public class CreateMatch extends Stage {
      */
     public void setEngine(Engine engine) {
         this.engine = engine;
-    }
-    
-    public Engine makeRandomEngine(List<Engine> engines) {
-        List<UCIEngine> uci_engines = new ArrayList<>();
-        for (Engine engine : engines) {
-            uci_engines.add(engine.getUCIEngine());
-        }
-        return new RandomUCIEngine(uci_engines);
     }
 }

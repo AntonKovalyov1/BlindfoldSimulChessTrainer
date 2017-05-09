@@ -4,8 +4,6 @@ import blindfoldchesstrainer.engine.board.BoardUtils;
 import blindfoldchesstrainer.engine.player.BlackPlayer;
 import blindfoldchesstrainer.engine.player.Player;
 import blindfoldchesstrainer.engine.player.WhitePlayer;
-import blindfoldchesstrainer.engine.player.ai.EvaluatedMove;
-import blindfoldchesstrainer.engine.player.ai.EvaluatedMoveComparator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -74,13 +72,6 @@ public enum Alliance {
         public int kingBonus(int position) {
             return WHITE_KING_PREFERRED_COORDINATES[position];
         }
-
-        @Override
-        public List<EvaluatedMove> orderMoves(List<EvaluatedMove> moves) {
-            List<EvaluatedMove> topMoves = new ArrayList<>(moves);
-            Collections.sort(topMoves, EvaluatedMoveComparator.DESCENDING);
-            return Collections.unmodifiableList(topMoves);
-        }
         
         @Override
         public String toString() {
@@ -148,13 +139,6 @@ public enum Alliance {
             return BLACK_KING_PREFERRED_COORDINATES[position];
         }
 
-        @Override
-        public List<EvaluatedMove> orderMoves(List<EvaluatedMove> moves) {
-            List<EvaluatedMove> topMoves = new ArrayList<>(moves);
-            Collections.sort(topMoves, EvaluatedMoveComparator.ASCENDING);
-            return Collections.unmodifiableList(topMoves);
-        }
-        
         @Override
         public String toString() {
             return "B";
@@ -307,6 +291,4 @@ public enum Alliance {
             -30,-40,-40,-50,-50,-40,-40,-30,
             -30,-40,-40,-50,-50,-40,-40,-30
     };
-    
-    public abstract List<EvaluatedMove> orderMoves(List<EvaluatedMove> moves);
 }

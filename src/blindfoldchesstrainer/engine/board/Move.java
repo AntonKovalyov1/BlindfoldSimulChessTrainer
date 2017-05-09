@@ -37,7 +37,6 @@ public abstract class Move {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-
         result = prime * result + this.destinationCoordinate;
         result = prime * result + this.movedPiece.hashCode();
         result = prime * result + this.movedPiece.getPiecePosition();
@@ -264,7 +263,7 @@ public abstract class Move {
         }
 
         @Override
-        public  Board execute() {
+        public Board execute() {
             final Builder builder = new Builder();
             for(final Piece piece : this.board.currentPlayer().getActivePieces()) {
                 if(!this.movedPiece.equals(piece)) {

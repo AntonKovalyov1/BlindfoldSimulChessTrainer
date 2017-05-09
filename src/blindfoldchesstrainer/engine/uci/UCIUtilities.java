@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package blindfoldchesstrainer.engine.uci;
 
 import blindfoldchesstrainer.engine.board.Board;
@@ -18,7 +13,7 @@ import java.util.List;
  * @author Anton
  */
 public class UCIUtilities {
-    
+
     private UCIUtilities() {
         throw new RuntimeException("Not instantiable");
     }
@@ -60,7 +55,7 @@ public class UCIUtilities {
     }
 
     private static String calculateCurrentPlayerText(final Board board) {
-        return board.currentPlayer().toString().substring(0, 1).toLowerCase();
+        return board.currentPlayer().getAlliance().toString().substring(0, 1).toLowerCase();
     }
 
     private static String calculateCastleText(final Board board) {
@@ -105,10 +100,21 @@ public class UCIUtilities {
         
     public static Move getMoveFromUCIformat(final String uci_move, final Board board) {
         int start = BoardUtils.getCoordinateAtPosition(uci_move.substring(0, 2));
-        int end = BoardUtils.getCoordinateAtPosition(uci_move.substring(2));
+        int end = BoardUtils.getCoordinateAtPosition(uci_move.substring(2, 4));
         if (uci_move.length() > 4) {
-            return MoveFactory.createMove(board, start, end, PieceType.QUEEN);
+            return MoveFactory.createMove(board, start, end, getPieceType(uci_move.substring(4)));
         }
         return MoveFactory.createMove(board, start, end);
     }
+    
+    private static PieceType getPieceType(String s) {
+        if (s.equals("q"))
+            return PieceType.QUEEN;
+        if (s.equals("r"))
+            return PieceType.ROOK;
+        if (s.equals("n"))
+            return PieceType.KNIGHT;
+        return PieceType.BISHOP;
+    }
+    
 }

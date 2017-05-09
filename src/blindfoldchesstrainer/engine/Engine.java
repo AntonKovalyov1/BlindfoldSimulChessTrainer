@@ -5,7 +5,9 @@
  */
 package blindfoldchesstrainer.engine;
 
+import blindfoldchesstrainer.engine.board.Board;
 import blindfoldchesstrainer.engine.board.Move;
+import java.util.List;
 
 /**
  *
@@ -13,13 +15,28 @@ import blindfoldchesstrainer.engine.board.Move;
  */
 public abstract class Engine {
     
+    public Engine() {
+
+    }
+    
+    public Engine(String pathString) {
+
+    }
+    
+    public Engine(List<Engine> engines) {
+
+    }
+    
     public abstract boolean start();
     
-    public abstract Move executeMove();
+    public abstract Move executeMove(final int depth, final Board board);
     
     public abstract void close();
-    
-    public abstract boolean isStarted();
-    
+                
     public abstract boolean isReady();
+
+    public abstract void forceMoveExecution();
+    
+    public abstract boolean isRunning();
+    
 }

@@ -17,9 +17,7 @@ import blindfoldchesstrainer.engine.pieces.Piece;
 import blindfoldchesstrainer.engine.player.MoveTransition;
 import blindfoldchesstrainer.engine.player.Player;
 import blindfoldchesstrainer.engine.player.PlayerType;
-import blindfoldchesstrainer.engine.player.ai.AlphaBeta;
-import blindfoldchesstrainer.engine.uci.Engine;
-import blindfoldchesstrainer.engine.uci.UCIEngine;
+import blindfoldchesstrainer.engine.*;
 import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -57,6 +55,7 @@ public class GUI extends Stage {
     private final int GAME_OVER_PAUSE_TIME = 2000;
     private final int GAME_NOT_OVER_PAUSE_TIME = 200;
     private EditUCIEngines enginesWindow = new EditUCIEngines();
+    private final String user = System.getProperty("user.name");
 
     public GUI() {
         initialize();
@@ -65,10 +64,11 @@ public class GUI extends Stage {
     private void initialize() {
         getIcons().add(new Image("images/mainIcon.jpg"));
         setScene(scene);
-        getScene().getStylesheets().add("main.css");
+        scene.getStylesheets().add("main.css");
         getSmoothTransitionMenuItem().setSelected(true);
         setHighlightLegalMoves(true);
         this.gamesViewer = new GamesViewer();
+        updateFooter();
         getMainBorderPane().setTop(createMenuBar());
         getMainBorderPane().setCenter(getGamesViewer());
         getMainBorderPane().setBottom(getFooter());
@@ -171,6 +171,7 @@ public class GUI extends Stage {
                 List<GamePane> games = match(numberOfGames, colorChoice, difficulty, engine, 0);
                 setGamesViewer(new GamesViewer(games));
                 getMainBorderPane().setCenter(getGamesViewer());
+                updateFooter();
             }
         });
         final MenuItem addGameMenuItem = new MenuItem("Add Game/s");
@@ -194,6 +195,7 @@ public class GUI extends Stage {
                     games.addAll(match(numberOfGames, colorChoice, difficulty, engine, offset));
                     getGamesViewer().addGames(games);
                 }
+                updateFooter();
             }
         });
 
@@ -215,18 +217,15 @@ public class GUI extends Stage {
     public List<GamePane> match(int numberOfGames, ColorChoice colorChoice, Difficulty difficulty, Engine engine, int offset) {
         List<GamePane> games = new ArrayList<>();
         for (int i = offset; i < numberOfGames + offset; i++) {
-            UCIEngine uci_engine = engine.getUCIEngine();
-            if (!uci_engine.isStarted())
-                uci_engine.start();
             if (colorChoice.getAlliance().isWhite())
                 games.add(new GamePane(i, 
                         Board.createStandardGameBoard(PlayerType.HUMAN, PlayerType.COMPUTER), 
-                        uci_engine, 
+                        engine, 
                         difficulty.getDepth()));
             else
                 games.add(new GamePane(i, Board.createStandardGameBoard(PlayerType.COMPUTER, 
                         PlayerType.HUMAN), 
-                        uci_engine, 
+                        engine, 
                         difficulty.getDepth()));
         }
         return games;
@@ -286,10 +285,28 @@ public class GUI extends Stage {
 
     private void closeEngines(List<Engine> engines) {
         for (Engine engine : engines) {
-            UCIEngine uci_engine = engine.getUCIEngine();
-            if (uci_engine.isStarted())
-                uci_engine.close();
+            engine.close();
         }
+    }    
+            
+    public void updateFooter() {
+        if (getGamesViewer().isNoGameMode())
+            getStatus().setText("No games in progress");
+        else
+            getStatus().setText(gameInfo(getGamesViewer().getCurrentGame().getBoardPane()));   
+    }
+
+    public String gameInfo(BoardPane boardPane) {
+        String s = "";
+        Engine computerPlayer = boardPane.getEngine();
+        String engineName = computerPlayer instanceof RandomEngine ? "Random Engines" : computerPlayer.toString();
+        if (boardPane.getBoard().whitePlayer().getPlayerType().isHuman()) {
+            s += user + " vs. " + engineName + " ";
+        }
+        else
+            s += engineName + " vs. " + user + "/t";
+        s += boardPane.getGameOverText();
+        return s;
     }
 
     public final class GamesViewer extends GridPane {
@@ -310,6 +327,7 @@ public class GUI extends Stage {
         private GamePane currentGame;
         private final StackPane gameContainer = new StackPane();
         private int activeGamesCounter = 0;
+        private boolean noGameMode;
 
         public GamesViewer() {
             this.currentGame = new GamePane(0, Board.createStandardGameBoard(PlayerType.HUMAN, PlayerType.HUMAN), null, Difficulty.EASY.getDepth());
@@ -318,6 +336,7 @@ public class GUI extends Stage {
             this.pagination = createPaginationControl(0);
             this.currentGame = games.get(0);
             updateActiveGamesCounter(0);
+            setNoGameMode(true);
             noGameControls();
             initializeGamesViewer();
         }
@@ -371,6 +390,7 @@ public class GUI extends Stage {
                 resetOptions();
                 getGameContainer().getChildren().set(0, nextGame);
                 setCurrentGame(nextGame);
+                updateFooter();
                 if (getCurrentGame().isGameOver())
                     gameOver();
                 else
@@ -399,6 +419,7 @@ public class GUI extends Stage {
                 getPauseBeforeNextGame().setDuration(Duration.ZERO);
                 getCurrentGame().setOpacity(1.0);
                 setCurrentGame(nextGame);
+                updateFooter();
                 if (getCurrentGame().isGameOver()) {
                     gameOver();
                 }
@@ -461,7 +482,6 @@ public class GUI extends Stage {
 
         public void updateActiveGamesCounter(int offset) {
             setActiveGamesCounter(getActiveGamesCounter() + offset);
-            getCurrentGame().notThinking();
         }
 
         private Button makeMoveButton() {
@@ -671,6 +691,20 @@ public class GUI extends Stage {
         public void setActiveGamesCounter(int activeGamesCounter) {
             this.activeGamesCounter = activeGamesCounter;
         }
+
+        /**
+         * @return the noGameMode
+         */
+        private boolean isNoGameMode() {
+            return noGameMode;
+        }
+
+        /**
+         * @param noGameMode the noGameMode to set
+         */
+        private void setNoGameMode(boolean noGameMode) {
+            this.noGameMode = noGameMode;
+        }
     }
 
     public final class GamePane extends BorderPane {
@@ -689,7 +723,7 @@ public class GUI extends Stage {
         private boolean showable = true;
         private boolean gameOver;
 
-        public GamePane(final int gameID, Board board, UCIEngine engine, final int depth) {
+        public GamePane(final int gameID, Board board, Engine engine, final int depth) {
             this.gameID = gameID;
             this.boardPane = new BoardPane(this, board, engine, depth);
             initialize(board);
@@ -837,8 +871,9 @@ public class GUI extends Stage {
         }
 
         public void makeAMove() {
-            if (getBoardPane().getFutureComputerMove() != null && getBoardPane().isRunning())
-                getBoardPane().getFutureComputerMove().cancel(true);
+            if (getBoardPane().isRunning()) {
+                getBoardPane().getEngine().forceMoveExecution();
+            }
         }
 
         public void resign() {
@@ -941,70 +976,14 @@ public class GUI extends Stage {
             }
         }
 
-        public void thinking() {
-            new Thread(() -> {
-                try {
-                    Thread.sleep(1500);
-                    int count = 0;
-                    while (!getBoardPane().getFutureComputerMove().isDone() &&
-                           !getBoardPane().getFutureComputerMove().isCancelled()) {
-                        switch (count) {
-                            case 0: {
-                                thinking("Thinking");
-                                count++;
-                                break;
-                            }
-                            case 1: {
-                                thinking("Thinking.");
-                                count++;
-                                break;
-                            }
-                            case 2: {
-                                thinking("Thinking..");
-                                count++;
-                                break;
-                            }
-                            case 3: {
-                                thinking("Thinking...");
-                                count = 0;
-                                break;
-                            }
-                        }
-                        Thread.sleep(300);
-                    }
-                    notThinking();
-                }
-                catch (InterruptedException ex) {
-                    notThinking();
-                }
-            }).start();
-        }
-
-        public void notThinking() {
-            Platform.runLater(() -> {
-                //TODO
-                int numberOfActiveGames = getGamesViewer().getActiveGamesCounter();
-                if (numberOfActiveGames < 1)
-                    getStatus().setText("No games in progress");
-                else if (numberOfActiveGames == 1)
-                    getStatus().setText("1 game in progress");
-                else
-                    getStatus().setText(numberOfActiveGames + " games in progress");
-            });
-        }
-
-        public void thinking(String s) {
-            Platform.runLater(() -> {
-                getStatus().setText(s);
-            });
-        }
-
         public void interruptComputerMove() {
-            if (getBoardPane().getFutureComputerMove() != null) {
-                if (getBoardPane().getBoard().currentPlayer().getPlayerType().isComputer()) {
-                    getBoardPane().setInterrupt(true);
+            if (getBoardPane().getFutureComputerMove() != null &&
+                getBoardPane().getBoard().currentPlayer().getPlayerType().isComputer()) {
+                getBoardPane().setInterrupt(true);
+                if (getBoardPane().isRunning())
+                    getBoardPane().getEngine().forceMoveExecution();
+                else 
                     getBoardPane().getFutureComputerMove().cancel(true);
-                }
             }
         }
 
@@ -1098,9 +1077,10 @@ public class GUI extends Stage {
         private volatile boolean running;
         private int currentBoardIndex = 0;
         private boolean promotionMode;
-        private final UCIEngine engine;
+        private final Engine engine;
+        private String gameOverText = "";
 
-        public BoardPane(GamePane game, Board board, UCIEngine engine, int depth) {
+        public BoardPane(GamePane game, Board board, Engine engine, int depth) {
             this.game = game;
             this.board = board;
             this.engine = engine;
@@ -1122,6 +1102,7 @@ public class GUI extends Stage {
         }
 
         public synchronized void updateBoard(Board board) {
+            
             setBoard(board);
             setCurrentBoardIndex(getMoves().size());
             if (!getMoves().isEmpty()) {
@@ -1134,7 +1115,6 @@ public class GUI extends Stage {
             checkGameOver(board);
             redrawBoard(board);
             if (board.currentPlayer().getPlayerType().isComputer() && !getGame().isGameOver()) {
-                System.out.println(board.currentPlayer().getAlliance());
                 makeMove();
             }
         }
@@ -1152,7 +1132,7 @@ public class GUI extends Stage {
         }
 
         public void makeMove() {
-            AIThinker makeComputerMove = new AIThinker(this, this.getDepth());
+            AIThinker makeComputerMove = new AIThinker();
             if (getGame().getGameID() == getGamesViewer().updatePage(GAME_NOT_OVER_PAUSE_TIME)) {
                 if (getMoves().isEmpty())
                     setFutureComputerMove(getComputerMoveExecutor().schedule(makeComputerMove, 1500, TimeUnit.MILLISECONDS));
@@ -1191,24 +1171,29 @@ public class GUI extends Stage {
 
         private void updateResultAsLoss(final Player playerThatLost, final Player currentPlayer) {
             if (playerThatLost.getAlliance().isWhite()) {
+                setGameOverText("0-1");
                 if (currentPlayer.getAlliance().isWhite())
                     getGame().getWhiteMoveText().setText("0-1");
                 else
                     getGame().getBlackMoveText().setText("0-1");
             }
             else {
+                setGameOverText("1-0");
                 if (currentPlayer.getAlliance().isWhite())
                     getGame().getWhiteMoveText().setText("1-0");
                 else
                     getGame().getBlackMoveText().setText("1-0");
             }
+            updateFooter();
         }
 
         private void updateResultAsDraw(final Player playerToMove) {
+            setGameOverText("1/2-1/2");
             if (playerToMove.getAlliance().isWhite())
                 getGame().getWhiteMoveText().setText("1/2-1/2");
             else
                 getGame().getBlackMoveText().setText("1/2-1/2");
+            updateFooter();
         }
 
         private void resetMoveSelection() {
@@ -1405,8 +1390,41 @@ public class GUI extends Stage {
         /**
          * @return the engine
          */
-        public UCIEngine getEngine() {
+        public Engine getEngine() {
             return engine;
+        }        
+
+        /**
+         * @return the gameOverText
+         */
+        private String getGameOverText() {
+            return gameOverText;
+        }
+
+        /**
+         * @param gameOverText the gameOverText to set
+         */
+        private void setGameOverText(String gameOverText) {
+            this.gameOverText = gameOverText;
+        }
+        
+        private class AIThinker implements Runnable {
+
+            @Override
+            public void run() {
+                setRunning(true);
+                if (!getGame().isGameOver()) {
+                    Move bestMove = getEngine().executeMove(getDepth(), getBoard());
+                    if (!isInterrupt()) {
+                        getMoves().push(bestMove);
+                        Platform.runLater(() -> {
+                            updateBoard(getBoard().currentPlayer().makeMove(bestMove).getTransitionBoard());
+                        });
+                    }
+                }
+                setInterrupt(false);
+                setRunning(false);
+            }
         }
     }
 
@@ -1676,51 +1694,6 @@ public class GUI extends Stage {
 
         public Region getTileSelection() {
             return tileSelection;
-        }
-    }
-
-    private class AIThinker implements Runnable {
-
-        private final BoardPane boardPane;
-        private final int searchDepth;
-
-        private AIThinker(BoardPane boardPane, int depth) {
-            this.boardPane = boardPane;
-            this.searchDepth = depth;
-        }
-
-        @Override
-        public void run() {
-            if (!getBoardPane().getGame().isGameOver()) {
-                getBoardPane().getGame().thinking();
-                Board board = getBoardPane().getBoard();
-                UCIEngine engine = getBoardPane().getEngine();
-                if (engine.isReady()) {
-                    //AlphaBeta minimax = new AlphaBeta(board, getSearchDepth());
-                    getBoardPane().setRunning(true);
-                    Move bestMove = engine.executeMove(getSearchDepth(), board);
-                    //Move bestMove = minimax.compute();
-                    if (!getBoardPane().isInterrupt()) {
-                        getBoardPane().getMoves().push(bestMove);
-                        Platform.runLater(() -> {
-                            getBoardPane().updateBoard(board.currentPlayer().makeMove(bestMove).getTransitionBoard());
-                        });
-                    }
-                    getBoardPane().setInterrupt(false);
-                    getBoardPane().setRunning(false);
-                }
-                else {
-                    //Corrupted executable
-                }
-            }
-        }
-
-        public BoardPane getBoardPane() {
-            return boardPane;
-        }
-
-        public int getSearchDepth() {
-            return searchDepth;
         }
     }
 }
