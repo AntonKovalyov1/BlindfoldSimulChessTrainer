@@ -26,7 +26,6 @@ public class ExecutableChooser {
 
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("EXE", "*.exe"));
 
-        //Handle the queryImage
         File file = fileChooser.showOpenDialog(null);
         if (file != null && file.isFile()) {
             try {

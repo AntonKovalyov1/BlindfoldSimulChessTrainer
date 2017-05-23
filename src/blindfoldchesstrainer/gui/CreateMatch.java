@@ -2,7 +2,6 @@ package blindfoldchesstrainer.gui;
 
 import blindfoldchesstrainer.engine.RandomEngine;
 import blindfoldchesstrainer.engine.*;
-import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,15 +26,17 @@ public class CreateMatch extends Stage {
     private ColorChoice colorChoice;
     private Difficulty difficulty;
     private Engine engine;
-    private final double PREF_CB_WIDTH = 180;
+    private final double PREF_CB_WIDTH = 165;
     private final double PREF_GAMES_WIDTH = 80;
     private final double PREF_LABELS_WIDTH = 160;
+    private final int maxGamesNumber;
 
-    public CreateMatch(String title, List<Engine> engines) {
+    public CreateMatch(String title, List<Engine> engines, int maxGamesNumber) {
         setTitle(title);
         numberOfGames = -1;
         colorChoice = ColorChoice.WHITE;
         difficulty = Difficulty.EASY;
+        this.maxGamesNumber = maxGamesNumber;
         initializeMatch(engines);
     }
 
@@ -86,7 +87,7 @@ public class CreateMatch extends Stage {
         playButton.setOnAction(e -> {
             try {
                 numberOfGames = Integer.parseInt(numberOfGamesField.getText());
-                if (getNumberOfGames() < 1 || getNumberOfGames() > 100) {
+                if (getNumberOfGames() < 1 || getNumberOfGames() > maxGamesNumber) {
                     throw new Exception();
                 }
                 else {
@@ -97,7 +98,7 @@ public class CreateMatch extends Stage {
                 }
             }
             catch (Exception ex) {
-                errorText.setText("Please enter a number from 1 to 100");
+                errorText.setText("Please enter a number from 1 to " + maxGamesNumber);
                 numberOfGamesLabel.setTextFill(Color.RED);
                 numberOfGames = -1;
             }

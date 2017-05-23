@@ -105,7 +105,6 @@ public class EditUCIEngines extends Stage {
             in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(ENGINES_PATH)));
             List<String> list = (ArrayList<String>)in.readObject();
             //Add my custom engine always in first position
-            addEngine(new CustomEngine());
             for (String s : list) {
                 addEngine(new UCIEngine(s));
             }
