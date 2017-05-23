@@ -1,7 +1,6 @@
 package blindfoldchesstrainer.gui;
 
 import blindfoldchesstrainer.engine.*;
-import blindfoldchesstrainer.engine.CustomEngine;
 import blindfoldchesstrainer.engine.uci.ExecutableChooser;
 import blindfoldchesstrainer.engine.UCIEngine;
 import java.io.BufferedInputStream;
@@ -104,7 +103,6 @@ public class EditUCIEngines extends Stage {
         try {
             in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(ENGINES_PATH)));
             List<String> list = (ArrayList<String>)in.readObject();
-            //Add my custom engine always in first position
             for (String s : list) {
                 addEngine(new UCIEngine(s));
             }

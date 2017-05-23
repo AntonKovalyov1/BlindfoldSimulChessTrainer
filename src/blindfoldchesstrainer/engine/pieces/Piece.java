@@ -85,8 +85,6 @@ public abstract class Piece {
         return cachedHashCode;
     }
 
-    public abstract int positionBonus();
-
     public enum PieceType {
         PAWN(100, "P") {
             @Override

@@ -88,9 +88,4 @@ public class Knight extends Piece {
     public String toString() {
         return PieceType.KNIGHT.toString();
     }
-    
-    @Override
-    public int positionBonus() {
-        return getPieceAlliance().knightBonus(this.piecePosition);
-    }
 }

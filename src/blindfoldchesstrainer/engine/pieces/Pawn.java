@@ -143,9 +143,4 @@ public class Pawn extends Piece {
     public Piece getPromotionBishop() {
         return new Bishop(this.pieceAlliance, this.piecePosition, false);
     }
-    
-    @Override
-    public int positionBonus() {
-        return getPieceAlliance().pawnBonus(this.piecePosition);
-    }
 }

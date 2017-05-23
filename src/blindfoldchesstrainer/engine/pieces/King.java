@@ -76,10 +76,5 @@ public class King extends Piece {
     @Override
     public String toString() {
         return PieceType.KING.toString();
-    }
-    
-    @Override
-    public int positionBonus() {
-        return getPieceAlliance().kingBonus(this.piecePosition);
-    }
+    }    
 }
