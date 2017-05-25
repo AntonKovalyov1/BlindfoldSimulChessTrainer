@@ -56,8 +56,8 @@ public class UCIEngine extends Engine {
     @Override
     public Move executeMove(final int depth, final Board board) {
         running = true;
-        if (!started)
-            start();
+        if (!started && !start())
+            return Move.NULL_MOVE;
         setupGame(board);
         engine.go_Think_Depth(depth);
         new Thread(() -> {
@@ -79,9 +79,10 @@ public class UCIEngine extends Engine {
         return engineMove;
     }
     
-        
-    private String getEngineName(String path) {
-        return path.substring(path.lastIndexOf("\\") + 1, path.lastIndexOf("."));
+    @Override    
+    public String getEngineName() {
+        return fileString.substring(fileString.lastIndexOf("\\") + 1, 
+                                    fileString.lastIndexOf("."));
     }
 
     @Override
@@ -94,7 +95,7 @@ public class UCIEngine extends Engine {
     
     @Override
     public String toString() {
-        return getEngineName(fileString);
+        return getEngineName();
     }
 
     /**

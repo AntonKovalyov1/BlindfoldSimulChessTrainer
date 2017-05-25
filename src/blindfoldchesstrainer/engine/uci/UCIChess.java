@@ -216,7 +216,7 @@ public class UCIChess {
      * @param moves A list of moves in Algebraic Notation format ie e2e4 separate by space.
      * @param trace A boolean value that print the text command.
      ******************************************/
-        public final void move_FromFEN(String fen, String moves, boolean trace){
+    public final void move_FromFEN(String fen, String moves, boolean trace){
         try {
             String cmd="position fen "+fen+" moves "+moves+"\n"; //the cmd to send
             //send command
@@ -234,7 +234,7 @@ public class UCIChess {
      * @param moves A list of moves in Algebraic Notation format ie e2e4 separate by space.
      * @param trace A boolean value that print the text command.
      ******************************************/
-        public final void move_FromSTART(String moves,boolean trace){
+    public final void move_FromSTART(String moves,boolean trace) {
         try {
             String cmd="position startpos moves "+moves+"\n"; //cmd to send
             if (trace) System.out.println(cmd);
@@ -545,42 +545,42 @@ public class UCIChess {
   * @return A String values contains the best move in an Algebraic Notation.
   *************************************/
     
-       public final String get_BestMove(boolean trace){
-         try {
-             if (!isGOCall) return "0000";
-             String line;
-             String bestmove;
-            while ((line=in.readLine())!=null) {
-                if (trace) {
-                    System.out.println(line);
-                }
-                
-                //keep infos lines  into an ArrayList
-                if (line.startsWith("info")){
-                    listInfoSimple.add(new InfoSimple(line.replaceFirst("info ", "")));
-                    //parse detailed infos line
-                    parse_Info_Line(line);
-                }
-                
-                
-                //breaking condition "bestmove"
-                if (line.startsWith("bestmove")){
-                    try (Scanner sc = new Scanner(line)) {
-                        sc.useDelimiter(" "); //space as delimiter
-                        sc.next(); //read sttring bestmove
-                        bestmove=sc.next(); //read bestmove
-                        try{
-                        sc.next(); //read ponder string
-                        ponder=sc.next(); //read ponder value
-                        } catch (NoSuchElementException nse){ponder="0000";}
-                    } 
-                    return bestmove; //return move
-                } //end if bestmove
-            }
-              } catch (IOException ex) {
+    public final String get_BestMove(boolean trace){
+        try {
+            if (!isGOCall) return "0000";
+            String line;
+            String bestmove;
+           while ((line=in.readLine())!=null) {
+               if (trace) {
+                   System.out.println(line);
+               }
+
+               //keep infos lines  into an ArrayList
+               if (line.startsWith("info")){
+                   listInfoSimple.add(new InfoSimple(line.replaceFirst("info ", "")));
+                   //parse detailed infos line
+                   parse_Info_Line(line);
+               }
+
+
+               //breaking condition "bestmove"
+               if (line.startsWith("bestmove")){
+                   try (Scanner sc = new Scanner(line)) {
+                       sc.useDelimiter(" "); //space as delimiter
+                       sc.next(); //read sttring bestmove
+                       bestmove=sc.next(); //read bestmove
+                       try{
+                       sc.next(); //read ponder string
+                       ponder=sc.next(); //read ponder value
+                       } catch (NoSuchElementException nse){ponder="0000";}
+                   } 
+                   return bestmove; //return move
+               } //end if bestmove
+           }
+             } catch (IOException ex) {
 //            Logger.getLogger(TestUCIChessAPI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return "0000";
+       }
+       return "0000";
     }
  
        

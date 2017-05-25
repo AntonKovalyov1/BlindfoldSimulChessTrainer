@@ -99,6 +99,7 @@ public class UCIUtilities {
     
         
     public static Move getMoveFromUCIformat(final String uci_move, final Board board) {
+        System.out.println(uci_move);
         int start = BoardUtils.getCoordinateAtPosition(uci_move.substring(0, 2));
         int end = BoardUtils.getCoordinateAtPosition(uci_move.substring(2, 4));
         if (uci_move.length() > 4) {

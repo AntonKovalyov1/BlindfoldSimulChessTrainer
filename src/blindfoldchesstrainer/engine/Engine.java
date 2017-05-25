@@ -39,4 +39,6 @@ public abstract class Engine {
     
     public abstract boolean isRunning();
     
+    public abstract String getEngineName();
+    
 }

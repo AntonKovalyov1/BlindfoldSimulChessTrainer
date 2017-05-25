@@ -29,6 +29,7 @@ public class CreateMatch extends Stage {
     private final double PREF_CB_WIDTH = 165;
     private final double PREF_GAMES_WIDTH = 80;
     private final double PREF_LABELS_WIDTH = 160;
+    private final double SPACING = 10;
     private final int maxGamesNumber;
 
     public CreateMatch(String title, List<Engine> engines, int maxGamesNumber) {
@@ -46,24 +47,27 @@ public class CreateMatch extends Stage {
         numberOfGamesField.setPrefWidth(PREF_GAMES_WIDTH);
         final Label numberOfGamesLabel = new Label("Number of Games: ");
         numberOfGamesLabel.setPrefWidth(PREF_LABELS_WIDTH);
-        final HBox numberOfGamesHB = new HBox(10);
+        numberOfGamesLabel.setAlignment(Pos.CENTER_RIGHT);
+        final HBox numberOfGamesHB = new HBox(SPACING);
         numberOfGamesHB.getChildren().addAll(numberOfGamesLabel, numberOfGamesField);
 
         final ObservableList<ColorChoice> colorList = FXCollections.observableArrayList(ColorChoice.WHITE, ColorChoice.BLACK,
                 ColorChoice.RANDOM);
         final Label colorLabel = new Label("Color: ");
         colorLabel.setPrefWidth(PREF_LABELS_WIDTH);
+        colorLabel.setAlignment(Pos.CENTER_RIGHT);
         final ComboBox<ColorChoice> colorComboBox = new ComboBox<>(colorList);
         colorComboBox.setPrefWidth(PREF_CB_WIDTH);
         colorComboBox.setValue(colorList.get(0));
-        final HBox colorHB = new HBox(10);
+        final HBox colorHB = new HBox(SPACING);
         colorHB.getChildren().addAll(colorLabel, colorComboBox);
 
         final ObservableList<Difficulty> difficultyList = FXCollections.observableArrayList(Difficulty.EASY, Difficulty.MEDIUM,
                 Difficulty.HARD, Difficulty.INSANE, Difficulty.RANDOM);
         final Label difficultyLabel = new Label("Difficulty: ");
         difficultyLabel.setPrefWidth(PREF_LABELS_WIDTH);
-        final HBox difficultyHB = new HBox(10);
+        difficultyLabel.setAlignment(Pos.CENTER_RIGHT);
+        final HBox difficultyHB = new HBox(SPACING);
         final ComboBox<Difficulty> difficultyComboBox = new ComboBox<>(difficultyList);
         difficultyComboBox.setPrefWidth(PREF_CB_WIDTH);
         difficultyComboBox.setValue(difficultyList.get(0));
@@ -72,8 +76,9 @@ public class CreateMatch extends Stage {
         final ObservableList<Engine> enginesList = FXCollections.observableArrayList(engines);
         enginesList.add(new RandomEngine(engines));
         final Label enginesLabel = new Label("Engines: ");
-        enginesLabel.setPrefWidth(160);
-        final HBox enginesHB = new HBox(10);
+        enginesLabel.setPrefWidth(PREF_LABELS_WIDTH);
+        enginesLabel.setAlignment(Pos.CENTER_RIGHT);
+        final HBox enginesHB = new HBox(SPACING);
         final ComboBox<Engine> enginesComboBox = new ComboBox<>(enginesList);
         enginesComboBox.setPrefWidth(PREF_CB_WIDTH);
         enginesComboBox.setValue(engines.get(0));

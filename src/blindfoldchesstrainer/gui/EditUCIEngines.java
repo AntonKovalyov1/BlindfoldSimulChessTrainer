@@ -41,8 +41,13 @@ public class EditUCIEngines extends Stage {
     private final Text errorText = new Text("");
     private final List<Engine> updatedEnginesList = new ArrayList<>();
     private final String ENGINES_PATH = "src\\Engines\\Engines_List\\engines.dat";
+    private final UCIEngine KOMODO_64bit = new UCIEngine("src\\Engines\\komodo-8-64bit.exe");
+    private final UCIEngine STOCKFISH_64bit = new UCIEngine("src\\Engines\\stockfish_8_x64.exe");
+    private final UCIEngine FIRE_64bit = new UCIEngine("src\\Engines\\Fire 5 x64.exe");
+    private final int DEFAULT_ENGINES_NUM = 3;
     private ObjectInputStream in;
     private ObjectOutputStream out;
+    private boolean removable;
     
     public EditUCIEngines() {
         initialize();
@@ -100,24 +105,26 @@ public class EditUCIEngines extends Stage {
     
     @SuppressWarnings("unchecked")
     public void loadEnginesFile() {
+        // Start and Add default engines
+        initDefaultEngines();
         try {
             in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(ENGINES_PATH)));
             List<String> list = (ArrayList<String>)in.readObject();
             for (String s : list) {
-                addEngine(new UCIEngine(s));
+                initEngine(new UCIEngine(s));
             }
             in.close();
         }
         catch (IOException | ClassNotFoundException ex) {
-            // The engines file doesn't exist or it's corrupted.
+            // The engines file doesn't exist or it's corrupted, do nothing.
         }
     }
     
     public void saveEnginesFile() {
         List<String> list = new ArrayList<>();
-        for (Engine engine : updatedEnginesList) {
-            if (engine instanceof UCIEngine) {
-                UCIEngine uci_engine = (UCIEngine)engine;
+        for (int i = DEFAULT_ENGINES_NUM; i < updatedEnginesList.size(); i++) {
+            if (updatedEnginesList.get(i) instanceof UCIEngine) {
+                UCIEngine uci_engine = (UCIEngine)updatedEnginesList.get(i);
                 list.add(uci_engine.getFileString());
             }
         }
@@ -127,10 +134,10 @@ public class EditUCIEngines extends Stage {
             out.close();
         }
         catch (FileNotFoundException ex) {
-            //create file
+            // do nothing
         }
         catch (IOException ex) {
-            
+            // do nothing
         }
     }
 
@@ -150,7 +157,6 @@ public class EditUCIEngines extends Stage {
                     else {
                         errorText.setText("Engine not added: Bad executable");
                     }
-                    newEngine.close();
                 }
                 else {
                     errorText.setText("");
@@ -163,14 +169,16 @@ public class EditUCIEngines extends Stage {
     private Button createRemoveButton() {
         Button b = new Button("Remove");
         b.setOnAction(e -> {
-            if (!enginesList.isEmpty()) {
-                int selectedIndex = enginesLV.getSelectionModel().getSelectedIndex();
-                if (selectedIndex < 1)
-                    errorText.setText("Default engine cannot be removed");
-                else if (selectedIndex < enginesList.size()) {
-                    errorText.setText("");
-                    enginesList.remove(selectedIndex);
-                }
+            int selectedIndex = enginesLV.getSelectionModel().getSelectedIndex();
+            if (selectedIndex < 3) {
+                errorText.setText("Default engines cannot be removed");
+            }
+            else if (isRemovable()) {
+                errorText.setText("");
+                enginesList.remove(selectedIndex);
+            }
+            else {
+                errorText.setText("Please finish your match first.");
             }
         });
         return b;
@@ -200,6 +208,17 @@ public class EditUCIEngines extends Stage {
         return b;          
     }
     
+    public void initDefaultEngines() {
+        initEngine(KOMODO_64bit);
+        initEngine(STOCKFISH_64bit);
+        initEngine(FIRE_64bit);
+    }
+    
+    public void initEngine(Engine engine) {
+        if (engine.start())
+            addEngine(engine);
+    }
+    
     public List<Engine> getEngines() {
         return Collections.unmodifiableList(updatedEnginesList);
     }
@@ -207,5 +226,31 @@ public class EditUCIEngines extends Stage {
     public void addEngine(Engine engine) {
         enginesList.add(engine);
         updatedEnginesList.add(engine);
+    }
+    
+    public void removeEngine(Engine engine) {
+        enginesList.remove(engine);
+        updatedEnginesList.remove(engine);
+        saveEnginesFile();
+    }
+    
+    public void removeEngineList(List<Engine> engines) {
+        enginesList.removeAll(engines);
+        updatedEnginesList.removeAll(engines);
+        saveEnginesFile();
+    }
+
+    /**
+     * @return the removable
+     */
+    public boolean isRemovable() {
+        return removable;
+    }
+
+    /**
+     * @param removable the removable to set
+     */
+    public void setRemovable(boolean removable) {
+        this.removable = removable;
     }
 }

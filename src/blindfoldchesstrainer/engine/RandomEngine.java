@@ -21,12 +21,15 @@ public class RandomEngine extends Engine {
     public RandomEngine(List<Engine> engines) {
         super(engines);
         this.engines = engines;
-        this.currentEngine = selectRandom(engines);
     }
     
     @Override
     public boolean start() {
-        return currentEngine.start();
+        for (Engine current : engines) {
+            if (!current.start())
+                return false;
+        }
+        return true;
     }
 
     @Override
@@ -63,5 +66,10 @@ public class RandomEngine extends Engine {
     @Override
     public boolean isRunning() {
         return currentEngine.isRunning();
+    }
+    
+    @Override
+    public String getEngineName() {
+        return currentEngine.getEngineName();
     }
 }
